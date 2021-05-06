@@ -1,0 +1,154 @@
+/* -------------------------------------------------------------------------- */
+/*                     #pragma Identity Styling Variables                     */
+/* -------------------------------------------------------------------------- */
+
+// Light theme colors
+$light-theme-text-primary: #1C1C1C;
+$light-theme-text-secondary: #5B5B5B;
+$light-theme-text-tertiary: #848484;
+$light-theme-background-primary: #FFFFFF;
+$light-theme-background-secondary: #F2F2F7;
+$light-theme-background-tertiary: #D1D1D6;
+
+// Dark theme colors
+$dark-theme-text-primary: #F4F4F4;
+$dark-theme-text-secondary: #BBBBBB;
+$dark-theme-text-tertiary: #BBBBBB;
+$dark-theme-background-primary: #000000;
+$dark-theme-background-secondary: #1C1C1E;
+$dark-theme-background-tertiary: #2C2C2E;
+
+// Highlight colors
+$highlight-pink-primary: #EB0877;
+$highlight-pink-secondary: #470224;
+$highlight-pink-tertiary: #E6ADC9;
+$highlight-blue-primary: #00E0FF;
+$highlight-blue-secondary: #003840;
+$highlight-blue-tertiary: #BFF7FF;
+$highlight-green-primary: #24FFB0;
+$highlight-green-secondary: #09402C;
+$highlight-green-tertiary: #C8FFEB;
+
+/* -------------------------------------------------------------------------- */
+/*                           #pragma Utility Styling                          */
+/* -------------------------------------------------------------------------- */
+
+// CSS Reset
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body,
+html {
+    width: 100%;
+    top: 0;
+}
+
+// Body styling
+body {
+    background-color: $dark-theme-background-primary;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             #pragma Typography                             */
+/* -------------------------------------------------------------------------- */
+
+a, span { 
+    font-family: 'Aileron', sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           #pragma Buttons Styling                          */
+/* -------------------------------------------------------------------------- */
+
+.button-secondary {
+    color: $highlight-pink-primary;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            #pragma Login Screen                            */
+/* -------------------------------------------------------------------------- */
+
+.view-layout {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+
+    .login-container {
+        // Self Positioning
+        grid-area: 1 / 2 / span 1 / span 1;
+
+        // Children layout
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        justify-items: center;
+
+        .logo {
+            // Self Positioning
+            grid-area: 1 / 1 / span 1 / span 2;
+            margin-bottom: 15vh;
+        }
+        .continue-with-button {
+            // Self Positioning
+            grid-column: 1 / span 2;
+
+            // Layout
+            width: 300px;
+            margin: 10px 0;
+            padding: 16px;
+        
+            // Children
+            span {
+                line-height: 14px;
+                font-size: 14px;
+                padding: 0 4px;
+                display: inline-block;
+                vertical-align: middle;
+                text-align: center;  
+                color: $dark-theme-text-primary;  
+                font-family: 'Aileron', sans-serif;
+            }
+
+            // Decoration
+            border-radius: 15px;
+            background-color: $dark-theme-background-secondary;
+            border: none;
+            cursor: pointer;
+            &:focus {
+                outline:0;
+            }        
+            
+            // Special logos
+            &.google {
+                background-color: $light-theme-background-secondary; 
+                
+                span {
+                    color: $light-theme-text-primary;
+                }
+            }   
+            &.facebook {
+                background-color: #003BFF;
+            }
+        }
+        
+        
+        .button-secondary {
+            margin-top: 20px;
+            &#create-account {
+                justify-self: start;
+                margin-left: 20px;
+            }
+            &#sign-in {
+                justify-self: end;
+                margin-right: 20px;
+            }
+        }
+       
+    }
+}

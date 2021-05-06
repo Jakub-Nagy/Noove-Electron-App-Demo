@@ -1,0 +1,132 @@
+/* -------------------------------------------------------------------------- */
+/*                     #pragma Identity Styling Variables                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                           #pragma Utility Styling                          */
+/* -------------------------------------------------------------------------- */
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  top: 0;
+}
+
+body {
+  background-color: #000000;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             #pragma Typography                             */
+/* -------------------------------------------------------------------------- */
+a, span {
+  font-family: 'Aileron', sans-serif;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           #pragma Buttons Styling                          */
+/* -------------------------------------------------------------------------- */
+.button-secondary {
+  color: #EB0877;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            #pragma Login Screen                            */
+/* -------------------------------------------------------------------------- */
+.view-layout {
+  display: -ms-grid;
+  display: grid;
+  height: 100vh;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.view-layout .login-container {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 2 / span 1 / span 1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  justify-items: center;
+}
+
+.view-layout .login-container .logo {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 1 / 1 / span 1 / span 2;
+  margin-bottom: 15vh;
+}
+
+.view-layout .login-container .continue-with-button {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  width: 300px;
+  margin: 10px 0;
+  padding: 16px;
+  border-radius: 15px;
+  background-color: #1C1C1E;
+  border: none;
+  cursor: pointer;
+}
+
+.view-layout .login-container .continue-with-button span {
+  line-height: 14px;
+  font-size: 14px;
+  padding: 0 4px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  color: #F4F4F4;
+  font-family: 'Aileron', sans-serif;
+}
+
+.view-layout .login-container .continue-with-button:focus {
+  outline: 0;
+}
+
+.view-layout .login-container .continue-with-button.google {
+  background-color: #F2F2F7;
+}
+
+.view-layout .login-container .continue-with-button.google span {
+  color: #1C1C1C;
+}
+
+.view-layout .login-container .continue-with-button.facebook {
+  background-color: #003BFF;
+}
+
+.view-layout .login-container .button-secondary {
+  margin-top: 20px;
+}
+
+.view-layout .login-container .button-secondary#create-account {
+  -ms-grid-column-align: start;
+      justify-self: start;
+  margin-left: 20px;
+}
+
+.view-layout .login-container .button-secondary#sign-in {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  margin-right: 20px;
+}

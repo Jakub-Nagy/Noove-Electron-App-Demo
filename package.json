@@ -1,0 +1,13 @@
+{
+  "name": "Noove-Electron-App-Demo",
+  "version": "1.0.0",
+  "author": "your name",
+  "description": "Noove Electron Demo App",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^12.0.6"
+  }
+}
