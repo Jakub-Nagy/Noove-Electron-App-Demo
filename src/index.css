@@ -21,26 +21,6 @@ body {
   background-color: #000000;
 }
 
-/* -------------------------------------------------------------------------- */
-/*                             #pragma Typography                             */
-/* -------------------------------------------------------------------------- */
-a, span {
-  font-family: 'Aileron', sans-serif;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                           #pragma Buttons Styling                          */
-/* -------------------------------------------------------------------------- */
-.button-secondary {
-  color: #EB0877;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                            #pragma Login Screen                            */
-/* -------------------------------------------------------------------------- */
 .view-layout {
   display: -ms-grid;
   display: grid;
@@ -53,6 +33,102 @@ a, span {
           align-items: center;
 }
 
+.view-layout .back, .view-layout .close {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.view-layout .back {
+  -ms-grid-column-align: start;
+      justify-self: start;
+  margin-left: 40px;
+}
+
+.view-layout .close {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  margin-right: 40px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             #pragma Typography                             */
+/* -------------------------------------------------------------------------- */
+* {
+  font-family: 'Aileron', sans-serif;
+}
+
+a, span {
+  color: #F4F4F4;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+h2 {
+  color: #F4F4F4;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+p {
+  color: #BBBBBB;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           #pragma Buttons Styling                          */
+/* -------------------------------------------------------------------------- */
+.button-primary, .view-layout .login-container .continue-with-button {
+  width: 150px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #470224;
+  border: none;
+  cursor: pointer;
+}
+
+.button-primary span, .view-layout .login-container .continue-with-button span {
+  padding: 0 4px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  color: #EB0877;
+}
+
+.button-primary:focus, .view-layout .login-container .continue-with-button:focus {
+  outline: 0;
+}
+
+.button-secondary {
+  color: #EB0877;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            #pragma Input Styling                           */
+/* -------------------------------------------------------------------------- */
+input[type=text] {
+  width: 350px;
+  height: 50px;
+  padding: 20px;
+  background-color: #2C2C2E;
+  color: #F4F4F4;
+  font-size: 17px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=text]:focus {
+  outline: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            #pragma Login Screen                            */
+/* -------------------------------------------------------------------------- */
 .view-layout .login-container {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
@@ -81,26 +157,11 @@ a, span {
   grid-column: 1 / span 2;
   width: 300px;
   margin: 10px 0;
-  padding: 16px;
-  border-radius: 15px;
   background-color: #1C1C1E;
-  border: none;
-  cursor: pointer;
 }
 
 .view-layout .login-container .continue-with-button span {
-  line-height: 14px;
-  font-size: 14px;
-  padding: 0 4px;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
   color: #F4F4F4;
-  font-family: 'Aileron', sans-serif;
-}
-
-.view-layout .login-container .continue-with-button:focus {
-  outline: 0;
 }
 
 .view-layout .login-container .continue-with-button.google {
@@ -129,4 +190,79 @@ a, span {
   -ms-grid-column-align: end;
       justify-self: end;
   margin-right: 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                          #pragma Registration Form                         */
+/* -------------------------------------------------------------------------- */
+.view-layout .form-container {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 2 / span 1 / span 1;
+  display: -ms-grid;
+  display: grid;
+  padding: 30px;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  justify-items: flex-start;
+  border: 2px solid #470224;
+  border-radius: 10px;
+}
+
+.view-layout .form-container .logo {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 1 / span 1 / span 1;
+  margin-bottom: 5vh;
+  width: 100px;
+}
+
+.view-layout .form-container h2 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 2 / 1 / span 1 / span 2;
+  margin-bottom: 5px;
+}
+
+.view-layout .form-container p {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 3 / 1 / span 1 / span 2;
+  margin-bottom: 50px;
+}
+
+.view-layout .form-container .availability {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 4 / 1 / span 1 / span 1;
+  color: #4CD16B;
+}
+
+.view-layout .form-container #input-username {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 5 / 1 / span 1 / span 2;
+  margin-top: 10px;
+}
+
+.view-layout .form-container .button-primary, .view-layout .form-container .login-container .continue-with-button, .view-layout .login-container .form-container .continue-with-button {
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 6 / 2 / span 1 / span 1;
+  justify-self: flex-end;
+  margin-top: 100px;
 }
