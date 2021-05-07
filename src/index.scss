@@ -108,7 +108,21 @@ p {
 /*                           #pragma Buttons Styling                          */
 /* -------------------------------------------------------------------------- */
 
+@mixin button {
+    background-color: transparent; 
+    border: none;
+    cursor: pointer;
+    &:focus {
+        outline:0;
+    }
+    span {
+        color: $highlight-pink-primary;
+    }
+}
+
 .button-primary {
+    @include button;
+
     // Layout
     width: 150px;
     padding: 15px;
@@ -119,21 +133,24 @@ p {
         display: inline-block;
         vertical-align: middle;
         text-align: center;   
-        color: $highlight-pink-primary;
     }
 
     // Decoration
     border-radius: 15px;
     background-color: $highlight-pink-secondary;
-    border: none;
-    cursor: pointer;
-    &:focus {
-        outline:0;
-    }     
+
+    &.left {
+        grid-column: 1 / span 1;
+        justify-self: flex-start;
+    }
+    &.right {
+        grid-column: 2 / span 1;
+        justify-self: flex-end;
+    }
 }
 
 .button-secondary {
-    color: $highlight-pink-primary;
+    @include button;   
 }
 
 /* -------------------------------------------------------------------------- */
@@ -143,6 +160,7 @@ p {
 .input-group {
     // Layout
     margin-bottom: 20px;
+    grid-column: 1 / span 2;
     &:last-of-type {
         margin-bottom: 70px;
     }
@@ -181,8 +199,16 @@ p {
 
 .instruction-group {
     margin-bottom: 40px;
+    grid-column: 1 / span 2;
     h2 {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+    }
+    p {
+        width: 300px;
+    }
+    &.center {
+       justify-self: center;
+       text-align: center;
     }
 }
 
@@ -232,14 +258,6 @@ p {
     
     .button-secondary {
         margin-top: 20px;
-        &#create-account {
-            justify-self: start;
-            margin-left: 20px;
-        }
-        &#sign-in {
-            justify-self: end;
-            margin-right: 20px;
-        }
     }
     
 }
@@ -268,19 +286,11 @@ p {
         margin-bottom: 40px;
         width: 100px;
     }
-    .instruction-group {
-        // Self Positioning
+    #illustration {
         grid-column: 1 / span 2;
-    }
-    .input-group {
-        grid-column: 1 / span 2;
+        justify-self: center;
     }
     #input-username label {
         color: $color-success-green;
-    }
-    .button-primary {
-        // Self Positioning
-        grid-column: 2 / span 1;
-        justify-self: flex-end;
-    }    
+    }   
 }

@@ -4,12 +4,15 @@ const path = require('path')
 function createWindow () {
   const win = new BrowserWindow({
     icon:'src/assets/noove-icon.png',
+    frame: false,
+    width: 3840,
+    height: 2160,
     webPreferences: {
       preload: path.join(__dirname, 'src/preload.js')
     }
   })
 
-  win.loadFile('src/login.html')
+  win.loadFile('src/complete.html')
 }
 
 app.whenReady().then(() => {

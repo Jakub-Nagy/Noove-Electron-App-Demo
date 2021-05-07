@@ -87,12 +87,21 @@ p {
 /*                           #pragma Buttons Styling                          */
 /* -------------------------------------------------------------------------- */
 .button-primary, .view-layout .login-container .continue-with-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
   width: 150px;
   padding: 15px;
   border-radius: 15px;
   background-color: #470224;
-  border: none;
-  cursor: pointer;
+}
+
+.button-primary:focus, .view-layout .login-container .continue-with-button:focus {
+  outline: 0;
+}
+
+.button-primary span, .view-layout .login-container .continue-with-button span {
+  color: #EB0877;
 }
 
 .button-primary span, .view-layout .login-container .continue-with-button span {
@@ -100,14 +109,33 @@ p {
   display: inline-block;
   vertical-align: middle;
   text-align: center;
-  color: #EB0877;
 }
 
-.button-primary:focus, .view-layout .login-container .continue-with-button:focus {
-  outline: 0;
+.button-primary.left, .view-layout .login-container .left.continue-with-button {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / span 1;
+  justify-self: flex-start;
+}
+
+.button-primary.right, .view-layout .login-container .right.continue-with-button {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / span 1;
+  justify-self: flex-end;
 }
 
 .button-secondary {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.button-secondary:focus {
+  outline: 0;
+}
+
+.button-secondary span {
   color: #EB0877;
 }
 
@@ -116,6 +144,9 @@ p {
 /* -------------------------------------------------------------------------- */
 .input-group {
   margin-bottom: 20px;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
 }
 
 .input-group:last-of-type {
@@ -155,10 +186,23 @@ p {
 
 .instruction-group {
   margin-bottom: 40px;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
 }
 
 .instruction-group h2 {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.instruction-group p {
+  width: 300px;
+}
+
+.instruction-group.center {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  text-align: center;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -215,18 +259,6 @@ p {
   margin-top: 20px;
 }
 
-.view-layout .login-container .button-secondary#create-account {
-  -ms-grid-column-align: start;
-      justify-self: start;
-  margin-left: 20px;
-}
-
-.view-layout .login-container .button-secondary#sign-in {
-  -ms-grid-column-align: end;
-      justify-self: end;
-  margin-right: 20px;
-}
-
 /* -------------------------------------------------------------------------- */
 /*                          #pragma Registration Form                         */
 /* -------------------------------------------------------------------------- */
@@ -254,25 +286,14 @@ p {
   width: 100px;
 }
 
-.view-layout .form-container .instruction-group {
+.view-layout .form-container #illustration {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
-}
-
-.view-layout .form-container .input-group {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1 / span 2;
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
 .view-layout .form-container #input-username label {
   color: #4CD16B;
-}
-
-.view-layout .form-container .button-primary, .view-layout .form-container .login-container .continue-with-button, .view-layout .login-container .form-container .continue-with-button {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2 / span 1;
-  justify-self: flex-end;
 }
