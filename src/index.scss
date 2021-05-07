@@ -81,11 +81,11 @@ body {
 
 * {
     font-family: 'Aileron', sans-serif;
+    color: $dark-theme-text-primary;
     user-select: none;
 }
 
 a, span { 
-    color: $dark-theme-text-primary; 
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
@@ -93,15 +93,47 @@ a, span {
 }
 
 h2 {
-    color: $dark-theme-text-primary; 
     font-size: 30px;
     font-weight: 700;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: $dark-theme-text-tertiary;
 }
 
 p {
     color: $dark-theme-text-tertiary;
     font-size: 15px;
     font-weight: 600;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           #pragma Generic Modules                          */
+/* -------------------------------------------------------------------------- */
+
+@mixin rounded-box {
+    // Layout
+    width: 350px;
+    height: 50px;
+    margin-top: 10px;
+    padding: 15px;
+
+    // Children
+    span {
+        padding: 0 4px;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        color: $dark-theme-text-secondary;
+    }
+
+    // Decoration
+    border-radius: 15px;
+    background-color: $dark-theme-background-tertiary;
+    border: none;
+    cursor: pointer;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -121,22 +153,11 @@ p {
 }
 
 .button-primary {
+    @include rounded-box;
     @include button;
 
-    // Layout
+    // Changes
     width: 150px;
-    padding: 15px;
-
-    // Children
-    span {
-        padding: 0 4px;
-        display: inline-block;
-        vertical-align: middle;
-        text-align: center;   
-    }
-
-    // Decoration
-    border-radius: 15px;
     background-color: $highlight-pink-secondary;
 
     &.left {
@@ -166,11 +187,7 @@ p {
     }
 
     input {
-        // Layout
-        width: 350px;
-        height: 50px;
-        padding: 20px;
-        margin-top: 10px;
+        @include rounded-box;
 
         // Typography
         background-color: $dark-theme-background-tertiary;
@@ -179,9 +196,6 @@ p {
         font-weight: 400;
 
         // Decoration
-        border-radius: 15px;
-        border: none;
-        cursor: pointer;
         &:focus {
             outline:0;
         }
@@ -190,6 +204,32 @@ p {
         }
         &::-webkit-calendar-picker-indicator {
             filter: invert(1);
+        }
+    }
+    .input-with-icon {
+        @extend input;
+        padding: 0 0 0 20px;
+
+        input[type="search"] {
+            width: 305px;
+            padding-left: 10px;
+            margin: 0;       
+
+            // Search close button styling
+            &::-webkit-search-cancel-button {
+                -webkit-appearance: none;
+                height: 1em;
+                width: 1em;
+                background: url(assets/close.svg) no-repeat 50% 50%;
+                background-size: contain;
+                opacity: 0;
+                pointer-events: none;
+            }   
+            &:focus::-webkit-search-cancel-button {
+                opacity: 1;
+                pointer-events: all;
+                cursor: pointer;
+            }   
         }
     }
     label {
@@ -209,6 +249,9 @@ p {
     &.center {
        justify-self: center;
        text-align: center;
+    }
+    &.no-margin {
+        margin-bottom: 0;
     }
 }
 
@@ -272,7 +315,7 @@ p {
 
     // Children layout
     display: grid;
-    padding: 30px;
+    padding: 40px 60px;
     grid-template-columns: 1fr 1fr;
     justify-items: flex-start;
 
@@ -290,7 +333,43 @@ p {
         grid-column: 1 / span 2;
         justify-self: center;
     }
-    #input-username label {
+    #input-username-picker label {
         color: $color-success-green;
     }   
+}
+
+/* -------------------------------------------------------------------------- */
+/*                          #pragma Skill Box Styling                         */
+/* -------------------------------------------------------------------------- */
+
+.skill-container {
+    // Self Positioning
+    grid-column: 1 / span 2;
+    margin: 30px 0;
+
+    // Children layout
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 30px;
+
+    .skill-group {
+        .skill {
+            @include rounded-box;
+
+            span img {
+                filter: invert(72%) sepia(19%) saturate(0%) hue-rotate(165deg) brightness(101%) contrast(89%);
+            }
+
+            &.selected {
+                background-color: $highlight-pink-secondary;
+                span {
+                    color: $highlight-pink-primary;
+                    img {
+                        filter: invert(15%) sepia(86%) saturate(6807%) hue-rotate(323deg) brightness(99%) contrast(105%);
+                    }
+                }
+            }
+        }
+    }
 }

@@ -12,7 +12,7 @@ function createWindow () {
     }
   })
 
-  win.loadFile('src/complete.html')
+  win.loadFile('src/signin.html')
 }
 
 app.whenReady().then(() => {
