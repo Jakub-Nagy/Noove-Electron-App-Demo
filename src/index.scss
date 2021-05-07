@@ -81,6 +81,7 @@ body {
 
 * {
     font-family: 'Aileron', sans-serif;
+    user-select: none;
 }
 
 a, span { 
@@ -139,24 +140,50 @@ p {
 /*                            #pragma Input Styling                           */
 /* -------------------------------------------------------------------------- */
 
-input[type=text] {
+.input-group {
     // Layout
-    width: 350px;
-    height: 50px;
-    padding: 20px;
+    margin-bottom: 20px;
+    &:last-of-type {
+        margin-bottom: 70px;
+    }
 
-    // Typography
-    background-color: $dark-theme-background-tertiary;
-    color: $dark-theme-text-primary;
-    font-size: 17px;
+    input {
+        // Layout
+        width: 350px;
+        height: 50px;
+        padding: 20px;
+        margin-top: 10px;
 
-    // Decoration
-    border-radius: 15px;
-    border: none;
-    cursor: pointer;
-    &:focus {
-        outline:0;
-    }   
+        // Typography
+        background-color: $dark-theme-background-tertiary;
+        color: $dark-theme-text-primary;
+        font-size: 17px;
+        font-weight: 400;
+
+        // Decoration
+        border-radius: 15px;
+        border: none;
+        cursor: pointer;
+        &:focus {
+            outline:0;
+        }
+        &:placeholder {
+            color: $dark-theme-text-secondary;
+        }
+        &::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+    }
+    label {
+        color: $dark-theme-text-secondary;
+    }
+}
+
+.instruction-group {
+    margin-bottom: 40px;
+    h2 {
+        margin-bottom: 5px;
+    }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -175,7 +202,7 @@ input[type=text] {
     .logo {
         // Self Positioning
         grid-area: 1 / 1 / span 1 / span 2;
-        margin-bottom: 15vh;
+        margin-bottom: 75px;
     }
     .continue-with-button {
         // Self Positioning
@@ -237,35 +264,23 @@ input[type=text] {
 
     .logo {
         // Self Positioning
-        grid-area: 1 / 1 / span 1 / span 1;
-        margin-bottom: 5vh;
+        grid-column: 1 / span 1;
+        margin-bottom: 40px;
         width: 100px;
     }
-    h2 {
+    .instruction-group {
         // Self Positioning
-        grid-area: 2 / 1 / span 1 / span 2;
-        margin-bottom: 5px;
+        grid-column: 1 / span 2;
     }
-    p {
-        // Self Positioning
-        grid-area: 3 / 1 / span 1 / span 2;
-        margin-bottom: 50px;
+    .input-group {
+        grid-column: 1 / span 2;
     }
-    .availability {
-        // Self Positioning
-        grid-area: 4 / 1 / span 1 / span 1;
-
+    #input-username label {
         color: $color-success-green;
-    }
-    #input-username {
-        // Self Positioning
-        grid-area: 5 / 1 / span 1 / span 2;
-        margin-top: 10px;
     }
     .button-primary {
         // Self Positioning
-        grid-area: 6 / 2 / span 1 / span 1;
+        grid-column: 2 / span 1;
         justify-self: flex-end;
-        margin-top: 100px;
     }    
 }

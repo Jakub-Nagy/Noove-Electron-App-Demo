@@ -57,6 +57,10 @@ body {
 /* -------------------------------------------------------------------------- */
 * {
   font-family: 'Aileron', sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 a, span {
@@ -110,20 +114,51 @@ p {
 /* -------------------------------------------------------------------------- */
 /*                            #pragma Input Styling                           */
 /* -------------------------------------------------------------------------- */
-input[type=text] {
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group:last-of-type {
+  margin-bottom: 70px;
+}
+
+.input-group input {
   width: 350px;
   height: 50px;
   padding: 20px;
+  margin-top: 10px;
   background-color: #2C2C2E;
   color: #F4F4F4;
   font-size: 17px;
+  font-weight: 400;
   border-radius: 15px;
   border: none;
   cursor: pointer;
 }
 
-input[type=text]:focus {
+.input-group input:focus {
   outline: 0;
+}
+
+.input-group input:placeholder {
+  color: #BBBBBB;
+}
+
+.input-group input::-webkit-calendar-picker-indicator {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.input-group label {
+  color: #BBBBBB;
+}
+
+.instruction-group {
+  margin-bottom: 40px;
+}
+
+.instruction-group h2 {
+  margin-bottom: 5px;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -148,7 +183,7 @@ input[type=text]:focus {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: 1 / 1 / span 1 / span 2;
-  margin-bottom: 15vh;
+  margin-bottom: 75px;
 }
 
 .view-layout .login-container .continue-with-button {
@@ -212,57 +247,32 @@ input[type=text]:focus {
 }
 
 .view-layout .form-container .logo {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
-  grid-area: 1 / 1 / span 1 / span 1;
-  margin-bottom: 5vh;
+  grid-column: 1 / span 1;
+  margin-bottom: 40px;
   width: 100px;
 }
 
-.view-layout .form-container h2 {
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
+.view-layout .form-container .instruction-group {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
-  grid-area: 2 / 1 / span 1 / span 2;
-  margin-bottom: 5px;
+  grid-column: 1 / span 2;
 }
 
-.view-layout .form-container p {
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 1;
+.view-layout .form-container .input-group {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
-  grid-area: 3 / 1 / span 1 / span 2;
-  margin-bottom: 50px;
+  grid-column: 1 / span 2;
 }
 
-.view-layout .form-container .availability {
-  -ms-grid-row: 4;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-area: 4 / 1 / span 1 / span 1;
+.view-layout .form-container #input-username label {
   color: #4CD16B;
 }
 
-.view-layout .form-container #input-username {
-  -ms-grid-row: 5;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: 5 / 1 / span 1 / span 2;
-  margin-top: 10px;
-}
-
 .view-layout .form-container .button-primary, .view-layout .form-container .login-container .continue-with-button, .view-layout .login-container .form-container .continue-with-button {
-  -ms-grid-row: 6;
-  -ms-grid-row-span: 1;
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
-  grid-area: 6 / 2 / span 1 / span 1;
+  grid-column: 2 / span 1;
   justify-self: flex-end;
-  margin-top: 100px;
 }
