@@ -1,18 +1,26 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "stripInternal": true,
-    "outDir": "./src/js",
-    "lib": ["es2015", "dom"],
-    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "es6",
+    "allowJs": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ]
   },
-  "files": [
-    "./src/main.ts", 
-    "./src/search.ts"
-  ]
+  "include": [
+    "src/ts/*"
+, "src/ts/views/Login.tsx", "src/ts/views/SignUp1.tsx", "src/ts/utility/serviceWorker.ts", "src/ts/utility/setupTests.ts", "src/ts/utility/Search.ts", "src/ts/utility/App.test.js"  ]
 }

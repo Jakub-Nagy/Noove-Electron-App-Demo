@@ -1,7 +1,8 @@
-const Fuse = require('fuse.js')
-const list = require('./list.json')
+import Fuse from 'fuse.js'
+import list from './list.json'
 
-module.exports = search = () => {
+function search() {
+
   const options = {
     includeScore: true,
     // Search in `author` and in `tags` array
@@ -13,3 +14,5 @@ module.exports = search = () => {
 
   console.log(result)
 }
+
+export default search

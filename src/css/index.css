@@ -7,8 +7,7 @@
 * {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body,
@@ -22,34 +21,18 @@ body {
 }
 
 .view-layout {
-  display: -ms-grid;
   display: grid;
   height: 100vh;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
-.view-layout .back, .view-layout .close {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+.view-layout #logo {
+  align-self: flex-start;
+  justify-self: start;
   margin-top: 40px;
-  cursor: pointer;
-}
-
-.view-layout .back {
-  -ms-grid-column-align: start;
-      justify-self: start;
   margin-left: 40px;
-}
-
-.view-layout .close {
-  -ms-grid-column-align: end;
-      justify-self: end;
-  margin-right: 40px;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -58,10 +41,7 @@ body {
 * {
   font-family: 'Aileron', sans-serif;
   color: #F4F4F4;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 a, span {
@@ -94,7 +74,7 @@ p {
 /* -------------------------------------------------------------------------- */
 /*                           #pragma Buttons Styling                          */
 /* -------------------------------------------------------------------------- */
-.button-primary, .view-layout .login-container .continue-with-button {
+.button-primary, .continue-with-button {
   width: 350px;
   height: 50px;
   margin-top: 10px;
@@ -110,7 +90,7 @@ p {
   background-color: #470224;
 }
 
-.button-primary span, .view-layout .login-container .continue-with-button span {
+.button-primary span, .continue-with-button span {
   padding: 0 4px;
   display: inline-block;
   vertical-align: middle;
@@ -118,24 +98,20 @@ p {
   color: #BBBBBB;
 }
 
-.button-primary:focus, .view-layout .login-container .continue-with-button:focus {
+.button-primary:focus, .continue-with-button:focus {
   outline: 0;
 }
 
-.button-primary span, .view-layout .login-container .continue-with-button span {
+.button-primary span, .continue-with-button span {
   color: #EB0877;
 }
 
-.button-primary.left, .view-layout .login-container .left.continue-with-button {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
+.button-primary.left, .left.continue-with-button {
   grid-column: 1 / span 1;
   justify-self: flex-start;
 }
 
-.button-primary.right, .view-layout .login-container .right.continue-with-button {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
+.button-primary.right, .right.continue-with-button {
   grid-column: 2 / span 1;
   justify-self: flex-end;
 }
@@ -154,18 +130,38 @@ p {
   color: #EB0877;
 }
 
+.continue-with-button {
+  width: 350px;
+  margin: 10px 0;
+  background-color: #1C1C1E;
+}
+
+.continue-with-button span {
+  color: #F4F4F4;
+}
+
+.continue-with-button.google {
+  background-color: #F2F2F7;
+}
+
+.continue-with-button.google span {
+  color: #1C1C1C;
+}
+
+.continue-with-button.facebook {
+  background-color: #003BFF;
+  margin-bottom: 0;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                            #pragma Input Styling                           */
 /* -------------------------------------------------------------------------- */
 .input-group {
   margin-bottom: 20px;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1 / span 2;
 }
 
 .input-group:last-of-type {
-  margin-bottom: 70px;
+  margin-bottom: 30px;
 }
 
 .input-group input, .input-group .input-with-icon {
@@ -200,8 +196,7 @@ p {
 }
 
 .input-group input::-webkit-calendar-picker-indicator, .input-group .input-with-icon::-webkit-calendar-picker-indicator {
-  -webkit-filter: invert(1);
-          filter: invert(1);
+  filter: invert(1);
 }
 
 .input-group .input-with-icon {
@@ -218,7 +213,7 @@ p {
   -webkit-appearance: none;
   height: 1em;
   width: 1em;
-  background: url(assets/close.svg) no-repeat 50% 50%;
+  background: url(../assets/close.svg) no-repeat 50% 50%;
   background-size: contain;
   opacity: 0;
   pointer-events: none;
@@ -236,9 +231,6 @@ p {
 
 .instruction-group {
   margin-bottom: 40px;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1 / span 2;
 }
 
 .instruction-group h2 {
@@ -250,8 +242,7 @@ p {
 }
 
 .instruction-group.center {
-  -ms-grid-column-align: center;
-      justify-self: center;
+  justify-self: center;
   text-align: center;
 }
 
@@ -260,112 +251,66 @@ p {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                            #pragma Login Screen                            */
-/* -------------------------------------------------------------------------- */
-.view-layout .login-container {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-area: 1 / 2 / span 1 / span 1;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 2fr 1fr;
-      grid-template-columns: 2fr 1fr;
-  justify-items: center;
-}
-
-.view-layout .login-container .logo {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: 1 / 1 / span 1 / span 2;
-  margin-bottom: 75px;
-}
-
-.view-layout .login-container .continue-with-button {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1 / span 2;
-  width: 300px;
-  margin: 10px 0;
-  background-color: #1C1C1E;
-}
-
-.view-layout .login-container .continue-with-button span {
-  color: #F4F4F4;
-}
-
-.view-layout .login-container .continue-with-button.google {
-  background-color: #F2F2F7;
-}
-
-.view-layout .login-container .continue-with-button.google span {
-  color: #1C1C1C;
-}
-
-.view-layout .login-container .continue-with-button.facebook {
-  background-color: #003BFF;
-}
-
-.view-layout .login-container .button-secondary {
-  margin-top: 20px;
-}
-
-/* -------------------------------------------------------------------------- */
 /*                          #pragma Registration Form                         */
 /* -------------------------------------------------------------------------- */
 .view-layout .form-container {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
   grid-area: 1 / 2 / span 1 / span 1;
-  display: -ms-grid;
   display: grid;
-  padding: 40px 60px;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  justify-items: flex-start;
-  border: 2px solid #470224;
-  border-radius: 10px;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
 }
 
 .view-layout .form-container .logo {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1 / span 1;
-  margin-bottom: 40px;
-  width: 100px;
+  margin-bottom: 75px;
 }
 
-.view-layout .form-container #illustration {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-column: 1 / span 2;
-  -ms-grid-column-align: center;
-      justify-self: center;
+.view-layout .form-container .or-divider {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  justify-items: center;
+  margin: 30px 0;
+}
+
+.view-layout .form-container .or-divider .line {
+  grid-column: 1 / span 3;
+  border-top: 1px solid #BBBBBB;
+  width: 350px;
+}
+
+.view-layout .form-container .or-divider p {
+  grid-column: 2 / span 1;
+  position: relative;
+  top: 9px;
+  width: 40px;
+  text-align: center;
+  background-color: #000000;
 }
 
 .view-layout .form-container #input-username-picker label {
   color: #4CD16B;
 }
 
+#login {
+  grid-template-columns: 1fr;
+}
+
+#login #button-sign-in {
+  margin-bottom: 30px;
+}
+
+#login #button-sign-in button {
+  width: 350px;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                          #pragma Skill Box Styling                         */
 /* -------------------------------------------------------------------------- */
 .skill-container {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
   margin: 30px 0;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -webkit-column-gap: 20px;
-          column-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
   row-gap: 30px;
 }
 
@@ -389,8 +334,7 @@ p {
 }
 
 .skill-container .skill-group .skill span img {
-  -webkit-filter: invert(72%) sepia(19%) saturate(0%) hue-rotate(165deg) brightness(101%) contrast(89%);
-          filter: invert(72%) sepia(19%) saturate(0%) hue-rotate(165deg) brightness(101%) contrast(89%);
+  filter: invert(72%) sepia(19%) saturate(0%) hue-rotate(165deg) brightness(101%) contrast(89%);
 }
 
 .skill-container .skill-group .skill.selected {
@@ -402,6 +346,5 @@ p {
 }
 
 .skill-container .skill-group .skill.selected span img {
-  -webkit-filter: invert(15%) sepia(86%) saturate(6807%) hue-rotate(323deg) brightness(99%) contrast(105%);
-          filter: invert(15%) sepia(86%) saturate(6807%) hue-rotate(323deg) brightness(99%) contrast(105%);
+  filter: invert(15%) sepia(86%) saturate(6807%) hue-rotate(323deg) brightness(99%) contrast(105%);
 }
