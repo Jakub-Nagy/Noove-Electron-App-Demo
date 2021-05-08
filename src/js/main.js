@@ -1,9 +1,9 @@
 var _a = require('electron'), app = _a.app, BrowserWindow = _a.BrowserWindow;
 var path = require('path');
-import { search } from './search';
+var search = require('./search');
 function createWindow() {
     var win = new BrowserWindow({
-        icon: 'src/assets/noove-icon.png'
+        icon: 'src/frontend/assets/noove-icon.png'
     });
     win.loadFile('src/frontend/skills.html');
     search();

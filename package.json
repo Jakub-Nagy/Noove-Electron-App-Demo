@@ -1,13 +1,16 @@
 {
   "name": "Noove-Electron-App-Demo",
   "version": "1.0.0",
-  "author": "your name",
+  "author": "Jakub Nagy",
   "description": "Noove Electron Demo App",
-  "main": "src/main.js",
+  "main": "src/js/main.js",
   "scripts": {
     "start": "electron ."
   },
   "devDependencies": {
     "electron": "^12.0.6"
+  },
+  "dependencies": {
+    "fuse.js": "^6.4.6"
   }
 }
