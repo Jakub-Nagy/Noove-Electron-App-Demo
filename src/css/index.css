@@ -23,7 +23,7 @@ body {
 .view-layout {
   display: grid;
   height: 100vh;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 5fr 1fr;
   justify-items: center;
   align-items: center;
 }
@@ -56,7 +56,7 @@ h2 {
   font-weight: 700;
 }
 
-h3 {
+label {
   font-size: 14px;
   font-weight: 600;
   color: #BBBBBB;
@@ -75,35 +75,40 @@ p {
 /*                           #pragma Buttons Styling                          */
 /* -------------------------------------------------------------------------- */
 .button-primary, .continue-with-button {
-  width: 350px;
+  width: 100%;
   height: 50px;
   margin-top: 10px;
-  padding: 15px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 15px;
   background-color: #2C2C2E;
   border: none;
   cursor: pointer;
   background-color: transparent;
   border: none;
-  cursor: pointer;
-  width: 150px;
   background-color: #470224;
 }
 
-.button-primary span, .continue-with-button span {
-  padding: 0 4px;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
+.button-primary label, .continue-with-button label {
   color: #BBBBBB;
+}
+
+.button-primary img, .continue-with-button img {
+  margin-right: 5px;
 }
 
 .button-primary:focus, .continue-with-button:focus {
   outline: 0;
 }
 
-.button-primary span, .continue-with-button span {
+.button-primary label, .continue-with-button label {
   color: #EB0877;
+}
+
+.button-primary:focus, .continue-with-button:focus {
+  outline: 0;
 }
 
 .button-primary.left, .left.continue-with-button {
@@ -119,44 +124,42 @@ p {
 .button-secondary {
   background-color: transparent;
   border: none;
-  cursor: pointer;
+}
+
+.button-secondary label {
+  color: #EB0877;
 }
 
 .button-secondary:focus {
   outline: 0;
 }
 
-.button-secondary span {
-  color: #EB0877;
-}
-
 .continue-with-button {
-  width: 350px;
-  margin: 10px 0;
   background-color: #1C1C1E;
 }
 
-.continue-with-button span {
+.continue-with-button label {
   color: #F4F4F4;
 }
 
 .continue-with-button.google {
+  margin-bottom: 20px;
   background-color: #F2F2F7;
 }
 
-.continue-with-button.google span {
+.continue-with-button.google label {
   color: #1C1C1C;
 }
 
 .continue-with-button.facebook {
   background-color: #003BFF;
-  margin-bottom: 0;
 }
 
 /* -------------------------------------------------------------------------- */
 /*                            #pragma Input Styling                           */
 /* -------------------------------------------------------------------------- */
 .input-group {
+  width: 100%;
   margin-bottom: 20px;
 }
 
@@ -167,34 +170,51 @@ p {
 .input-group .input-text,
 .input-group .input-password,
 .input-group .input-search {
-  width: 350px;
+  width: 100%;
   height: 50px;
   margin-top: 10px;
-  padding: 15px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 15px;
   background-color: #2C2C2E;
   border: none;
   cursor: pointer;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.input-group .input-text span,
-.input-group .input-password span,
-.input-group .input-search span {
-  padding: 0 4px;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
+.input-group .input-text label,
+.input-group .input-password label,
+.input-group .input-search label {
   color: #BBBBBB;
+}
+
+.input-group .input-text img,
+.input-group .input-password img,
+.input-group .input-search img {
+  margin-right: 5px;
+}
+
+.input-group .input-text:focus,
+.input-group .input-password:focus,
+.input-group .input-search:focus {
+  outline: 0;
 }
 
 .input-group .input-text input,
 .input-group .input-password input,
 .input-group .input-search input {
-  width: 350px;
+  width: 100%;
   height: 50px;
   margin-top: 10px;
-  padding: 15px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 15px;
   background-color: #2C2C2E;
   border: none;
@@ -207,14 +227,16 @@ p {
   background-color: transparent;
 }
 
-.input-group .input-text input span,
-.input-group .input-password input span,
-.input-group .input-search input span {
-  padding: 0 4px;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
+.input-group .input-text input label,
+.input-group .input-password input label,
+.input-group .input-search input label {
   color: #BBBBBB;
+}
+
+.input-group .input-text input img,
+.input-group .input-password input img,
+.input-group .input-search input img {
+  margin-right: 5px;
 }
 
 .input-group .input-text input:focus,
@@ -241,8 +263,10 @@ p {
   outline: 0;
 }
 
-.input-group .input-password input {
-  width: 305px;
+.input-group .input-text svg,
+.input-group .input-password svg,
+.input-group .input-search svg {
+  width: 50px;
 }
 
 .input-group .input-search {
@@ -294,6 +318,21 @@ p {
   margin-bottom: 0;
 }
 
+.password-validator {
+  grid-column: 1 / span 2;
+  justify-self: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.password-validator span {
+  margin: 5px 0;
+}
+
+.password-validator span svg {
+  margin-right: 5px;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                          #pragma Registration Form                         */
 /* -------------------------------------------------------------------------- */
@@ -301,6 +340,7 @@ p {
   grid-area: 1 / 2 / span 1 / span 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
   justify-items: center;
 }
 
@@ -335,7 +375,7 @@ p {
 }
 
 #login {
-  grid-template-columns: 1fr;
+  grid-template-columns: 350px;
 }
 
 #login #button-sign-in {
@@ -344,6 +384,31 @@ p {
 
 #login #button-sign-in button {
   width: 350px;
+}
+
+#sign-up-1 .instruction-group {
+  grid-column: 1 / span 2;
+  justify-self: flex-start;
+}
+
+#sign-up-1 #first-name {
+  justify-self: left;
+}
+
+#sign-up-1 #last-name {
+  grid-column: 2 / span 1;
+  justify-self: right;
+}
+
+#sign-up-1 #email, #sign-up-1 #password {
+  grid-column: 1 / span 2;
+}
+
+#sign-up-1 #button-continue {
+  grid-column: 2 / span 1;
+  margin-top: 60px;
+  width: 100%;
+  justify-self: flex-end;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -359,22 +424,29 @@ p {
 }
 
 .skill-container .skill-group .skill {
-  width: 350px;
+  width: 100%;
   height: 50px;
   margin-top: 10px;
-  padding: 15px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 15px;
   background-color: #2C2C2E;
   border: none;
   cursor: pointer;
 }
 
-.skill-container .skill-group .skill span {
-  padding: 0 4px;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
+.skill-container .skill-group .skill label {
   color: #BBBBBB;
+}
+
+.skill-container .skill-group .skill img {
+  margin-right: 5px;
+}
+
+.skill-container .skill-group .skill:focus {
+  outline: 0;
 }
 
 .skill-container .skill-group .skill span img {

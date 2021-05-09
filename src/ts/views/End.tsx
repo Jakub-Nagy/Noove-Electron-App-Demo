@@ -8,8 +8,8 @@ export default class End extends React.Component {
                 <h2>Unfortunately, this is the end of this demo! Stay tuned for the finished application.</h2>
 
                 <Link to="/">
-                    <button className="button-primary left">
-                        <span>Go back</span>
+                    <button className="button-primary">
+                        <label>Go back</label>
                     </button>
                 </Link>
             </div>

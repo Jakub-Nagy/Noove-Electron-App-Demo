@@ -56,7 +56,7 @@ body {
 .view-layout {
     display: grid;
     height: 100vh;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 5fr 1fr;
     justify-items: center;
     align-items: center;
 
@@ -90,7 +90,7 @@ h2 {
     font-weight: 700;
 }
 
-h3 {
+label {
     font-size: 14px;
     font-weight: 600;
     color: $dark-theme-text-tertiary;
@@ -108,18 +108,22 @@ p {
 
 @mixin rounded-box {
     // Layout
-    width: 350px;
+    width: 100%;
     height: 50px;
     margin-top: 10px;
-    padding: 15px;
+    
+    // Children layout
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     // Children
-    span {
-        padding: 0 4px;
-        display: inline-block;
-        vertical-align: middle;
-        text-align: center;
+    label {
         color: $dark-theme-text-secondary;
+    }
+    img {
+        margin-right: 5px;
     }
 
     // Decoration
@@ -127,6 +131,9 @@ p {
     background-color: $dark-theme-background-tertiary;
     border: none;
     cursor: pointer;
+    &:focus {
+        outline:0;
+    }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -134,14 +141,13 @@ p {
 /* -------------------------------------------------------------------------- */
 
 @mixin button {
-    background-color: transparent; 
+    background-color: transparent;
     border: none;
-    cursor: pointer;
+    label {
+        color: $highlight-pink-primary;
+    }
     &:focus {
         outline:0;
-    }
-    span {
-        color: $highlight-pink-primary;
     }
 }
 
@@ -150,7 +156,6 @@ p {
     @include button;
 
     // Changes
-    width: 150px;
     background-color: $highlight-pink-secondary;
 
     &.left {
@@ -164,30 +169,28 @@ p {
 }
 
 .button-secondary {
-    @include button;   
+    @include button;
 }
 
 .continue-with-button {
     @extend .button-primary;
 
     // Changes
-    width: 350px;
-    margin: 10px 0;
     background-color: $dark-theme-background-secondary;
-    span {
+    label {
         color: $dark-theme-text-primary;  
     }        
     
     // Special logos
     &.google {
+        margin-bottom: 20px;
         background-color: $light-theme-background-secondary;  
-        span {
+        label {
             color: $light-theme-text-primary;
         }
     }   
     &.facebook {
         background-color: #003BFF;
-        margin-bottom: 0;
     }
 }
 
@@ -197,6 +200,7 @@ p {
 
 .input-group {
     // Layout
+    width: 100%;
     margin-bottom: 20px;
     &:last-of-type {
         margin-bottom: 30px;
@@ -207,11 +211,16 @@ p {
     .input-password,
     .input-search {
         @include rounded-box;
+
+        // Layout
         padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
         input {
             @include rounded-box;
-            margin: 0; 
+            margin: 0;
             
             // Typography
             background-color: $dark-theme-background-tertiary;
@@ -221,9 +230,6 @@ p {
 
             // Decoration
             background-color: transparent;
-            &:focus {
-                outline: 0;
-            }
             &:placeholder {
                 color: $dark-theme-text-secondary;
             }
@@ -234,11 +240,8 @@ p {
         input:focus {
             outline: 0;
         }
-    }
-
-    .input-password {
-        input {
-            width: 305px;
+        svg {
+            width: 50px;
         }
     }
 
@@ -288,6 +291,24 @@ p {
     }
 }
 
+.password-validator {
+    // Self align
+    grid-column: 1 / span 2;
+    justify-self: flex-start;
+
+    // Children layout
+    display: flex;
+    flex-direction: column;
+
+    span {
+        margin: 5px 0;
+
+        svg {
+            margin-right: 5px;
+        }
+    }
+}
+
 /* -------------------------------------------------------------------------- */
 /*                          #pragma Registration Form                         */
 /* -------------------------------------------------------------------------- */
@@ -299,6 +320,7 @@ p {
     // Children layout
     display: grid;
     grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
     justify-items: center;
 
     .logo {
@@ -333,13 +355,36 @@ p {
 }
 
 #login {
-    grid-template-columns: 1fr;
+    grid-template-columns: 350px;
 
     #button-sign-in {
         margin-bottom: 30px;
         button {
             width: 350px;
         }
+    }
+}
+
+#sign-up-1 {
+    .instruction-group {
+        grid-column: 1 / span 2;
+        justify-self: flex-start;
+    }
+    #first-name {
+        justify-self: left;
+    }
+    #last-name {
+        grid-column: 2 / span 1;
+        justify-self: right;
+    }
+    #email, #password {
+        grid-column: 1 / span 2;
+    }
+    #button-continue {
+        grid-column: 2 / span 1;
+        margin-top: 60px;
+        width: 100%;
+        justify-self: flex-end;
     }
 }
 

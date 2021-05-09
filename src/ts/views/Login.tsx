@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import search from "../utility/Search";
-import {SearchIcon,EyeIcon,EyeClosedIcon} from '@primer/octicons-react'
+import {EyeIcon,EyeClosedIcon} from '@primer/octicons-react'
 
 export default class Login extends React.Component {
     render() {
@@ -13,14 +12,14 @@ export default class Login extends React.Component {
 
                 {/* Continue with Google */}
                 <button className="continue-with-button google">
-                    <span><img src={require('../../assets/icon-google.svg')} /></span>
-                    <span>Continue with Google</span>
+                    <img src={require('../../assets/icon-google.svg')} />
+                    <label>Continue with Google</label>
                 </button>
           
                 {/* Continue with Facebook */}
                 <button className="continue-with-button facebook">
-                    <span><img src={require('../../assets/icon-facebook.svg')} /></span>
-                    <span>Continue with Facebook</span> 
+                    <img src={require('../../assets/icon-facebook.svg')} />
+                    <label>Continue with Facebook</label> 
                 </button>
 
                 {/* OR divider */}
@@ -49,14 +48,14 @@ export default class Login extends React.Component {
                 {/* Primary button */}
                 <Link to="/End" id="button-sign-in">
                     <button className="button-primary">
-                        <span>Sign in</span>
+                        <label>Sign in</label>
                     </button>
                 </Link>
 
                 {/* Secondary button */}
-                <Link to="/Sign_up_1" id="button-sign-up">
+                <Link to="/Sign_up_1" id="button-continue">
                     <button className="button-secondary">
-                        <span>Create an account</span>
+                        <label>Create an account</label>
                     </button>
                 </Link>
                 
