@@ -41,7 +41,7 @@ export default class Login extends React.Component {
                     <label>Password</label><br/>
                     <div className="input-password">
                         <input type="password" />
-                        <EyeClosedIcon size='small' />
+                        <EyeClosedIcon size={20} />
                     </div>
                 </div>
           

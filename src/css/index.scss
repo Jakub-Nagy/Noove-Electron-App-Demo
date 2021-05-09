@@ -113,7 +113,6 @@ p {
     margin-top: 10px;
     
     // Children layout
-    padding-left: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -213,7 +212,7 @@ p {
         @include rounded-box;
 
         // Layout
-        padding: 0;
+        padding-left: 15px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -241,7 +240,7 @@ p {
             outline: 0;
         }
         svg {
-            width: 50px;
+            width: 70px;
         }
     }
 
