@@ -164,7 +164,9 @@ p {
   margin-bottom: 30px;
 }
 
-.input-group input, .input-group .input-with-icon {
+.input-group .input-text,
+.input-group .input-password,
+.input-group .input-search {
   width: 350px;
   height: 50px;
   margin-top: 10px;
@@ -173,13 +175,12 @@ p {
   background-color: #2C2C2E;
   border: none;
   cursor: pointer;
-  background-color: #2C2C2E;
-  color: #F4F4F4;
-  font-size: 17px;
-  font-weight: 400;
+  padding: 0;
 }
 
-.input-group input span, .input-group .input-with-icon span {
+.input-group .input-text span,
+.input-group .input-password span,
+.input-group .input-search span {
   padding: 0 4px;
   display: inline-block;
   vertical-align: middle;
@@ -187,29 +188,72 @@ p {
   color: #BBBBBB;
 }
 
-.input-group input:focus, .input-group .input-with-icon:focus {
-  outline: 0;
+.input-group .input-text input,
+.input-group .input-password input,
+.input-group .input-search input {
+  width: 350px;
+  height: 50px;
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #2C2C2E;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  background-color: #2C2C2E;
+  color: #F4F4F4;
+  font-size: 17px;
+  font-weight: 400;
+  background-color: transparent;
 }
 
-.input-group input:placeholder, .input-group .input-with-icon:placeholder {
+.input-group .input-text input span,
+.input-group .input-password input span,
+.input-group .input-search input span {
+  padding: 0 4px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
   color: #BBBBBB;
 }
 
-.input-group input::-webkit-calendar-picker-indicator, .input-group .input-with-icon::-webkit-calendar-picker-indicator {
+.input-group .input-text input:focus,
+.input-group .input-password input:focus,
+.input-group .input-search input:focus {
+  outline: 0;
+}
+
+.input-group .input-text input:placeholder,
+.input-group .input-password input:placeholder,
+.input-group .input-search input:placeholder {
+  color: #BBBBBB;
+}
+
+.input-group .input-text input::-webkit-calendar-picker-indicator,
+.input-group .input-password input::-webkit-calendar-picker-indicator,
+.input-group .input-search input::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
 
-.input-group .input-with-icon {
-  padding: 0 0 0 20px;
+.input-group .input-text input:focus,
+.input-group .input-password input:focus,
+.input-group .input-search input:focus {
+  outline: 0;
 }
 
-.input-group .input-with-icon input[type="search"], .input-group .input-with-icon .input-with-icon[type="search"] {
+.input-group .input-password input {
   width: 305px;
-  padding-left: 10px;
-  margin: 0;
 }
 
-.input-group .input-with-icon input[type="search"]::-webkit-search-cancel-button, .input-group .input-with-icon .input-with-icon[type="search"]::-webkit-search-cancel-button {
+.input-group .input-search {
+  padding-left: 15px;
+}
+
+.input-group .input-search input {
+  width: 305px;
+}
+
+.input-group .input-search input::-webkit-search-cancel-button {
   -webkit-appearance: none;
   height: 1em;
   width: 1em;
@@ -219,7 +263,7 @@ p {
   pointer-events: none;
 }
 
-.input-group .input-with-icon input[type="search"]:focus::-webkit-search-cancel-button, .input-group .input-with-icon .input-with-icon[type="search"]:focus::-webkit-search-cancel-button {
+.input-group .input-search input:focus::-webkit-search-cancel-button {
   opacity: 1;
   pointer-events: all;
   cursor: pointer;

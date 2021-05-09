@@ -202,34 +202,50 @@ p {
         margin-bottom: 30px;
     }
 
-    input {
+    // Generic input
+    .input-text,
+    .input-password,
+    .input-search {
         @include rounded-box;
+        padding: 0;
 
-        // Typography
-        background-color: $dark-theme-background-tertiary;
-        color: $dark-theme-text-primary;
-        font-size: 17px;
-        font-weight: 400;
+        input {
+            @include rounded-box;
+            margin: 0; 
+            
+            // Typography
+            background-color: $dark-theme-background-tertiary;
+            color: $dark-theme-text-primary;
+            font-size: 17px;
+            font-weight: 400;
 
-        // Decoration
-        &:focus {
-            outline:0;
+            // Decoration
+            background-color: transparent;
+            &:focus {
+                outline: 0;
+            }
+            &:placeholder {
+                color: $dark-theme-text-secondary;
+            }
+            &::-webkit-calendar-picker-indicator {
+                filter: invert(1);
+            }
         }
-        &:placeholder {
-            color: $dark-theme-text-secondary;
-        }
-        &::-webkit-calendar-picker-indicator {
-            filter: invert(1);
+        input:focus {
+            outline: 0;
         }
     }
-    .input-with-icon {
-        @extend input;
-        padding: 0 0 0 20px;
 
-        input[type="search"] {
+    .input-password {
+        input {
             width: 305px;
-            padding-left: 10px;
-            margin: 0;       
+        }
+    }
+
+    .input-search {
+        padding-left: 15px;
+        input {
+            width: 305px;  
 
             // Search close button styling
             &::-webkit-search-cancel-button {
@@ -245,9 +261,11 @@ p {
                 opacity: 1;
                 pointer-events: all;
                 cursor: pointer;
-            }   
+            }
         }
+        
     }
+
     label {
         color: $dark-theme-text-secondary;
     }

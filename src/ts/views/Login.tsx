@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import search from "../utility/Search";
+import {SearchIcon,EyeIcon,EyeClosedIcon} from '@primer/octicons-react'
 
 export default class Login extends React.Component {
     render() {
@@ -29,15 +30,20 @@ export default class Login extends React.Component {
                 </div>
 
                 {/* Username or email */}
-                <div className="input-group" id="input-username">
+                <div className="input-group">
                     <label>Username</label><br/>
-                    <input type="text" />
+                    <div className="input-text">
+                        <input type="text" />
+                    </div>
                 </div>
 
                 {/* Password */}
-                <div className="input-group" id="input-username">
+                <div className="input-group">
                     <label>Password</label><br/>
-                    <input type="password" />
+                    <div className="input-password">
+                        <input type="password" />
+                        <EyeClosedIcon size='small' />
+                    </div>
                 </div>
           
                 {/* Primary button */}
