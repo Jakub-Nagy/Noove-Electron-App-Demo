@@ -2,21 +2,26 @@
 /*                     #pragma Identity Styling Variables                     */
 /* -------------------------------------------------------------------------- */
 
-// Light theme colors
-$light-theme-text-primary: #1C1C1C;
-$light-theme-text-secondary: #5B5B5B;
-$light-theme-text-tertiary: #848484;
-$light-theme-background-primary: #FFFFFF;
-$light-theme-background-secondary: #F2F2F7;
-$light-theme-background-tertiary: #D1D1D6;
+// Theme variable
+$theme: "light";
+
+// Light theme (default) colors
+$theme-text-primary: #1C1C1C;
+$theme-text-secondary: #5B5B5B;
+$theme-text-tertiary: #848484;
+$theme-background-primary: #FFFFFF;
+$theme-background-secondary: #F2F2F7;
+$theme-background-tertiary: #D1D1D6;
 
 // Dark theme colors
-$dark-theme-text-primary: #F4F4F4;
-$dark-theme-text-secondary: #BBBBBB;
-$dark-theme-text-tertiary: #BBBBBB;
-$dark-theme-background-primary: #000000;
-$dark-theme-background-secondary: #1C1C1E;
-$dark-theme-background-tertiary: #2C2C2E;
+@if $theme == "dark" {
+    $theme-text-primary: #F4F4F4;
+    $theme-text-secondary: #BBBBBB;
+    $theme-text-tertiary: #BBBBBB;
+    $theme-background-primary: #000000;
+    $theme-background-secondary: #1C1C1E;
+    $theme-background-tertiary: #2C2C2E;
+}
 
 // Highlight colors
 $highlight-pink-primary: #EB0877;
@@ -50,17 +55,23 @@ html {
 
 // Body styling
 body {
-    background-color: $dark-theme-background-primary;
+    background-color: $theme-background-primary;
 }
 
-.view-layout {
+#view-layout {
     display: grid;
     height: 100vh;
     grid-template-columns: 1fr 5fr 1fr;
     justify-items: center;
     align-items: center;
 
-    #logo {
+    .symbol, .logo {
+        filter: invert(0%) sepia(6%) saturate(2419%) hue-rotate(37deg) brightness(89%) contrast(78%);
+        @if $theme == "dark" {
+            filter: invert(100%) sepia(62%) saturate(0%) hue-rotate(180deg) brightness(113%) contrast(91%);
+        }
+    }
+    .symbol {
         align-self: flex-start;
         justify-self: start;
         margin-top: 40px;
@@ -74,7 +85,7 @@ body {
 
 * {
     font-family: 'Aileron', sans-serif;
-    color: $dark-theme-text-primary;
+    color: $theme-text-primary;
     user-select: none;
 }
 
@@ -93,11 +104,11 @@ h2 {
 label {
     font-size: 14px;
     font-weight: 600;
-    color: $dark-theme-text-tertiary;
+    color: $theme-text-tertiary;
 }
 
 p {
-    color: $dark-theme-text-tertiary;
+    color: $theme-text-tertiary;
     font-size: 15px;
     font-weight: 600;
 }
@@ -119,7 +130,7 @@ p {
 
     // Children
     label {
-        color: $dark-theme-text-secondary;
+        color: $theme-text-secondary;
     }
     img {
         margin-right: 5px;
@@ -127,9 +138,8 @@ p {
 
     // Decoration
     border-radius: 15px;
-    background-color: $dark-theme-background-tertiary;
+    background-color: $theme-background-secondary;
     border: none;
-    cursor: pointer;
     &:focus {
         outline:0;
     }
@@ -142,8 +152,10 @@ p {
 @mixin button {
     background-color: transparent;
     border: none;
+    cursor: pointer;
     label {
         color: $highlight-pink-primary;
+        cursor: pointer;
     }
     &:focus {
         outline:0;
@@ -172,24 +184,22 @@ p {
 }
 
 .continue-with-button {
-    @extend .button-primary;
-
-    // Changes
-    background-color: $dark-theme-background-secondary;
-    label {
-        color: $dark-theme-text-primary;  
-    }        
+    @extend .button-primary;    
     
     // Special logos
     &.google {
         margin-bottom: 20px;
-        background-color: $light-theme-background-secondary;  
+        background-color: #FFFFFF;
+        border: 1px solid #1C1C1C;
         label {
-            color: $light-theme-text-primary;
+            color: #1C1C1C;
         }
     }   
     &.facebook {
         background-color: #003BFF;
+        label {
+            color: #FFFFFF;  
+        }  
     }
 }
 
@@ -222,15 +232,15 @@ p {
             margin: 0;
             
             // Typography
-            background-color: $dark-theme-background-tertiary;
-            color: $dark-theme-text-primary;
+            background-color: $theme-background-tertiary;
+            color: $theme-text-primary;
             font-size: 17px;
             font-weight: 400;
 
             // Decoration
             background-color: transparent;
             &:placeholder {
-                color: $dark-theme-text-secondary;
+                color: $theme-text-secondary;
             }
             &::-webkit-calendar-picker-indicator {
                 filter: invert(1);
@@ -269,7 +279,7 @@ p {
     }
 
     label {
-        color: $dark-theme-text-secondary;
+        color: $theme-text-tertiary;
     }
 }
 
@@ -312,7 +322,7 @@ p {
 /*                          #pragma Registration Form                         */
 /* -------------------------------------------------------------------------- */
 
-.view-layout .form-container {
+.form-container {
     // Self Positioning
     grid-area: 1 / 2 / span 1 / span 1;
 
@@ -335,7 +345,7 @@ p {
 
         .line {
             grid-column: 1 / span 3;
-            border-top: 1px solid $dark-theme-text-secondary;
+            border-top: 1px solid $theme-text-secondary;
             width: 350px;
         }
         p {
@@ -344,7 +354,7 @@ p {
             top: 9px;
             width: 40px;
             text-align: center;
-            background-color: $dark-theme-background-primary;
+            background-color: $theme-background-primary;
         }
     }
        

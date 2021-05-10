@@ -17,10 +17,10 @@ html {
 }
 
 body {
-  background-color: #000000;
+  background-color: #FFFFFF;
 }
 
-.view-layout {
+#view-layout {
   display: grid;
   height: 100vh;
   grid-template-columns: 1fr 5fr 1fr;
@@ -28,7 +28,11 @@ body {
   align-items: center;
 }
 
-.view-layout #logo {
+#view-layout .symbol, #view-layout .logo {
+  filter: invert(0%) sepia(6%) saturate(2419%) hue-rotate(37deg) brightness(89%) contrast(78%);
+}
+
+#view-layout .symbol {
   align-self: flex-start;
   justify-self: start;
   margin-top: 40px;
@@ -40,7 +44,7 @@ body {
 /* -------------------------------------------------------------------------- */
 * {
   font-family: 'Aileron', sans-serif;
-  color: #F4F4F4;
+  color: #1C1C1C;
   user-select: none;
 }
 
@@ -59,11 +63,11 @@ h2 {
 label {
   font-size: 14px;
   font-weight: 600;
-  color: #BBBBBB;
+  color: #848484;
 }
 
 p {
-  color: #BBBBBB;
+  color: #848484;
   font-size: 15px;
   font-weight: 600;
 }
@@ -82,16 +86,16 @@ p {
   align-items: center;
   justify-content: center;
   border-radius: 15px;
-  background-color: #2C2C2E;
+  background-color: #F2F2F7;
   border: none;
-  cursor: pointer;
   background-color: transparent;
   border: none;
+  cursor: pointer;
   background-color: #470224;
 }
 
 .button-primary label, .continue-with-button label {
-  color: #BBBBBB;
+  color: #5B5B5B;
 }
 
 .button-primary img, .continue-with-button img {
@@ -104,6 +108,7 @@ p {
 
 .button-primary label, .continue-with-button label {
   color: #EB0877;
+  cursor: pointer;
 }
 
 .button-primary:focus, .continue-with-button:focus {
@@ -123,27 +128,22 @@ p {
 .button-secondary {
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .button-secondary label {
   color: #EB0877;
+  cursor: pointer;
 }
 
 .button-secondary:focus {
   outline: 0;
 }
 
-.continue-with-button {
-  background-color: #1C1C1E;
-}
-
-.continue-with-button label {
-  color: #F4F4F4;
-}
-
 .continue-with-button.google {
   margin-bottom: 20px;
-  background-color: #F2F2F7;
+  background-color: #FFFFFF;
+  border: 1px solid #1C1C1C;
 }
 
 .continue-with-button.google label {
@@ -152,6 +152,10 @@ p {
 
 .continue-with-button.facebook {
   background-color: #003BFF;
+}
+
+.continue-with-button.facebook label {
+  color: #FFFFFF;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -176,9 +180,8 @@ p {
   align-items: center;
   justify-content: center;
   border-radius: 15px;
-  background-color: #2C2C2E;
+  background-color: #F2F2F7;
   border: none;
-  cursor: pointer;
   padding-left: 15px;
   display: flex;
   align-items: center;
@@ -188,7 +191,7 @@ p {
 .input-group .input-text label,
 .input-group .input-password label,
 .input-group .input-search label {
-  color: #BBBBBB;
+  color: #5B5B5B;
 }
 
 .input-group .input-text img,
@@ -213,12 +216,11 @@ p {
   align-items: center;
   justify-content: center;
   border-radius: 15px;
-  background-color: #2C2C2E;
+  background-color: #F2F2F7;
   border: none;
-  cursor: pointer;
   margin: 0;
-  background-color: #2C2C2E;
-  color: #F4F4F4;
+  background-color: #D1D1D6;
+  color: #1C1C1C;
   font-size: 17px;
   font-weight: 400;
   background-color: transparent;
@@ -227,7 +229,7 @@ p {
 .input-group .input-text input label,
 .input-group .input-password input label,
 .input-group .input-search input label {
-  color: #BBBBBB;
+  color: #5B5B5B;
 }
 
 .input-group .input-text input img,
@@ -245,7 +247,7 @@ p {
 .input-group .input-text input:placeholder,
 .input-group .input-password input:placeholder,
 .input-group .input-search input:placeholder {
-  color: #BBBBBB;
+  color: #5B5B5B;
 }
 
 .input-group .input-text input::-webkit-calendar-picker-indicator,
@@ -291,7 +293,7 @@ p {
 }
 
 .input-group label {
-  color: #BBBBBB;
+  color: #848484;
 }
 
 .instruction-group {
@@ -333,7 +335,7 @@ p {
 /* -------------------------------------------------------------------------- */
 /*                          #pragma Registration Form                         */
 /* -------------------------------------------------------------------------- */
-.view-layout .form-container {
+.form-container {
   grid-area: 1 / 2 / span 1 / span 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -341,33 +343,33 @@ p {
   justify-items: center;
 }
 
-.view-layout .form-container .logo {
+.form-container .logo {
   margin-bottom: 75px;
 }
 
-.view-layout .form-container .or-divider {
+.form-container .or-divider {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
   justify-items: center;
   margin: 30px 0;
 }
 
-.view-layout .form-container .or-divider .line {
+.form-container .or-divider .line {
   grid-column: 1 / span 3;
-  border-top: 1px solid #BBBBBB;
+  border-top: 1px solid #5B5B5B;
   width: 350px;
 }
 
-.view-layout .form-container .or-divider p {
+.form-container .or-divider p {
   grid-column: 2 / span 1;
   position: relative;
   top: 9px;
   width: 40px;
   text-align: center;
-  background-color: #000000;
+  background-color: #FFFFFF;
 }
 
-.view-layout .form-container #input-username-picker label {
+.form-container #input-username-picker label {
   color: #4CD16B;
 }
 
@@ -428,13 +430,12 @@ p {
   align-items: center;
   justify-content: center;
   border-radius: 15px;
-  background-color: #2C2C2E;
+  background-color: #F2F2F7;
   border: none;
-  cursor: pointer;
 }
 
 .skill-container .skill-group .skill label {
-  color: #BBBBBB;
+  color: #5B5B5B;
 }
 
 .skill-container .skill-group .skill img {

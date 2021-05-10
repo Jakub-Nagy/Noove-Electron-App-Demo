@@ -15,7 +15,7 @@ export default class Login extends React.Component {
                     <img src={require('../../assets/icon-google.svg')} />
                     <label>Continue with Google</label>
                 </button>
-          
+
                 {/* Continue with Facebook */}
                 <button className="continue-with-button facebook">
                     <img src={require('../../assets/icon-facebook.svg')} />
