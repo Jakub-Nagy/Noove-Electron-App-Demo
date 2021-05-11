@@ -102,7 +102,7 @@ p {
   color: #5B5B5B;
 }
 
-.button-primary img, .continue-with-button img {
+.button-primary img, .continue-with-button img, .button-primary svg, .continue-with-button svg {
   margin-right: 5px;
 }
 
@@ -179,7 +179,8 @@ p {
 .input-group .input-search,
 .input-group .input-date,
 .input-group .input-select,
-.input-group .input-username {
+.input-group .input-username,
+.input-group .input-textarea {
   width: 100%;
   height: 50px;
   display: flex;
@@ -200,16 +201,24 @@ p {
 .input-group .input-search label,
 .input-group .input-date label,
 .input-group .input-select label,
-.input-group .input-username label {
+.input-group .input-username label,
+.input-group .input-textarea label {
   color: #5B5B5B;
 }
 
-.input-group .input-text img,
+.input-group .input-text img, .input-group .input-text svg,
 .input-group .input-password img,
+.input-group .input-password svg,
 .input-group .input-search img,
+.input-group .input-search svg,
 .input-group .input-date img,
+.input-group .input-date svg,
 .input-group .input-select img,
-.input-group .input-username img {
+.input-group .input-select svg,
+.input-group .input-username img,
+.input-group .input-username svg,
+.input-group .input-textarea img,
+.input-group .input-textarea svg {
   margin-right: 5px;
 }
 
@@ -218,16 +227,24 @@ p {
 .input-group .input-search:focus,
 .input-group .input-date:focus,
 .input-group .input-select:focus,
-.input-group .input-username:focus {
+.input-group .input-username:focus,
+.input-group .input-textarea:focus {
   outline: 0;
 }
 
-.input-group .input-text input,
+.input-group .input-text input, .input-group .input-text textarea,
 .input-group .input-password input,
+.input-group .input-password textarea,
 .input-group .input-search input,
+.input-group .input-search textarea,
 .input-group .input-date input,
+.input-group .input-date textarea,
 .input-group .input-select input,
-.input-group .input-username input {
+.input-group .input-select textarea,
+.input-group .input-username input,
+.input-group .input-username textarea,
+.input-group .input-textarea input,
+.input-group .input-textarea textarea {
   width: 100%;
   height: 50px;
   display: flex;
@@ -244,48 +261,95 @@ p {
   background-color: transparent;
 }
 
-.input-group .input-text input label,
+.input-group .input-text input label, .input-group .input-text textarea label,
 .input-group .input-password input label,
+.input-group .input-password textarea label,
 .input-group .input-search input label,
+.input-group .input-search textarea label,
 .input-group .input-date input label,
+.input-group .input-date textarea label,
 .input-group .input-select input label,
-.input-group .input-username input label {
+.input-group .input-select textarea label,
+.input-group .input-username input label,
+.input-group .input-username textarea label,
+.input-group .input-textarea input label,
+.input-group .input-textarea textarea label {
   color: #5B5B5B;
 }
 
-.input-group .input-text input img,
+.input-group .input-text input img, .input-group .input-text input svg, .input-group .input-text textarea img, .input-group .input-text textarea svg,
 .input-group .input-password input img,
+.input-group .input-password input svg,
+.input-group .input-password textarea img,
+.input-group .input-password textarea svg,
 .input-group .input-search input img,
+.input-group .input-search input svg,
+.input-group .input-search textarea img,
+.input-group .input-search textarea svg,
 .input-group .input-date input img,
+.input-group .input-date input svg,
+.input-group .input-date textarea img,
+.input-group .input-date textarea svg,
 .input-group .input-select input img,
-.input-group .input-username input img {
+.input-group .input-select input svg,
+.input-group .input-select textarea img,
+.input-group .input-select textarea svg,
+.input-group .input-username input img,
+.input-group .input-username input svg,
+.input-group .input-username textarea img,
+.input-group .input-username textarea svg,
+.input-group .input-textarea input img,
+.input-group .input-textarea input svg,
+.input-group .input-textarea textarea img,
+.input-group .input-textarea textarea svg {
   margin-right: 5px;
 }
 
-.input-group .input-text input:focus,
+.input-group .input-text input:focus, .input-group .input-text textarea:focus,
 .input-group .input-password input:focus,
+.input-group .input-password textarea:focus,
 .input-group .input-search input:focus,
+.input-group .input-search textarea:focus,
 .input-group .input-date input:focus,
+.input-group .input-date textarea:focus,
 .input-group .input-select input:focus,
-.input-group .input-username input:focus {
+.input-group .input-select textarea:focus,
+.input-group .input-username input:focus,
+.input-group .input-username textarea:focus,
+.input-group .input-textarea input:focus,
+.input-group .input-textarea textarea:focus {
   outline: 0;
 }
 
-.input-group .input-text input:placeholder,
+.input-group .input-text input:placeholder, .input-group .input-text textarea:placeholder,
 .input-group .input-password input:placeholder,
+.input-group .input-password textarea:placeholder,
 .input-group .input-search input:placeholder,
+.input-group .input-search textarea:placeholder,
 .input-group .input-date input:placeholder,
+.input-group .input-date textarea:placeholder,
 .input-group .input-select input:placeholder,
-.input-group .input-username input:placeholder {
+.input-group .input-select textarea:placeholder,
+.input-group .input-username input:placeholder,
+.input-group .input-username textarea:placeholder,
+.input-group .input-textarea input:placeholder,
+.input-group .input-textarea textarea:placeholder {
   color: #5B5B5B;
 }
 
-.input-group .input-text input:focus,
+.input-group .input-text input:focus, .input-group .input-text textarea:focus,
 .input-group .input-password input:focus,
+.input-group .input-password textarea:focus,
 .input-group .input-search input:focus,
+.input-group .input-search textarea:focus,
 .input-group .input-date input:focus,
+.input-group .input-date textarea:focus,
 .input-group .input-select input:focus,
-.input-group .input-username input:focus {
+.input-group .input-select textarea:focus,
+.input-group .input-username input:focus,
+.input-group .input-username textarea:focus,
+.input-group .input-textarea input:focus,
+.input-group .input-textarea textarea:focus {
   outline: 0;
 }
 
@@ -294,16 +358,13 @@ p {
 .input-group .input-search svg,
 .input-group .input-date svg,
 .input-group .input-select svg,
-.input-group .input-username svg {
+.input-group .input-username svg,
+.input-group .input-textarea svg {
   width: 70px;
 }
 
 .input-group .input-search {
-  padding-left: 15px;
-}
-
-.input-group .input-search input {
-  width: 305px;
+  padding: 0 15px;
 }
 
 .input-group .input-search input::-webkit-search-cancel-button {
@@ -320,6 +381,11 @@ p {
   opacity: 1;
   pointer-events: all;
   cursor: pointer;
+}
+
+.input-group .input-search svg {
+  width: 20px;
+  margin-right: 10px;
 }
 
 .input-group .input-date input {
@@ -353,6 +419,20 @@ p {
   display: inline-block;
 }
 
+.input-group .input-textarea {
+  grid-column: 1 / span 2;
+  width: 100%;
+  height: 200px;
+  padding: 15px;
+}
+
+.input-group .input-textarea textarea {
+  border-radius: 0;
+  resize: none;
+  width: 100%;
+  height: 100%;
+}
+
 .input-group label {
   color: #848484;
 }
@@ -363,6 +443,8 @@ p {
 .instruction-group {
   width: 100%;
   margin-bottom: 40px;
+  grid-column: 1 / span 2;
+  justify-self: flex-start;
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
@@ -493,11 +575,6 @@ p {
   width: 700px;
 }
 
-#sign-up-1 .instruction-group {
-  grid-column: 1 / span 2;
-  justify-self: flex-start;
-}
-
 #sign-up-1 #username {
   grid-column: 1 / span 2;
 }
@@ -514,11 +591,6 @@ p {
   width: 700px;
 }
 
-#sign-up-2 .instruction-group {
-  grid-column: 1 / span 2;
-  justify-self: flex-start;
-}
-
 #sign-up-2 #first-name {
   justify-self: left;
 }
@@ -532,12 +604,29 @@ p {
   grid-column: 1 / span 2;
 }
 
+#sign-up-3 {
+  width: 700px;
+}
+
+#sign-up-3 #bio {
+  grid-column: 1 / span 2;
+}
+
+#sign-up-4 {
+  width: 700px;
+}
+
+#sign-up-4 #search {
+  grid-column: 1 / span 2;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                          #pragma Skill Box Styling                         */
 /* -------------------------------------------------------------------------- */
 .skill-container {
   grid-column: 1 / span 2;
-  margin: 30px 0;
+  width: 100%;
+  margin: 20px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 20px;
@@ -553,13 +642,15 @@ p {
   border-radius: 15px;
   background-color: #F2F2F7;
   border: none;
+  margin: 10px 0;
+  cursor: pointer;
 }
 
 .skill-container .skill-group .skill label {
   color: #5B5B5B;
 }
 
-.skill-container .skill-group .skill img {
+.skill-container .skill-group .skill img, .skill-container .skill-group .skill svg {
   margin-right: 5px;
 }
 
@@ -567,18 +658,18 @@ p {
   outline: 0;
 }
 
-.skill-container .skill-group .skill span img {
-  filter: invert(72%) sepia(19%) saturate(0%) hue-rotate(165deg) brightness(101%) contrast(89%);
+.skill-container .skill-group .skill svg {
+  fill: #5B5B5B;
 }
 
 .skill-container .skill-group .skill.selected {
   background-color: #470224;
 }
 
-.skill-container .skill-group .skill.selected span {
+.skill-container .skill-group .skill.selected label {
   color: #EB0877;
 }
 
-.skill-container .skill-group .skill.selected span img {
-  filter: invert(15%) sepia(86%) saturate(6807%) hue-rotate(323deg) brightness(99%) contrast(105%);
+.skill-container .skill-group .skill.selected svg {
+  fill: #EB0877;
 }

@@ -11,6 +11,8 @@ import './css/index.css';
 import Login from './ts/views/Login';
 import Sign_up_1 from './ts/views/Sign_up_1';
 import Sign_up_2 from './ts/views/Sign_up_2';
+import Sign_up_3 from './ts/views/Sign_up_3';
+import Sign_up_4 from './ts/views/Sign_up_4';
 import End from './ts/views/End';
 
 ReactDOM.render(
@@ -23,6 +25,8 @@ ReactDOM.render(
                 <Route path="/" exact component={Login} />
                 <Route path="/Sign_up_1" exact component={Sign_up_1} />
                 <Route path="/Sign_up_2" exact component={Sign_up_2} />
+                <Route path="/Sign_up_3" exact component={Sign_up_3} />
+                <Route path="/Sign_up_4" exact component={Sign_up_4} />
                 <Route path="/End" exact component={End} />
             </div>
         </BrowserRouter>

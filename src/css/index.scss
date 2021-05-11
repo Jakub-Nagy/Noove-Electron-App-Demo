@@ -136,7 +136,7 @@ p {
     label {
         color: $theme-text-secondary;
     }
-    img {
+    img, svg {
         margin-right: 5px;
     }
 
@@ -225,7 +225,8 @@ p {
     .input-search,
     .input-date,
     .input-select,
-    .input-username {
+    .input-username,
+    .input-textarea {
         @include rounded-box;
 
         // Layout
@@ -235,7 +236,7 @@ p {
         align-items: center;
         justify-content: space-between;
 
-        input {
+        input, textarea {
             @include rounded-box;
             margin: 0;
             
@@ -250,9 +251,9 @@ p {
             &:placeholder {
                 color: $theme-text-secondary;
             }
-        }
-        input:focus {
-            outline: 0;
+            &:focus {
+                outline: 0;
+            }
         }
         svg {
             width: 70px;
@@ -260,10 +261,8 @@ p {
     }
 
     .input-search {
-        padding-left: 15px;
+        padding: 0 15px;
         input {
-            width: 305px;  
-
             // Search close button styling
             &::-webkit-search-cancel-button {
                 -webkit-appearance: none;
@@ -280,7 +279,10 @@ p {
                 cursor: pointer;
             }
         }
-        
+        svg {
+            width: 20px;
+            margin-right: 10px;
+        }
     }
 
     .input-date {
@@ -324,6 +326,19 @@ p {
         }
     }
 
+    .input-textarea {
+        grid-column: 1 / span 2;
+        width: 100%;
+        height: 200px;
+        padding: 15px;
+        textarea {
+            border-radius: 0;
+            resize: none;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
     label {
         color: $theme-text-tertiary;
     }
@@ -336,6 +351,8 @@ p {
 .instruction-group {
     width: 100%;
     margin-bottom: 40px;
+    grid-column: 1 / span 2;
+    justify-self: flex-start;
     
     // Children layout
     display: grid;
@@ -457,12 +474,10 @@ p {
     margin-top: 60px;
     width: 100%;
 }
-
 #button-back {
     grid-column: 1 / span 1;
     justify-self: flex-start;
 }
-
 #button-continue {
     grid-column: 2 / span 1;
     justify-self: flex-end;
@@ -470,10 +485,6 @@ p {
 
 #sign-up-1 {
     width: 700px;
-    .instruction-group {
-        grid-column: 1 / span 2;
-        justify-self: flex-start;
-    }
     #username {
         grid-column: 1 / span 2;
         .input-username {
@@ -487,10 +498,6 @@ p {
 
 #sign-up-2 {
     width: 700px;
-    .instruction-group {
-        grid-column: 1 / span 2;
-        justify-self: flex-start;
-    }
     #first-name {
         justify-self: left;
     }
@@ -503,6 +510,20 @@ p {
     }
 }
 
+#sign-up-3 {
+    width: 700px;
+    #bio {
+        grid-column: 1 / span 2;
+    }
+}
+
+#sign-up-4 {
+    width: 700px;
+    #search {
+        grid-column: 1 / span 2;
+    }
+}
+
 /* -------------------------------------------------------------------------- */
 /*                          #pragma Skill Box Styling                         */
 /* -------------------------------------------------------------------------- */
@@ -510,7 +531,8 @@ p {
 .skill-container {
     // Self Positioning
     grid-column: 1 / span 2;
-    margin: 30px 0;
+    width: 100%;
+    margin: 20px 0;
 
     // Children layout
     display: grid;
@@ -521,18 +543,20 @@ p {
     .skill-group {
         .skill {
             @include rounded-box;
+            margin: 10px 0;
+            cursor: pointer;
 
-            span img {
-                filter: invert(72%) sepia(19%) saturate(0%) hue-rotate(165deg) brightness(101%) contrast(89%);
+            svg {
+                fill: $theme-text-secondary;
             }
-
             &.selected {
                 background-color: $highlight-pink-secondary;
-                span {
+                label {
                     color: $highlight-pink-primary;
-                    img {
-                        filter: invert(15%) sepia(86%) saturate(6807%) hue-rotate(323deg) brightness(99%) contrast(105%);
-                    }
+                    
+                }
+                svg {
+                    fill: $highlight-pink-primary;
                 }
             }
         }

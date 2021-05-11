@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {EyeIcon,EyeClosedIcon,XIcon,CheckIcon} from '@primer/octicons-react';
 
 
 export default class Sign_up_1 extends React.Component {
@@ -73,7 +72,7 @@ export default class Sign_up_1 extends React.Component {
                 </Link>  
 
                 {/* Continue button */}
-                <Link to="/End" id="button-continue">
+                <Link to="/Sign_up_3" id="button-continue">
                     <button className="button-primary">
                         <label>Continue</label>
                     </button>
