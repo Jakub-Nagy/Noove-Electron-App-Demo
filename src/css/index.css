@@ -56,7 +56,12 @@ a, span {
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -81,7 +86,6 @@ p {
 .button-primary, .continue-with-button {
   width: 100%;
   height: 50px;
-  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -172,16 +176,19 @@ p {
 
 .input-group .input-text,
 .input-group .input-password,
-.input-group .input-search {
+.input-group .input-search,
+.input-group .input-date,
+.input-group .input-select,
+.input-group .input-username {
   width: 100%;
   height: 50px;
-  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 15px;
   background-color: #F2F2F7;
   border: none;
+  margin-top: 10px;
   padding-left: 15px;
   display: flex;
   align-items: center;
@@ -190,28 +197,39 @@ p {
 
 .input-group .input-text label,
 .input-group .input-password label,
-.input-group .input-search label {
+.input-group .input-search label,
+.input-group .input-date label,
+.input-group .input-select label,
+.input-group .input-username label {
   color: #5B5B5B;
 }
 
 .input-group .input-text img,
 .input-group .input-password img,
-.input-group .input-search img {
+.input-group .input-search img,
+.input-group .input-date img,
+.input-group .input-select img,
+.input-group .input-username img {
   margin-right: 5px;
 }
 
 .input-group .input-text:focus,
 .input-group .input-password:focus,
-.input-group .input-search:focus {
+.input-group .input-search:focus,
+.input-group .input-date:focus,
+.input-group .input-select:focus,
+.input-group .input-username:focus {
   outline: 0;
 }
 
 .input-group .input-text input,
 .input-group .input-password input,
-.input-group .input-search input {
+.input-group .input-search input,
+.input-group .input-date input,
+.input-group .input-select input,
+.input-group .input-username input {
   width: 100%;
   height: 50px;
-  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -228,43 +246,55 @@ p {
 
 .input-group .input-text input label,
 .input-group .input-password input label,
-.input-group .input-search input label {
+.input-group .input-search input label,
+.input-group .input-date input label,
+.input-group .input-select input label,
+.input-group .input-username input label {
   color: #5B5B5B;
 }
 
 .input-group .input-text input img,
 .input-group .input-password input img,
-.input-group .input-search input img {
+.input-group .input-search input img,
+.input-group .input-date input img,
+.input-group .input-select input img,
+.input-group .input-username input img {
   margin-right: 5px;
 }
 
 .input-group .input-text input:focus,
 .input-group .input-password input:focus,
-.input-group .input-search input:focus {
+.input-group .input-search input:focus,
+.input-group .input-date input:focus,
+.input-group .input-select input:focus,
+.input-group .input-username input:focus {
   outline: 0;
 }
 
 .input-group .input-text input:placeholder,
 .input-group .input-password input:placeholder,
-.input-group .input-search input:placeholder {
+.input-group .input-search input:placeholder,
+.input-group .input-date input:placeholder,
+.input-group .input-select input:placeholder,
+.input-group .input-username input:placeholder {
   color: #5B5B5B;
-}
-
-.input-group .input-text input::-webkit-calendar-picker-indicator,
-.input-group .input-password input::-webkit-calendar-picker-indicator,
-.input-group .input-search input::-webkit-calendar-picker-indicator {
-  filter: invert(1);
 }
 
 .input-group .input-text input:focus,
 .input-group .input-password input:focus,
-.input-group .input-search input:focus {
+.input-group .input-search input:focus,
+.input-group .input-date input:focus,
+.input-group .input-select input:focus,
+.input-group .input-username input:focus {
   outline: 0;
 }
 
 .input-group .input-text svg,
 .input-group .input-password svg,
-.input-group .input-search svg {
+.input-group .input-search svg,
+.input-group .input-date svg,
+.input-group .input-select svg,
+.input-group .input-username svg {
   width: 70px;
 }
 
@@ -292,29 +322,87 @@ p {
   cursor: pointer;
 }
 
+.input-group .input-date input {
+  width: 95%;
+}
+
+.input-group .input-date input::-webkit-calendar-picker-indicator {
+  filter: invert(8%) sepia(0%) saturate(31%) hue-rotate(187deg) brightness(92%) contrast(91%);
+}
+
+.input-group .input-select {
+  -webkit-appearance: none;
+  background-image: url(../assets/arrow-down.svg);
+  background-position: calc(100% - 20px) calc(50%);
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+}
+
+.input-group .input-username .available {
+  width: 120px;
+  font-size: 14px;
+  color: #848484;
+}
+
+.input-group .input-username .dot {
+  height: 10px;
+  width: 10px;
+  margin-right: 5px;
+  background-color: #4CD16B;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 .input-group label {
   color: #848484;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                         #pragma Form Text Elements                         */
+/* -------------------------------------------------------------------------- */
 .instruction-group {
+  width: 100%;
   margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
 .instruction-group h2 {
-  margin-bottom: 10px;
+  grid-column: 1 / span 1;
 }
 
-.instruction-group p {
-  width: 300px;
+.instruction-group h3 {
+  grid-column: 1 / span 2;
+  text-transform: uppercase;
+  color: #5B5B5B;
+  margin-bottom: 5px;
 }
 
-.instruction-group.center {
-  justify-self: center;
-  text-align: center;
+.instruction-group label {
+  grid-column: 2 / span 1;
+  justify-self: right;
+  align-self: flex-end;
+  text-transform: uppercase;
 }
 
-.instruction-group.no-margin {
-  margin-bottom: 0;
+.instruction-group .progress-bar {
+  grid-column: 1 / span 2;
+  margin-top: 10px;
+  width: 100%;
+  height: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.instruction-group .progress-bar .unselected, .instruction-group .progress-bar .selected {
+  height: 5px;
+  width: 24.5%;
+  border-radius: 5px;
+  background-color: #E6ADC9;
+}
+
+.instruction-group .progress-bar .selected {
+  background-color: #EB0877;
 }
 
 .password-validator {
@@ -385,29 +473,63 @@ p {
   width: 350px;
 }
 
+#button-back, #button-continue {
+  align-self: center;
+  margin-top: 60px;
+  width: 100%;
+}
+
+#button-back {
+  grid-column: 1 / span 1;
+  justify-self: flex-start;
+}
+
+#button-continue {
+  grid-column: 2 / span 1;
+  justify-self: flex-end;
+}
+
+#sign-up-1 {
+  width: 700px;
+}
+
 #sign-up-1 .instruction-group {
   grid-column: 1 / span 2;
   justify-self: flex-start;
 }
 
-#sign-up-1 #first-name {
-  justify-self: left;
+#sign-up-1 #username {
+  grid-column: 1 / span 2;
 }
 
-#sign-up-1 #last-name {
-  grid-column: 2 / span 1;
-  justify-self: right;
+#sign-up-1 #username .input-username {
+  margin-bottom: 10px;
 }
 
 #sign-up-1 #email, #sign-up-1 #password {
   grid-column: 1 / span 2;
 }
 
-#sign-up-1 #button-continue {
+#sign-up-2 {
+  width: 700px;
+}
+
+#sign-up-2 .instruction-group {
+  grid-column: 1 / span 2;
+  justify-self: flex-start;
+}
+
+#sign-up-2 #first-name {
+  justify-self: left;
+}
+
+#sign-up-2 #last-name {
   grid-column: 2 / span 1;
-  margin-top: 60px;
-  width: 100%;
-  justify-self: flex-end;
+  justify-self: right;
+}
+
+#sign-up-2 #edu-name {
+  grid-column: 1 / span 2;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -425,7 +547,6 @@ p {
 .skill-container .skill-group .skill {
   width: 100%;
   height: 50px;
-  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;

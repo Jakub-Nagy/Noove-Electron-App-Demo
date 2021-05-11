@@ -10,6 +10,7 @@ import './css/index.css';
 // Views
 import Login from './ts/views/Login';
 import Sign_up_1 from './ts/views/Sign_up_1';
+import Sign_up_2 from './ts/views/Sign_up_2';
 import End from './ts/views/End';
 
 ReactDOM.render(
@@ -21,6 +22,7 @@ ReactDOM.render(
             <div className="App">
                 <Route path="/" exact component={Login} />
                 <Route path="/Sign_up_1" exact component={Sign_up_1} />
+                <Route path="/Sign_up_2" exact component={Sign_up_2} />
                 <Route path="/End" exact component={End} />
             </div>
         </BrowserRouter>

@@ -53,7 +53,7 @@ export default class Login extends React.Component {
                 </Link>
 
                 {/* Secondary button */}
-                <Link to="/Sign_up_1" id="button-continue">
+                <Link to="/Sign_up_1" id="button-sign-up">
                     <button className="button-secondary">
                         <label>Create an account</label>
                     </button>

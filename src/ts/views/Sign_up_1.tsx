@@ -9,23 +9,30 @@ export default class Sign_up_1 extends React.Component {
             <div className="form-container" id="sign-up-1">
                 {/* Step instructions */}
                 <div className="instruction-group">
-                    <h2>Sign Up</h2>
-                </div>
+                    <h3>Sign Up</h3>
+                    <h2>Fill in your details</h2>
 
-                {/* First name */}
-                <div className="input-group" id="first-name">
-                    <label>First name</label><br/>
-                    <div className="input-text">
-                        <input type="text" placeholder="John" />
+                    {/* Progress */}
+                    <label>Step 1/4</label>
+                    <div className="progress-bar">
+                        <div className="selected"></div>
+                        <div className="unselected"></div>
+                        <div className="unselected"></div>
+                        <div className="unselected"></div>
                     </div>
                 </div>
 
-                {/* Last name */}
-                <div className="input-group" id="last-name">
-                    <label>Last name</label><br/>
-                    <div className="input-text">
-                        <input type="text" placeholder="Smith" />
+                {/* Username */}
+                <div className="input-group" id="username">
+                    <label>Username</label>
+                    <div className="input-username">
+                        <input type="text" />
+                        <span className="available">
+                            <span className="dot"></span>
+                            Available
+                        </span>
                     </div>
+                    <label>This will be your unique handle on Noove.org</label>
                 </div>
 
                 {/* Email */}
@@ -66,7 +73,14 @@ export default class Sign_up_1 extends React.Component {
                 </div>
 
                 {/* Continue button */}
-                <Link to="/" id="button-continue">
+                <Link to="/" id="button-back">
+                    <button className="button-secondary">
+                        <label>Back</label>
+                    </button>
+                </Link>  
+
+                {/* Continue button */}
+                <Link to="/Sign_up_2" id="button-continue">
                     <button className="button-primary">
                         <label>Continue</label>
                     </button>
