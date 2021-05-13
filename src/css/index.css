@@ -28,10 +28,6 @@ body {
   align-items: center;
 }
 
-#view-layout .symbol, #view-layout .logo {
-  filter: invert(0%) sepia(6%) saturate(2419%) hue-rotate(37deg) brightness(89%) contrast(78%);
-}
-
 #view-layout .symbol {
   align-self: flex-start;
   justify-self: start;
@@ -78,6 +74,21 @@ p {
 }
 
 /* -------------------------------------------------------------------------- */
+/*                            #pragma Icon Coloring                           */
+/* -------------------------------------------------------------------------- */
+.symbol, .logo {
+  filter: invert(0%) sepia(6%) saturate(2419%) hue-rotate(37deg) brightness(89%) contrast(78%);
+}
+
+svg {
+  fill: #848484;
+}
+
+*::-webkit-calendar-picker-indicator {
+  filter: invert(54%) sepia(0%) saturate(82%) hue-rotate(144deg) brightness(96%) contrast(89%);
+}
+
+/* -------------------------------------------------------------------------- */
 /*                           #pragma Generic Modules                          */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
@@ -95,7 +106,7 @@ p {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  background-color: #470224;
+  background-color: #EB0877;
 }
 
 .button-primary label, .continue-with-button label {
@@ -119,20 +130,36 @@ p {
   outline: 0;
 }
 
-.button-primary.left, .left.continue-with-button {
-  grid-column: 1 / span 1;
-  justify-self: flex-start;
-}
-
-.button-primary.right, .right.continue-with-button {
-  grid-column: 2 / span 1;
-  justify-self: flex-end;
+.button-primary label, .continue-with-button label {
+  color: white;
 }
 
 .button-secondary {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background-color: #F2F2F7;
+  border: none;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  background-color: #E6ADC9;
+  width: 50%;
+}
+
+.button-secondary label {
+  color: #5B5B5B;
+}
+
+.button-secondary img, .button-secondary svg {
+  margin-right: 5px;
+}
+
+.button-secondary:focus {
+  outline: 0;
 }
 
 .button-secondary label {
@@ -141,6 +168,21 @@ p {
 }
 
 .button-secondary:focus {
+  outline: 0;
+}
+
+.button-tertiary {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.button-tertiary label {
+  color: #EB0877;
+  cursor: pointer;
+}
+
+.button-tertiary:focus {
   outline: 0;
 }
 
@@ -174,8 +216,22 @@ p {
   margin-bottom: 30px;
 }
 
+.input-group.left {
+  grid-column: 1 / span 1;
+  justify-self: flex-start;
+}
+
+.input-group.right {
+  grid-column: 2 / span 1;
+  justify-self: flex-end;
+}
+
+.input-group.stretch {
+  grid-column: 1 / span 2;
+  justify-self: center;
+}
+
 .input-group .input-text,
-.input-group .input-password,
 .input-group .input-search,
 .input-group .input-date,
 .input-group .input-select,
@@ -189,7 +245,6 @@ p {
   border-radius: 15px;
   background-color: #F2F2F7;
   border: none;
-  margin-top: 10px;
   padding-left: 15px;
   display: flex;
   align-items: center;
@@ -197,7 +252,6 @@ p {
 }
 
 .input-group .input-text label,
-.input-group .input-password label,
 .input-group .input-search label,
 .input-group .input-date label,
 .input-group .input-select label,
@@ -207,8 +261,6 @@ p {
 }
 
 .input-group .input-text img, .input-group .input-text svg,
-.input-group .input-password img,
-.input-group .input-password svg,
 .input-group .input-search img,
 .input-group .input-search svg,
 .input-group .input-date img,
@@ -223,7 +275,6 @@ p {
 }
 
 .input-group .input-text:focus,
-.input-group .input-password:focus,
 .input-group .input-search:focus,
 .input-group .input-date:focus,
 .input-group .input-select:focus,
@@ -233,8 +284,6 @@ p {
 }
 
 .input-group .input-text input, .input-group .input-text textarea,
-.input-group .input-password input,
-.input-group .input-password textarea,
 .input-group .input-search input,
 .input-group .input-search textarea,
 .input-group .input-date input,
@@ -262,8 +311,6 @@ p {
 }
 
 .input-group .input-text input label, .input-group .input-text textarea label,
-.input-group .input-password input label,
-.input-group .input-password textarea label,
 .input-group .input-search input label,
 .input-group .input-search textarea label,
 .input-group .input-date input label,
@@ -278,10 +325,6 @@ p {
 }
 
 .input-group .input-text input img, .input-group .input-text input svg, .input-group .input-text textarea img, .input-group .input-text textarea svg,
-.input-group .input-password input img,
-.input-group .input-password input svg,
-.input-group .input-password textarea img,
-.input-group .input-password textarea svg,
 .input-group .input-search input img,
 .input-group .input-search input svg,
 .input-group .input-search textarea img,
@@ -306,8 +349,6 @@ p {
 }
 
 .input-group .input-text input:focus, .input-group .input-text textarea:focus,
-.input-group .input-password input:focus,
-.input-group .input-password textarea:focus,
 .input-group .input-search input:focus,
 .input-group .input-search textarea:focus,
 .input-group .input-date input:focus,
@@ -322,8 +363,6 @@ p {
 }
 
 .input-group .input-text input:placeholder, .input-group .input-text textarea:placeholder,
-.input-group .input-password input:placeholder,
-.input-group .input-password textarea:placeholder,
 .input-group .input-search input:placeholder,
 .input-group .input-search textarea:placeholder,
 .input-group .input-date input:placeholder,
@@ -337,9 +376,21 @@ p {
   color: #5B5B5B;
 }
 
+.input-group .input-text input:invalid::-webkit-datetime-edit, .input-group .input-text textarea:invalid::-webkit-datetime-edit,
+.input-group .input-search input:invalid::-webkit-datetime-edit,
+.input-group .input-search textarea:invalid::-webkit-datetime-edit,
+.input-group .input-date input:invalid::-webkit-datetime-edit,
+.input-group .input-date textarea:invalid::-webkit-datetime-edit,
+.input-group .input-select input:invalid::-webkit-datetime-edit,
+.input-group .input-select textarea:invalid::-webkit-datetime-edit,
+.input-group .input-username input:invalid::-webkit-datetime-edit,
+.input-group .input-username textarea:invalid::-webkit-datetime-edit,
+.input-group .input-textarea input:invalid::-webkit-datetime-edit,
+.input-group .input-textarea textarea:invalid::-webkit-datetime-edit {
+  color: #5B5B5B;
+}
+
 .input-group .input-text input:focus, .input-group .input-text textarea:focus,
-.input-group .input-password input:focus,
-.input-group .input-password textarea:focus,
 .input-group .input-search input:focus,
 .input-group .input-search textarea:focus,
 .input-group .input-date input:focus,
@@ -354,13 +405,21 @@ p {
 }
 
 .input-group .input-text svg,
-.input-group .input-password svg,
 .input-group .input-search svg,
 .input-group .input-date svg,
 .input-group .input-select svg,
 .input-group .input-username svg,
 .input-group .input-textarea svg {
   width: 70px;
+}
+
+.input-group .input-text svg.check,
+.input-group .input-search svg.check,
+.input-group .input-date svg.check,
+.input-group .input-select svg.check,
+.input-group .input-username svg.check,
+.input-group .input-textarea svg.check {
+  fill: #4CD16B;
 }
 
 .input-group .input-search {
@@ -390,10 +449,6 @@ p {
 
 .input-group .input-date input {
   width: 95%;
-}
-
-.input-group .input-date input::-webkit-calendar-picker-indicator {
-  filter: invert(8%) sepia(0%) saturate(31%) hue-rotate(187deg) brightness(92%) contrast(91%);
 }
 
 .input-group .input-select {
@@ -435,6 +490,16 @@ p {
 
 .input-group label {
   color: #848484;
+  line-height: 30px;
+}
+
+.input-group label.top {
+  margin-bottom: 10px;
+}
+
+.input-group label.bottom {
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -502,13 +567,21 @@ p {
   margin-right: 5px;
 }
 
+.password-validator span svg.check {
+  fill: #4CD16B;
+}
+
+.password-validator span svg.x {
+  fill: #EB0877;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                          #pragma Registration Form                         */
 /* -------------------------------------------------------------------------- */
 .form-container {
   grid-area: 1 / 2 / span 1 / span 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 350px 350px;
   column-gap: 40px;
   justify-items: center;
 }
@@ -539,85 +612,18 @@ p {
   background-color: #FFFFFF;
 }
 
-.form-container #input-username-picker label {
-  color: #4CD16B;
-}
-
 #login {
   grid-template-columns: 350px;
 }
 
 #login #button-sign-in {
   margin-bottom: 30px;
-}
-
-#login #button-sign-in button {
-  width: 350px;
-}
-
-#button-back, #button-continue {
-  align-self: center;
-  margin-top: 60px;
   width: 100%;
 }
 
-#button-back {
-  grid-column: 1 / span 1;
-  justify-self: flex-start;
-}
-
-#button-continue {
-  grid-column: 2 / span 1;
-  justify-self: flex-end;
-}
-
-#sign-up-1 {
-  width: 700px;
-}
-
-#sign-up-1 #username {
-  grid-column: 1 / span 2;
-}
-
-#sign-up-1 #username .input-username {
-  margin-bottom: 10px;
-}
-
-#sign-up-1 #email, #sign-up-1 #password {
-  grid-column: 1 / span 2;
-}
-
-#sign-up-2 {
-  width: 700px;
-}
-
-#sign-up-2 #first-name {
-  justify-self: left;
-}
-
-#sign-up-2 #last-name {
-  grid-column: 2 / span 1;
-  justify-self: right;
-}
-
-#sign-up-2 #edu-name {
-  grid-column: 1 / span 2;
-}
-
-#sign-up-3 {
-  width: 700px;
-}
-
-#sign-up-3 #bio {
-  grid-column: 1 / span 2;
-}
-
-#sign-up-4 {
-  width: 700px;
-}
-
-#sign-up-4 #search {
-  grid-column: 1 / span 2;
+#button-back, #button-continue {
+  margin-top: 60px;
+  width: 100%;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -656,10 +662,6 @@ p {
 
 .skill-container .skill-group .skill:focus {
   outline: 0;
-}
-
-.skill-container .skill-group .skill svg {
-  fill: #5B5B5B;
 }
 
 .skill-container .skill-group .skill.selected {

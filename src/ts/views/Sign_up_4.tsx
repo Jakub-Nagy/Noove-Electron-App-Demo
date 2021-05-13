@@ -23,7 +23,7 @@ export default class Sign_up_4 extends React.Component {
                 </div>
 
                 {/* Search */}
-                <div className="input-group" id="search">
+                <div className="input-group stretch" id="search">
                     <div className="input-search">
                         <SearchIcon size={20} />
                         <input type="search" placeholder="Search for skills" />

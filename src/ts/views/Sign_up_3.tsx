@@ -22,7 +22,7 @@ export default class Sign_up_3 extends React.Component {
                 </div>
 
                 {/* Your Bio */}
-                <div className="input-group" id="bio">
+                <div className="input-group stretch" id="bio">
                     <label>Your Bio</label>
                     <div className="input-textarea">
                         <textarea placeholder="Hello everyone I'm Amogus."></textarea>

@@ -23,7 +23,7 @@ export default class Sign_up_1 extends React.Component {
                 </div>
 
                 {/* First name */}
-                <div className="input-group" id="first-name">
+                <div className="input-group left" id="first-name">
                     <label>First name</label><br/>
                     <div className="input-text">
                         <input type="text" placeholder="John" />
@@ -31,7 +31,7 @@ export default class Sign_up_1 extends React.Component {
                 </div>
 
                 {/* Last name */}
-                <div className="input-group" id="last-name">
+                <div className="input-group right" id="last-name">
                     <label>Last name</label><br/>
                     <div className="input-text">
                         <input type="text" placeholder="Smith" />
@@ -42,7 +42,7 @@ export default class Sign_up_1 extends React.Component {
                 <div className="input-group" id="date-of-birth">
                     <label>Date of birth</label>
                     <div className="input-date">
-                        <input type="date" />
+                        <input type="date" required />
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@ export default class Sign_up_1 extends React.Component {
                 </div>
 
                 {/* Name of educational institution */}
-                <div className="input-group" id="edu-name">
+                <div className="input-group stretch" id="edu-name">
                     <label>Name of educational institution</label>
                     <div className="input-text">
                         <input type="text" placeholder="Example School" />

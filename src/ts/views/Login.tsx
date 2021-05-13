@@ -30,7 +30,7 @@ export default class Login extends React.Component {
 
                 {/* Username or email */}
                 <div className="input-group">
-                    <label>Username</label><br/>
+                    <label>Username</label>
                     <div className="input-text">
                         <input type="text" />
                     </div>
@@ -38,8 +38,8 @@ export default class Login extends React.Component {
 
                 {/* Password */}
                 <div className="input-group">
-                    <label>Password</label><br/>
-                    <div className="input-password">
+                    <label>Password</label>
+                    <div className="input-text">
                         <input type="password" />
                         <EyeClosedIcon size={20} />
                     </div>
@@ -54,7 +54,7 @@ export default class Login extends React.Component {
 
                 {/* Secondary button */}
                 <Link to="/Sign_up_1" id="button-sign-up">
-                    <button className="button-secondary">
+                    <button className="button-tertiary">
                         <label>Create an account</label>
                     </button>
                 </Link>

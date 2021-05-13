@@ -64,13 +64,6 @@ body {
     grid-template-columns: 1fr 5fr 1fr;
     justify-items: center;
     align-items: center;
-
-    .symbol, .logo {
-        filter: invert(0%) sepia(6%) saturate(2419%) hue-rotate(37deg) brightness(89%) contrast(78%);
-        @if $theme == "dark" {
-            filter: invert(100%) sepia(62%) saturate(0%) hue-rotate(180deg) brightness(113%) contrast(91%);
-        }
-    }
     .symbol {
         align-self: flex-start;
         justify-self: start;
@@ -116,6 +109,29 @@ p {
     color: $theme-text-tertiary;
     font-size: 15px;
     font-weight: 600;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            #pragma Icon Coloring                           */
+/* -------------------------------------------------------------------------- */
+
+.symbol, .logo {
+    filter: invert(0%) sepia(6%) saturate(2419%) hue-rotate(37deg) brightness(89%) contrast(78%);
+    @if $theme == "dark" {
+        filter: invert(100%) sepia(62%) saturate(0%) hue-rotate(180deg) brightness(113%) contrast(91%);
+    }
+}
+
+svg {
+    fill: $theme-text-tertiary;
+}
+
+*::-webkit-calendar-picker-indicator {
+    filter: invert(54%) sepia(0%) saturate(82%) hue-rotate(144deg) brightness(96%) contrast(89%);
+
+    @if $theme == "dark" {
+        filter: invert(15%) sepia(3%) saturate(601%) hue-rotate(202deg) brightness(96%) contrast(92%);
+    }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -171,19 +187,22 @@ p {
     @include button;
 
     // Changes
-    background-color: $highlight-pink-secondary;
-
-    &.left {
-        grid-column: 1 / span 1;
-        justify-self: flex-start;
-    }
-    &.right {
-        grid-column: 2 / span 1;
-        justify-self: flex-end;
-    }
+    background-color: $highlight-pink-primary;
+    label {
+        color: white;
+    } 
 }
 
 .button-secondary {
+    @include rounded-box;
+    @include button;
+
+    // Changes
+    background-color: $highlight-pink-tertiary;
+    width: 50%;
+}
+
+.button-tertiary {
     @include button;
 }
 
@@ -219,9 +238,22 @@ p {
         margin-bottom: 30px;
     }
 
+    // Self layout
+    &.left {
+        grid-column: 1 / span 1;
+        justify-self: flex-start;
+    }
+    &.right {
+        grid-column: 2 / span 1;
+        justify-self: flex-end;
+    }
+    &.stretch {
+        grid-column: 1 / span 2;
+        justify-self: center;
+    }
+
     // Generic input
     .input-text,
-    .input-password,
     .input-search,
     .input-date,
     .input-select,
@@ -230,7 +262,6 @@ p {
         @include rounded-box;
 
         // Layout
-        margin-top: 10px;
         padding-left: 15px;
         display: flex;
         align-items: center;
@@ -251,15 +282,21 @@ p {
             &:placeholder {
                 color: $theme-text-secondary;
             }
+            &:invalid::-webkit-datetime-edit {
+                color: $theme-text-secondary;
+            }
             &:focus {
                 outline: 0;
             }
         }
         svg {
             width: 70px;
+
+            &.check {
+                fill: $color-success-green;
+            }
         }
     }
-
     .input-search {
         padding: 0 15px;
         input {
@@ -288,16 +325,8 @@ p {
     .input-date {
         input {
             width: 95%;
-            &::-webkit-calendar-picker-indicator {
-                filter: invert(8%) sepia(0%) saturate(31%) hue-rotate(187deg) brightness(92%) contrast(91%);
-
-                @if $theme == "dark" {
-                    filter: invert(100%) sepia(48%) saturate(7%) hue-rotate(227deg) brightness(110%) contrast(91%);
-                }
-            }
         }
     }
-
     .input-select {
         -webkit-appearance: none;
 
@@ -309,7 +338,6 @@ p {
             15px 15px;
         background-repeat: no-repeat;
     }
-
     .input-username {
         .available {
             width: 120px;
@@ -325,7 +353,6 @@ p {
             display: inline-block;
         }
     }
-
     .input-textarea {
         grid-column: 1 / span 2;
         width: 100%;
@@ -341,6 +368,18 @@ p {
     
     label {
         color: $theme-text-tertiary;
+
+        // Default margin
+        line-height: 30px;
+
+        // Different label positions
+        &.top {
+            margin-bottom: 10px;
+        }
+        &.bottom {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -409,6 +448,13 @@ p {
 
         svg {
             margin-right: 5px;
+
+            &.check {
+                fill: $color-success-green;
+            }
+            &.x {
+                fill: $highlight-pink-primary;
+            }
         }
     }
 }
@@ -423,7 +469,7 @@ p {
 
     // Children layout
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 350px 350px;
     column-gap: 40px;
     justify-items: center;
 
@@ -451,11 +497,7 @@ p {
             text-align: center;
             background-color: $theme-background-primary;
         }
-    }
-       
-    #input-username-picker label {
-        color: $color-success-green;
-    }   
+    }  
 }
 
 #login {
@@ -463,65 +505,13 @@ p {
 
     #button-sign-in {
         margin-bottom: 30px;
-        button {
-            width: 350px;
-        }
+        width: 100%;
     }
 }
 
 #button-back, #button-continue {
-    align-self: center;
     margin-top: 60px;
     width: 100%;
-}
-#button-back {
-    grid-column: 1 / span 1;
-    justify-self: flex-start;
-}
-#button-continue {
-    grid-column: 2 / span 1;
-    justify-self: flex-end;
-}
-
-#sign-up-1 {
-    width: 700px;
-    #username {
-        grid-column: 1 / span 2;
-        .input-username {
-            margin-bottom: 10px;
-        }
-    }
-    #email, #password {
-        grid-column: 1 / span 2;
-    }
-}
-
-#sign-up-2 {
-    width: 700px;
-    #first-name {
-        justify-self: left;
-    }
-    #last-name {
-        grid-column: 2 / span 1;
-        justify-self: right;
-    }
-    #edu-name {
-        grid-column: 1 / span 2;
-    }
-}
-
-#sign-up-3 {
-    width: 700px;
-    #bio {
-        grid-column: 1 / span 2;
-    }
-}
-
-#sign-up-4 {
-    width: 700px;
-    #search {
-        grid-column: 1 / span 2;
-    }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -546,14 +536,10 @@ p {
             margin: 10px 0;
             cursor: pointer;
 
-            svg {
-                fill: $theme-text-secondary;
-            }
             &.selected {
                 background-color: $highlight-pink-secondary;
                 label {
-                    color: $highlight-pink-primary;
-                    
+                    color: $highlight-pink-primary;    
                 }
                 svg {
                     fill: $highlight-pink-primary;
