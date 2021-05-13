@@ -94,7 +94,14 @@ export default class Sign_up_4 extends React.Component {
                     <button className="button-primary">
                         <label>Finish up</label>
                     </button>
-                </Link>     
+                </Link>
+
+                {/* TOS agreement */}
+                <p className="TOS right">
+                    By clicking this button you agree to our
+                    <a href="https://noove.org/tos"> Terms of Service</a>
+                </p> 
+                
             </div>
         );
     }
