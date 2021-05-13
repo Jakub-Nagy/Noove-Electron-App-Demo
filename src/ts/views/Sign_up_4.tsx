@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {SearchIcon, CpuIcon, CodeIcon} from '@primer/octicons-react';
+import Select from 'react-select';
+import skills from '../utility/Skills';
+
 
 
 export default class Sign_up_4 extends React.Component {
@@ -21,6 +24,20 @@ export default class Sign_up_4 extends React.Component {
                         <div className="selected"></div>
                     </div>
                 </div>
+
+                {/* Skill picker */}
+                <div className="input-group stretch" id="skill-picker">
+                    <Select
+                        defaultValue={[skills[2], skills[3]]}
+                        isMulti
+                        name="colors"
+                        options={skills}
+                        className="basic-multi-select input"
+                        classNamePrefix="select"
+                    />
+                </div>
+
+                
 
                 {/* Search */}
                 <div className="input-group stretch" id="search">
