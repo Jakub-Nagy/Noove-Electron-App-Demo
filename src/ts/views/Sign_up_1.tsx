@@ -40,6 +40,7 @@ export default class Sign_up_1 extends React.Component {
                     <label>Email address</label>
                     <span className="input-text">
                         <input type="text" placeholder="example@example.example" />
+                        <CheckIcon className="check" size={20} />
                     </span>
                 </div>
 
