@@ -411,6 +411,7 @@ svg {
                 label {
                     color: $theme-background-primary;
                     font-size: 12px;
+                    font-weight: 600;
                 }
                 svg {
                     margin: 0 5px;
@@ -430,6 +431,7 @@ svg {
    
             .section-title {
                 font-size: 14px;
+                font-weight: 600;
                 color: $theme-text-secondary;
             }
             .skill-group {
@@ -441,6 +443,7 @@ svg {
             }
             .skill label {
                 font-size: 14px;
+                font-weight: 400;
                 color: $theme-text-primary;
             }
             .skill {

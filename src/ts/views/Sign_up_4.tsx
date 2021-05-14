@@ -85,6 +85,41 @@ export default class Sign_up_4 extends React.Component {
                 <div className="input-group stretch" id="search">
                     <div className="skill-picker">
 
+                        <div className="selected">
+                            <div className="skill">
+                                <CpuIcon size={16} />
+                                <label>Hardware Development</label>
+                                <XIcon size={16} className="close" />
+                            </div>
+                            <div className="skill">
+                                <CpuIcon size={16} />
+                                <label>Software Development</label>
+                                <XIcon size={16} className="close" />
+                            </div>
+                            <div className="skill">
+                                <CpuIcon size={16} />
+                                <label>Design</label>
+                                <XIcon size={16} className="close" />
+                            </div>
+                            <div className="skill">
+                                <CpuIcon size={16} />
+                                <label>Design</label>
+                                <XIcon size={16} className="close" />
+                            </div>
+                            <div className="skill">
+                                <CpuIcon size={16} />
+                                <label>Design</label>
+                                <XIcon size={16} className="close" />
+                            </div>
+                            <div className="skill">
+                                <CpuIcon size={16} />
+                                <label>Design</label>
+                                <XIcon size={16} className="close" />
+                            </div>
+                        </div>
+
+                        <span className="divider"></span>
+
                         <div className="input-search">
                             <SearchIcon size={20} />
                             <input type="search" placeholder="Search for skills" />
@@ -106,6 +141,21 @@ export default class Sign_up_4 extends React.Component {
                                 <div className="skill">
                                     <input type="checkbox" id="mechanical-engineering" />
                                     <label htmlFor="mechanical-engineering">Mechanical Engineering</label>
+                                </div>
+                            </div>
+                            <h3 className="section-title">Science</h3>
+                            <div className="skill-group">
+                                <div className="skill">
+                                    <input type="checkbox" id="astronomy" />
+                                    <label htmlFor="astronomy">Astronomy</label>
+                                </div>
+                                <div className="skill">
+                                    <input type="checkbox" id="biology" />
+                                    <label htmlFor="biology">Biology</label>
+                                </div>
+                                <div className="skill">
+                                    <input type="checkbox" id="chemistry" />
+                                    <label htmlFor="chemistry">Chemistry</label>
                                 </div>
                             </div>
                             <h3 className="section-title">Science</h3>

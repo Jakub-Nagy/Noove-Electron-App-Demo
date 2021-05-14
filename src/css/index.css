@@ -555,6 +555,7 @@ svg.x {
 .input-group .skill-picker .selected .skill label {
   color: #FFFFFF;
   font-size: 12px;
+  font-weight: 600;
 }
 
 .input-group .skill-picker .selected .skill svg {
@@ -579,6 +580,7 @@ svg.x {
 
 .input-group .skill-picker .dropdown .section-title {
   font-size: 14px;
+  font-weight: 600;
   color: #5B5B5B;
 }
 
@@ -592,6 +594,7 @@ svg.x {
 
 .input-group .skill-picker .dropdown .skill label {
   font-size: 14px;
+  font-weight: 400;
   color: #1C1C1C;
 }
 
