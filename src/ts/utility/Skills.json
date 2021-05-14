@@ -1,0 +1,114 @@
+{
+    "skills": {
+        "engineering": {
+            "civil-engineering": {
+                "label": "Civil Engineering (Architecture)",
+                "icon": "CpuIcon"
+            },
+            "bioengineering": {
+                "label": "Bioengineering",
+                "icon": "CpuIcon"
+            },
+            "chemical-engineering": {
+                "label": "Chemical Engineering",
+                "icon": "CpuIcon"
+            },
+            "electrical-engineering": {
+                "label": "Electrical Engineering",
+                "icon": "CpuIcon"
+            },
+            "mechanical-engineering": {
+                "label": "Mechanical Engineering",
+                "icon": "CpuIcon"
+            },
+            "software-engineering": {
+                "label": "Software Engineering",
+                "icon": "CpuIcon"
+            }
+        },
+        "science": {
+            "astronomy": {
+                "label": "Astronomy",
+                "icon": "RocketIcon"
+            },
+            "biology": {
+                "label": "Biology",
+                "icon": "CpuIcon"
+            },
+            "chemistry": {
+                "label": "Chemistry",
+                "icon": "BeakerIcon"
+            },
+            "mathematics": {
+                "label": "Mathematics",
+                "icon": "CpuIcon"
+            },
+            "physics": {
+                "label": "Physics",
+                "icon": "CpuIcon"
+            },
+            "social-sciences": {
+                "label": "Social Sciences",
+                "icon": "CpuIcon"
+            }
+        },
+        "creative": {
+            "musical-art": {
+                "label": "Musical Art",
+                "icon": "CpuIcon"
+            },
+            "photography": {
+                "label": "Photography",
+                "icon": "CpuIcon"
+            },
+            "user-experience-design": {
+                "label": "User Experience Design",
+                "icon": "CpuIcon"
+            },
+            "visual-art": {
+                "label": "Visual Art",
+                "icon": "CpuIcon"
+            },
+            "videography": {
+                "label": "Videography",
+                "icon": "CpuIcon"
+            },
+            "web-design": {
+                "label": "Web Design",
+                "icon": "CpuIcon"
+            }
+        },
+        "marketing": {
+            "marketing-strategy": {
+                "label": "Marketing Strategy",
+                "icon": "CpuIcon"
+            },
+            "seo": {
+                "label": "SEO",
+                "icon": "CpuIcon"
+            },
+            "social-media-management": {
+                "label": "Social Media Management",
+                "icon": "CpuIcon"
+            }
+        },
+        "business": {
+            "accounting": {
+                "label": "Accounting",
+                "icon": "CpuIcon"
+            },
+            "finance-strategy": {
+                "label": "Finance Strategy",
+                "icon": "CpuIcon"
+            },
+            "law": {
+                "label": "Law",
+                "icon": "CpuIcon"
+            },
+            "management": {
+                "label": "Management",
+                "icon": "CpuIcon"
+            }
+        }
+    }
+}

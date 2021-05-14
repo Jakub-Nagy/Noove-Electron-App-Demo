@@ -10,7 +10,7 @@ export default class Sign_up_1 extends React.Component {
                 {/* Step instructions */}
                 <div className="instruction-group">
                     <h3>Sign Up</h3>
-                    <h2>Fill in your details</h2>
+                    <h2>Set up your account</h2>
 
                     {/* Progress */}
                     <label>Step 1/4</label>

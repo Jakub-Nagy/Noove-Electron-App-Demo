@@ -86,6 +86,17 @@ body {
     justify-self: center;
 }
 
+// Scrollbar styling
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #C4C4C4; 
+    border-radius: 5px;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                             #pragma Typography                             */
 /* -------------------------------------------------------------------------- */
@@ -210,7 +221,7 @@ svg {
     // Changes
     background-color: $highlight-pink-primary;
     label {
-        color: white;
+        color: $theme-background-primary;
     } 
 }
 
@@ -368,6 +379,135 @@ svg {
             height: 100%;
         }
     }
+    .skill-picker {
+        border-radius: 15px;
+        background-color: $theme-background-secondary;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+
+        svg {
+            width: 20px;
+            margin-right: 10px;
+        }
+        .input-search {
+            width: 100%;
+        }
+        .divider {
+            width: calc(100% + 100px);;
+            border-top: 1px solid $theme-background-tertiary;
+        }
+        .selected {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 10px 10px 10px;
+
+            .skill {
+                @include rounded-box;
+                width: auto;
+                height: auto;
+                margin: 5px;
+                background-color: $highlight-pink-primary;
+                label {
+                    color: $theme-background-primary;
+                    font-size: 12px;
+                }
+                svg {
+                    margin: 0 5px;
+                    fill: $theme-background-primary;
+                }
+                .close {
+                    cursor: pointer;
+                }
+            }
+        }
+        .dropdown {
+            width: 100%;
+            height: 20vh;
+            padding: 10px 10px 0 10px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+   
+            .section-title {
+                font-size: 14px;
+                color: $theme-text-secondary;
+            }
+            .skill-group {
+                margin-bottom: 30px;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+            .skill label {
+                font-size: 14px;
+                color: $theme-text-primary;
+            }
+            .skill {
+                margin: 10px 0;
+            }
+
+
+            input[type="checkbox"] {
+                position: absolute;
+                opacity: 0;
+                z-index: -1;
+            }
+            label {
+                position: relative;
+                display: inline-block;
+                padding-left: 30px;
+                height: 1.5em;
+                line-height: 1.5;
+            }
+            label::before,
+            label::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1.5em;
+                height: 1.5em;
+                cursor: pointer;
+            }
+            label::before {
+                content: " ";
+                border: 1px solid #bdc3c7;
+                border-radius: 20%;
+            }
+            /* Checkbox */
+            input[type="checkbox"] + label::after {
+                content: "\2713";
+                color: $theme-background-primary;
+                line-height: 1.5;
+                text-align: center;
+            }
+            /* :checked */
+            input[type="checkbox"]:checked + label::before {
+                background: $highlight-pink-primary;
+                border: 0;
+            }
+            input[type="checkbox"] + label::after {
+                -webkit-transform: scale(0);
+                -ms-transform: scale(0);
+                -o-transform: scale(0);
+                transform: scale(0);
+            }
+            input[type="checkbox"]:checked + label::after {
+                -webkit-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+                transform: scale(1);
+            }
+            /* Transition */
+            label::before,
+            label::after {
+                -webkit-transition: .25s all ease;
+                -o-transition: .25s all ease;
+                transition: .25s all ease;
+            }
+        }
+    }
+    
     
     label {
         color: $theme-text-tertiary;

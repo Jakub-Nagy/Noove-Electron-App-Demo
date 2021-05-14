@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {SearchIcon, CpuIcon, CodeIcon} from '@primer/octicons-react';
+import {SearchIcon, CpuIcon, CodeIcon, XIcon} from '@primer/octicons-react';
 import Select from 'react-select';
 import skills from '../utility/Skills';
-
-
 
 export default class Sign_up_4 extends React.Component {
     render() {
@@ -32,69 +30,99 @@ export default class Sign_up_4 extends React.Component {
                         isMulti
                         name="colors"
                         options={skills}
-                        className="basic-multi-select input"
+                        className="basic-multi-select"
                         classNamePrefix="select"
+                        placeholder="Search for skills"
                     />
                 </div>
 
-                
-
                 {/* Search */}
-                <div className="input-group stretch" id="search">
-                    <div className="input-search">
-                        <SearchIcon size={20} />
-                        <input type="search" placeholder="Search for skills" />
+                <div className="input-group stretch">
+                    <div className="skill-picker">
+                        <div className="selected">
+                            <div className="skill">
+                                <CpuIcon size={16} />
+                                <label>Hardware Development</label>
+                                <XIcon size={16} className="close" />
+                            </div>
+                            <div className="skill">
+                                <CpuIcon size={16} />
+                                <label>Software Development</label>
+                                <XIcon size={16} className="close" />
+                            </div>
+                            <div className="skill">
+                                <CpuIcon size={16} />
+                                <label>Design</label>
+                                <XIcon size={16} className="close" />
+                            </div>
+                            <div className="skill">
+                                <CpuIcon size={16} />
+                                <label>Design</label>
+                                <XIcon size={16} className="close" />
+                            </div>
+                            <div className="skill">
+                                <CpuIcon size={16} />
+                                <label>Design</label>
+                                <XIcon size={16} className="close" />
+                            </div>
+                            <div className="skill">
+                                <CpuIcon size={16} />
+                                <label>Design</label>
+                                <XIcon size={16} className="close" />
+                            </div>
+                        </div>
+
+                        <span className="divider"></span>
+
+                        <div className="input-search">
+                            <SearchIcon size={20} />
+                            <input type="search" placeholder="Search for skills" />
+                        </div>
                     </div>
                 </div>
 
-                <div className="skill-container">
-                    <div className="skill-group">
-                        <h3>Technology</h3>
-                        <div className="skill">
-                            <CpuIcon size={18} />
-                            <label>Hardware Development</label>
+                {/* Legacy Search */}
+                <div className="input-group stretch" id="search">
+                    <div className="skill-picker">
+
+                        <div className="input-search">
+                            <SearchIcon size={20} />
+                            <input type="search" placeholder="Search for skills" />
                         </div>
-                        <div className="skill">
-                            <CodeIcon size={18} />
-                            <label>Software Development</label>
-                        </div>
-                        <div className="skill">
-                            <CpuIcon size={18} />
-                            <label>Hardware Development</label>
-                        </div>
-                        <div className="skill">
-                            <CpuIcon size={18} />
-                            <label>Hardware Development</label>
-                        </div>
-                    </div>
-                    <div className="skill-group">
-                        <h3>Design</h3>
-                        <div className="skill">
-                            <CpuIcon size={18} />
-                            <label>Hardware Development</label>
-                        </div>
-                        <div className="skill selected">
-                            <CpuIcon size={18} />
-                            <label>Hardware Development</label>
-                        </div>
-                        <div className="skill">
-                            <CpuIcon size={18} />
-                            <label>Hardware Development</label>
-                        </div>
-                    </div>
-                    <div className="skill-group">
-                        <h3>Management</h3>
-                        <div className="skill selected">
-                            <CpuIcon size={18} />
-                            <label>Hardware Development</label>
-                        </div>
-                        <div className="skill">
-                            <CpuIcon size={18} />
-                            <label>Hardware Development</label>
-                        </div>
-                        <div className="skill">
-                            <CpuIcon size={18} />
-                            <label>Hardware Development</label>
+                        
+                        <span className="divider"></span>
+
+                        <div className="dropdown">
+                            <h3 className="section-title">Engineering</h3>
+                            <div className="skill-group">
+                                <div className="skill">
+                                    <input type="checkbox" id="civil-engineering" />
+                                    <label htmlFor="civil-engineering">Civil Engineering (Architecture)</label>
+                                </div>
+                                <div className="skill">
+                                    <input type="checkbox" id="electrical-engineering" />
+                                    <label htmlFor="electrical-engineering">Electrical Engineering</label>
+                                </div>
+                                <div className="skill">
+                                    <input type="checkbox" id="mechanical-engineering" />
+                                    <label htmlFor="mechanical-engineering">Mechanical Engineering</label>
+                                </div>
+                            </div>
+                            <h3 className="section-title">Science</h3>
+                            <div className="skill-group">
+                                <div className="skill">
+                                    <input type="checkbox" id="astronomy" />
+                                    <label htmlFor="astronomy">Astronomy</label>
+                                </div>
+                                <div className="skill">
+                                    <input type="checkbox" id="biology" />
+                                    <label htmlFor="biology">Biology</label>
+                                </div>
+                                <div className="skill">
+                                    <input type="checkbox" id="chemistry" />
+                                    <label htmlFor="chemistry">Chemistry</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
