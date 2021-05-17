@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {EyeIcon,EyeClosedIcon} from '@primer/octicons-react'
+import { TextInput, PasswordInput } from '../components/Inputs'
 
 export default class Login extends React.Component {
     render() {
@@ -28,22 +28,11 @@ export default class Login extends React.Component {
                     <span className="line"></span>
                 </div>
 
-                {/* Username or email */}
-                <div className="input-group">
-                    <label>Username</label>
-                    <div className="input-text">
-                        <input type="text" />
-                    </div>
-                </div>
+                {/* Username */}
+                <TextInput topLabel="Username" value={(value: any) => {console.log(value);}} />
 
                 {/* Password */}
-                <div className="input-group">
-                    <label>Password</label>
-                    <div className="input-text">
-                        <input type="password" />
-                        <EyeClosedIcon size={20} />
-                    </div>
-                </div>
+                <PasswordInput topLabel="Password" value={(value: any) => {console.log(value);}} />
           
                 {/* Primary button */}
                 <Link to="/End" id="button-sign-in">

@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from "react-router-dom";
 import * as serviceWorker from './ts/utility/serviceWorker';
+import { RecoilRoot } from 'recoil';
 
 // Styling
 import './css/index.css';
@@ -17,19 +18,21 @@ import End from './ts/views/End';
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            {/* Noove symbol */}
-            <img src={require('./assets/noove-symbol.svg')} className="symbol" />
+        <RecoilRoot>
+            <BrowserRouter>
+                {/* Noove symbol */}
+                <img src={require('./assets/noove-symbol.svg')} className="symbol" />
 
-            <div className="App">
-                <Route path="/" exact component={Login} />
-                <Route path="/Sign_up_1" exact component={Sign_up_1} />
-                <Route path="/Sign_up_2" exact component={Sign_up_2} />
-                <Route path="/Sign_up_3" exact component={Sign_up_3} />
-                <Route path="/Sign_up_4" exact component={Sign_up_4} />
-                <Route path="/End" exact component={End} />
-            </div>
-        </BrowserRouter>
+                <div className="App">
+                    <Route path="/" exact component={Login} />
+                    <Route path="/Sign_up_1" exact component={Sign_up_1} />
+                    <Route path="/Sign_up_2" exact component={Sign_up_2} />
+                    <Route path="/Sign_up_3" exact component={Sign_up_3} />
+                    <Route path="/Sign_up_4" exact component={Sign_up_4} />
+                    <Route path="/End" exact component={End} />
+                </div>
+            </BrowserRouter>
+        </RecoilRoot>
     </React.StrictMode>,
     document.getElementById('view-layout')
 );

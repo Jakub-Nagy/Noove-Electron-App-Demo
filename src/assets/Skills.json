@@ -2,19 +2,19 @@
     {
         "id": "civil-engineering",
         "label": "Civil Engineering (Architecture)",
-        "icon": "CpuIcon",
+        "icon": "OrganizationIcon",
         "category": "engineering"
     },
     {
         "id": "bioengineering",
         "label": "Bioengineering",
-        "icon": "CpuIcon",
+        "icon": "HeartFillIcon",
         "category": "engineering"
     },
     {
         "id": "chemical-engineering",
         "label": "Chemical Engineering",
-        "icon": "CpuIcon",
+        "icon": "BeakerIcon",
         "category": "engineering"
     },
     {
@@ -26,25 +26,25 @@
     {
         "id": "mechanical-engineering",
         "label": "Mechanical Engineering",
-        "icon": "CpuIcon",
+        "icon": "GearIcon",
         "category": "engineering"
     },
     {
         "id": "software-engineering",
         "label": "Software Engineering",
-        "icon": "CpuIcon",
+        "icon": "CodeIcon",
         "category": "engineering"
     },
     {
         "id": "astronomy",
         "label": "Astronomy",
-        "icon": "RocketIcon",
+        "icon": "TelescopeIcon",
         "category": "science"
     },
     {
         "id": "biology",
         "label": "Biology",
-        "icon": "CpuIcon",
+        "icon": "SquirrelIcon",
         "category": "science"
     },
     {
@@ -56,97 +56,103 @@
     {
         "id": "mathematics",
         "label": "Mathematics",
-        "icon": "CpuIcon",
+        "icon": "NumberIcon",
         "category": "science"
     },
     {
         "id": "physics",
         "label": "Physics",
-        "icon": "CpuIcon",
+        "icon": "ZapIcon",
         "category": "science"
     },
     {
         "id": "social-sciences",
         "label": "Social Sciences",
-        "icon": "CpuIcon",
+        "icon": "PeopleIcon",
         "category": "science"
     },
     {
         "id": "musical-art",
         "label": "Musical Art",
-        "icon": "CpuIcon",
+        "icon": "UnmuteIcon",
         "category": "creative"
     },
     {
         "id": "photography",
         "label": "Photography",
-        "icon": "CpuIcon",
+        "icon": "DeviceCameraIcon",
         "category": "creative"
     },
     {
         "id": "user-experience-design",
         "label": "User Experience Design",
-        "icon": "CpuIcon",
+        "icon": "DeviceDesktopIcon",
         "category": "creative"
     },
     {
         "id": "visual-art",
         "label": "Visual Art",
-        "icon": "CpuIcon",
+        "icon": "PaintbrushIcon",
         "category": "creative"
     },
     {
         "id": "videography",
         "label": "Videography",
-        "icon": "CpuIcon",
+        "icon": "DeviceCameraVideoIcon",
         "category": "creative"
     },
     {
         "id": "web-design",
         "label": "Web Design",
-        "icon": "CpuIcon",
+        "icon": "BrowserIcon",
+        "category": "creative"
+    },
+    {
+        "id": "writing",
+        "label": "Writing",
+        "icon": "PencilIcon",
         "category": "creative"
     },
     {
         "id": "marketing-strategy",
         "label": "Marketing Strategy",
-        "icon": "CpuIcon",
-        "category": "business"
+        "icon": "GraphIcon",
+        "category": "marketing"
     },
     {
         "id": "seo",
         "label": "SEO",
-        "icon": "CpuIcon",
-        "category": "business"
+        "icon": "GlobeIcon",
+        "category": "marketing"
     },
     {
         "id": "social-media-management",
         "label": "Social Media Management",
-        "icon": "CpuIcon",
-        "category": "business"
+        "icon": "LightBulbIcon",
+        "category": "marketing"
     },
     {
         "id": "accounting",
         "label": "Accounting",
-        "icon": "CpuIcon",
+        "icon": "ArchiveIcon",
         "category": "business"
     },
     {
         "id": "finance-strategy",
         "label": "Finance Strategy",
-        "icon": "CpuIcon",
+        "icon": "MortarBoardIcon",
         "category": "business"
     },
     {
         "id": "law",
         "label": "Law",
-        "icon": "CpuIcon",
+        "icon": "LawIcon",
         "category": "business"
     },
     {
         "id": "management",
         "label": "Management",
-        "icon": "CpuIcon",
+        "icon": "BriefcaseIcon",
         "category": "business"
     }
 ]  

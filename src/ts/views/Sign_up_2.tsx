@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { TextInput } from '../components/Inputs'
 
 
 export default class Sign_up_1 extends React.Component {
@@ -23,20 +24,10 @@ export default class Sign_up_1 extends React.Component {
                 </div>
 
                 {/* First name */}
-                <div className="input-group left" id="first-name">
-                    <label>First name</label><br/>
-                    <div className="input-text">
-                        <input type="text" placeholder="John" />
-                    </div>
-                </div>
+                <TextInput className="left" topLabel="First name" placeholder="John" value={(value: any) => {console.log(value);}} />
 
-                {/* Last name */}
-                <div className="input-group right" id="last-name">
-                    <label>Last name</label><br/>
-                    <div className="input-text">
-                        <input type="text" placeholder="Smith" />
-                    </div>
-                </div>
+                {/* Last Name */}
+                <TextInput className="right" topLabel="Last name" placeholder="Cena" value={(value: any) => {console.log(value);}} />
 
                 {/* Date of birth */}
                 <div className="input-group" id="date-of-birth">
@@ -57,12 +48,7 @@ export default class Sign_up_1 extends React.Component {
                 </div>
 
                 {/* Name of educational institution */}
-                <div className="input-group stretch" id="edu-name">
-                    <label>Name of educational institution</label>
-                    <div className="input-text">
-                        <input type="text" placeholder="Example School" />
-                    </div>
-                </div>
+                <TextInput className="stretch" topLabel="Name of educational institution" placeholder="Example School" value={(value: any) => {console.log(value);}} />
 
                 {/* Continue button */}
                 <Link to="/Sign_up_1" id="button-back">
