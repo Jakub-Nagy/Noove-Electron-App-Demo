@@ -1,25 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Search from '../components/Search';
+import Search from '../components/SkillPicker';
+import { InstructionSet } from '../components/TextElements';
 
 export default class Sign_up_4 extends React.Component {
     render() {
         return (
             <div className="form-container" id="sign-up-4">
                 {/* Step instructions */}
-                <div className="instruction-group">
-                    <h3>Sign Up</h3>
-                    <h2>Pick your skills</h2>
-
-                    {/* Progress */}
-                    <label>Step 4/4</label>
-                    <div className="progress-bar">
-                        <div className="selected"></div>
-                        <div className="selected"></div>
-                        <div className="selected"></div>
-                        <div className="selected"></div>
-                    </div>
-                </div>
+                <InstructionSet title="Pick your skills" subtitle="Sign Up" currentSteps={4} totalSteps={4} />
 
                 {/* Skill picker */}
                 <Search />

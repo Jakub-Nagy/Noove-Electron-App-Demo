@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { TextInput } from '../components/Inputs'
+import { TextInput } from '../components/Inputs';
+import { InstructionSet } from '../components/TextElements';
 
 
 export default class Sign_up_1 extends React.Component {
@@ -9,19 +10,7 @@ export default class Sign_up_1 extends React.Component {
             <div className="form-container" id="sign-up-2">
 
                 {/* Step instructions */}
-                <div className="instruction-group">
-                    <h3>Sign Up</h3>
-                    <h2>Fill in your details</h2>
-
-                    {/* Progress */}
-                    <label>Step 2/4</label>
-                    <div className="progress-bar">
-                        <div className="selected"></div>
-                        <div className="selected"></div>
-                        <div className="unselected"></div>
-                        <div className="unselected"></div>
-                    </div>
-                </div>
+                <InstructionSet title="Fill in your details" subtitle="Sign Up" currentSteps={2} totalSteps={4} />
 
                 {/* First name */}
                 <TextInput className="left" topLabel="First name" placeholder="John" value={(value: any) => {console.log(value);}} />

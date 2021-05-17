@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { EmailInput, UsernameInput, PasswordVerify } from '../components/Inputs'
+import { EmailInput, UsernameInput, PasswordVerify } from '../components/Inputs';
+import { InstructionSet } from '../components/TextElements';
 
 
 export default class Sign_up_1 extends React.Component {
@@ -8,19 +9,7 @@ export default class Sign_up_1 extends React.Component {
         return (
             <div className="form-container" id="sign-up-1">
                 {/* Step instructions */}
-                <div className="instruction-group">
-                    <h3>Sign Up</h3>
-                    <h2>Set up your account</h2>
-
-                    {/* Progress */}
-                    <label>Step 1/4</label>
-                    <div className="progress-bar">
-                        <div className="selected"></div>
-                        <div className="unselected"></div>
-                        <div className="unselected"></div>
-                        <div className="unselected"></div>
-                    </div>
-                </div>
+                <InstructionSet title="Set up your account" subtitle="Sign Up" currentSteps={1} totalSteps={4} />
 
                 {/* Username */}
                 <UsernameInput className="stretch" topLabel="Username" value={(value: any) => {console.log(value);}} valid="" bottomLabel="This will be your unique handle on Noove.com" />

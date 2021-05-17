@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { InstructionSet } from '../components/TextElements';
 
 
 export default class Sign_up_3 extends React.Component {
@@ -7,19 +8,7 @@ export default class Sign_up_3 extends React.Component {
         return (
             <div className="form-container" id="sign-up-3">
                 {/* Step instructions */}
-                <div className="instruction-group">
-                    <h3>Sign Up</h3>
-                    <h2>Describe yourself</h2>
-
-                    {/* Progress */}
-                    <label>Step 3/4</label>
-                    <div className="progress-bar">
-                        <div className="selected"></div>
-                        <div className="selected"></div>
-                        <div className="selected"></div>
-                        <div className="unselected"></div>
-                    </div>
-                </div>
+                <InstructionSet title="Describe yourself" subtitle="Sign Up" currentSteps={3} totalSteps={4} />
 
                 {/* Your Bio */}
                 <div className="input-group stretch" id="bio">

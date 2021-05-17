@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { TextInput, PasswordInput } from '../components/Inputs'
+import { TextInput, PasswordInput } from '../components/Inputs';
+import { Divider } from '../components/TextElements';
 
 export default class Login extends React.Component {
     render() {
@@ -23,10 +24,7 @@ export default class Login extends React.Component {
                 </button>
 
                 {/* OR divider */}
-                <div className="or-divider">
-                    <p>OR</p>
-                    <span className="line"></span>
-                </div>
+                <Divider />
 
                 {/* Username */}
                 <TextInput topLabel="Username" value={(value: any) => {console.log(value);}} />
