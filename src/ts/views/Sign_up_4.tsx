@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {SearchIcon, CpuIcon, CodeIcon, XIcon} from '@primer/octicons-react';
 import Select from 'react-select';
-import skills from '../utility/Skills';
+import skills from '../utility/Skills.json';
 
 export default class Sign_up_4 extends React.Component {
     render() {
@@ -24,64 +24,6 @@ export default class Sign_up_4 extends React.Component {
                 </div>
 
                 {/* Skill picker */}
-                <div className="input-group stretch" id="skill-picker">
-                    <Select
-                        defaultValue={[skills[2], skills[3]]}
-                        isMulti
-                        name="colors"
-                        options={skills}
-                        className="basic-multi-select"
-                        classNamePrefix="select"
-                        placeholder="Search for skills"
-                    />
-                </div>
-
-                {/* Search */}
-                <div className="input-group stretch">
-                    <div className="skill-picker">
-                        <div className="selected">
-                            <div className="skill">
-                                <CpuIcon size={16} />
-                                <label>Hardware Development</label>
-                                <XIcon size={16} className="close" />
-                            </div>
-                            <div className="skill">
-                                <CpuIcon size={16} />
-                                <label>Software Development</label>
-                                <XIcon size={16} className="close" />
-                            </div>
-                            <div className="skill">
-                                <CpuIcon size={16} />
-                                <label>Design</label>
-                                <XIcon size={16} className="close" />
-                            </div>
-                            <div className="skill">
-                                <CpuIcon size={16} />
-                                <label>Design</label>
-                                <XIcon size={16} className="close" />
-                            </div>
-                            <div className="skill">
-                                <CpuIcon size={16} />
-                                <label>Design</label>
-                                <XIcon size={16} className="close" />
-                            </div>
-                            <div className="skill">
-                                <CpuIcon size={16} />
-                                <label>Design</label>
-                                <XIcon size={16} className="close" />
-                            </div>
-                        </div>
-
-                        <span className="divider"></span>
-
-                        <div className="input-search">
-                            <SearchIcon size={20} />
-                            <input type="search" placeholder="Search for skills" />
-                        </div>
-                    </div>
-                </div>
-
-                {/* Legacy Search */}
                 <div className="input-group stretch" id="search">
                     <div className="skill-picker">
 
