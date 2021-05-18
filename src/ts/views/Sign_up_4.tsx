@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Search from '../components/SkillPicker';
 import { InstructionSet } from '../components/TextElements';
+import { Button } from '../components/Buttons';
 
 export default class Sign_up_4 extends React.Component {
     render() {
@@ -15,16 +16,12 @@ export default class Sign_up_4 extends React.Component {
 
                 {/* Continue button */}
                 <Link to="/Sign_up_3" id="button-back">
-                    <button className="button-secondary">
-                        <label>Back</label>
-                    </button>
+                    <Button label="Back" className="button-secondary" />
                 </Link>  
 
                 {/* Continue button */}
                 <Link to="/End" id="button-continue">
-                    <button className="button-primary">
-                        <label>Finish up</label>
-                    </button>
+                    <Button label="Finish up" className="button-primary" />
                 </Link>
 
                 {/* TOS agreement */}

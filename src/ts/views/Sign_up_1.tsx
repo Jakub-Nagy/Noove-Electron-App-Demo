@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { EmailInput, UsernameInput, PasswordVerify } from '../components/Inputs';
 import { InstructionSet } from '../components/TextElements';
+import { Button } from '../components/Buttons';
 
 
 export default class Sign_up_1 extends React.Component {
@@ -20,18 +21,14 @@ export default class Sign_up_1 extends React.Component {
                 {/* Password */}
                 <PasswordVerify className="stretch" topLabel="Password" value={(value: any) => {console.log(value);}} valid={(value: any) => {console.log(value);}} />
 
-                {/* Continue button */}
+                {/* Back button */}
                 <Link to="/" id="button-back">
-                    <button className="button-secondary">
-                        <label>Back</label>
-                    </button>
+                    <Button label="Back" className="button-secondary" />
                 </Link>  
 
                 {/* Continue button */}
                 <Link to="/Sign_up_2" id="button-continue">
-                    <button className="button-primary">
-                        <label>Continue</label>
-                    </button>
+                    <Button label="Continue" className="button-primary" />
                 </Link>     
             </div>
         );

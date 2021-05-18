@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { TextInput, PasswordInput } from '../components/Inputs';
 import { Divider } from '../components/TextElements';
+import { SocialButton, Button } from '../components/Buttons';
 
 export default class Login extends React.Component {
     render() {
@@ -12,16 +13,10 @@ export default class Login extends React.Component {
                 <img src={require('../../assets/noove-logo.svg')} className="logo" />
 
                 {/* Continue with Google */}
-                <button className="continue-with-button google">
-                    <img src={require('../../assets/icon-google.svg')} />
-                    <label>Continue with Google</label>
-                </button>
+                <SocialButton mediaType="google" />
 
                 {/* Continue with Facebook */}
-                <button className="continue-with-button facebook">
-                    <img src={require('../../assets/icon-facebook.svg')} />
-                    <label>Continue with Facebook</label> 
-                </button>
+                <SocialButton mediaType="facebook" />
 
                 {/* OR divider */}
                 <Divider />
@@ -32,18 +27,14 @@ export default class Login extends React.Component {
                 {/* Password */}
                 <PasswordInput topLabel="Password" value={(value: any) => {console.log(value);}} />
           
-                {/* Primary button */}
+                {/* Sign in button */}
                 <Link to="/End" id="button-sign-in">
-                    <button className="button-primary">
-                        <label>Sign in</label>
-                    </button>
+                    <Button label="Sign in" className="button-primary" />
                 </Link>
 
-                {/* Secondary button */}
+                {/* Sign up button */}
                 <Link to="/Sign_up_1" id="button-sign-up">
-                    <button className="button-tertiary">
-                        <label>Create an account</label>
-                    </button>
+                    <Button label="Create an account" className="button-tertiary" />
                 </Link>
                 
             </div>

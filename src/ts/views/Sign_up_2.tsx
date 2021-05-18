@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { TextInput } from '../components/Inputs';
+import { TextInput, DateInput } from '../components/Inputs';
 import { InstructionSet } from '../components/TextElements';
+import { Button } from '../components/Buttons';
 
 
 export default class Sign_up_1 extends React.Component {
@@ -19,12 +20,7 @@ export default class Sign_up_1 extends React.Component {
                 <TextInput className="right" topLabel="Last name" placeholder="Cena" value={(value: any) => {console.log(value);}} />
 
                 {/* Date of birth */}
-                <div className="input-group" id="date-of-birth">
-                    <label>Date of birth</label>
-                    <div className="input-date">
-                        <input type="date" required />
-                    </div>
-                </div>
+                <DateInput topLabel="Date of birth" value={(value: any) => {console.log(value);}} />
 
                 {/* Occupation */}
                 <div className="input-group" id="occupation">
@@ -39,22 +35,17 @@ export default class Sign_up_1 extends React.Component {
                 {/* Name of educational institution */}
                 <TextInput className="stretch" topLabel="Name of educational institution" placeholder="Example School" value={(value: any) => {console.log(value);}} />
 
-                {/* Continue button */}
+                {/* Back button */}
                 <Link to="/Sign_up_1" id="button-back">
-                    <button className="button-secondary">
-                        <label>Back</label>
-                    </button>
+                    <Button label="Back" className="button-secondary" />
                 </Link>  
 
                 {/* Continue button */}
                 <Link to="/Sign_up_3" id="button-continue">
-                    <button className="button-primary">
-                        <label>Continue</label>
-                    </button>
+                    <Button label="Continue" className="button-primary" />
                 </Link>     
             </div>
 
         );
-
     }
 }

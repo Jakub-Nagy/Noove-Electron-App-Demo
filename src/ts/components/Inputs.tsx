@@ -7,9 +7,6 @@ import {
   CheckIcon,
 } from "@primer/octicons-react";
 
-const check = <CheckIcon size={20} className="check" />;
-const mark = <XIcon size={20} className="x" />;
-
 /* -------------------------------------------------------------------------- */
 /*                             #pragma Input Skeleton                         */
 /* -------------------------------------------------------------------------- */
@@ -158,6 +155,9 @@ export const PasswordVerify = (props: {
   const containsSymbol = new RegExp("(?=.*?[#?!@$%^&*-])");
   const minChars = new RegExp(".{8,}");
 
+  const check = <CheckIcon size={17} className="check" />;
+  const mark = <XIcon size={17} className="x" />;
+
   useEffect(() => {
     containsNumber.test(value) &&
     containsSymbol.test(value) &&
@@ -214,6 +214,9 @@ export const EmailInput = (props: {
 }) => {
   const [value, setValue] = useState("");
 
+  const check = <CheckIcon size={20} className="check" />;
+  const mark = <XIcon size={20} className="x" />;
+
   const emailRegex =
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -230,7 +233,7 @@ export const EmailInput = (props: {
       <span className="input-text">
         <input
           type="text"
-          placeholder="example@example.example"
+          placeholder={props.placeholder}
           onChange={(event: any) => {
             setValue(event.target.value);
             console.log(event.target.value);
@@ -239,6 +242,61 @@ export const EmailInput = (props: {
         />
         {emailRegex.test(value) ? check : mark}
       </span>
+    </InputSkeleton>
+  );
+};
+
+/* -------------------------------------------------------------------------- */
+/*                         #pragma Text Area Input                            */
+/* -------------------------------------------------------------------------- */
+export const TextArea = (props: {
+  topLabel: string;
+  bottomLabel?: string;
+  placeholder?: string;
+  className?: string;
+  value: any;
+}) => {
+  function handleChange(event: any) {
+    props.value(event.target.value);
+  }
+  return (
+    <InputSkeleton
+      topLabel={props.topLabel}
+      bottomLabel={props.bottomLabel}
+      className={props.className}
+    >
+      <div className="input-textarea">
+        <textarea
+          placeholder={props.placeholder}
+          onChange={handleChange}
+        ></textarea>
+      </div>
+    </InputSkeleton>
+  );
+};
+
+/* -------------------------------------------------------------------------- */
+/*                            #pragma Date Input                              */
+/* -------------------------------------------------------------------------- */
+export const DateInput = (props: {
+  topLabel: string;
+  bottomLabel?: string;
+  placeholder?: string;
+  className?: string;
+  value: any;
+}) => {
+  function handleChange(event: any) {
+    props.value(event.target.value);
+  }
+  return (
+    <InputSkeleton
+      topLabel={props.topLabel}
+      bottomLabel={props.bottomLabel}
+      className={props.className}
+    >
+      <div className="input-date">
+        <input type="date" onChange={handleChange} />
+      </div>
     </InputSkeleton>
   );
 };
