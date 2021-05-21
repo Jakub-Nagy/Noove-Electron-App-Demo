@@ -23,14 +23,28 @@ export default class Sign_up_1 extends React.Component {
                 <DateInput topLabel="Date of birth" value={(value: any) => {console.log(value);}} />
 
                 {/* Occupation */}
-                <div className="input-group" id="occupation">
+                <div className="input-group">
                     <label>Occupation </label>
-                    <select className="input-select">
-                        <option value="student">Student</option>
-                        <option value="teacher">Teacher</option>
-                        <option value="professional">Professional</option>
-                    </select>
-                </div>
+                    <details className="input-select dropped">
+                        <summary>
+                            <input type="radio" name="occupation" id="default" title="Pick your position" checked />
+                            <input type="radio" name="occupation" id="student" title="Student" />
+                            <input type="radio" name="occupation" id="teacher" title="Teacher" />
+                            <input type="radio" name="occupation" id="professional" title="Professional" />
+                        </summary>
+                        <ul>
+                            <li>
+                                <label htmlFor="student">Student</label>
+                            </li>
+                            <li>
+                                <label htmlFor="teacher">Teacher</label>
+                            </li>
+                            <li>
+                                <label className="selected" htmlFor="professional">Professional</label>
+                            </li>
+                        </ul>
+                    </details>
+                </div>                
 
                 {/* Name of educational institution */}
                 <TextInput className="stretch" topLabel="Name of educational institution" placeholder="Example School" value={(value: any) => {console.log(value);}} />

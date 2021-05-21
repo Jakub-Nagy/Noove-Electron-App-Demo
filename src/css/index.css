@@ -252,7 +252,6 @@ svg.x {
 .input-group .input-text,
 .input-group .input-search,
 .input-group .input-date,
-.input-group .input-select,
 .input-group .input-username,
 .input-group .input-textarea {
   width: 100%;
@@ -272,7 +271,6 @@ svg.x {
 .input-group .input-text label,
 .input-group .input-search label,
 .input-group .input-date label,
-.input-group .input-select label,
 .input-group .input-username label,
 .input-group .input-textarea label {
   color: #5B5B5B;
@@ -283,8 +281,6 @@ svg.x {
 .input-group .input-search svg,
 .input-group .input-date img,
 .input-group .input-date svg,
-.input-group .input-select img,
-.input-group .input-select svg,
 .input-group .input-username img,
 .input-group .input-username svg,
 .input-group .input-textarea img,
@@ -295,7 +291,6 @@ svg.x {
 .input-group .input-text:focus,
 .input-group .input-search:focus,
 .input-group .input-date:focus,
-.input-group .input-select:focus,
 .input-group .input-username:focus,
 .input-group .input-textarea:focus {
   outline: 0;
@@ -306,8 +301,6 @@ svg.x {
 .input-group .input-search textarea,
 .input-group .input-date input,
 .input-group .input-date textarea,
-.input-group .input-select input,
-.input-group .input-select textarea,
 .input-group .input-username input,
 .input-group .input-username textarea,
 .input-group .input-textarea input,
@@ -333,8 +326,6 @@ svg.x {
 .input-group .input-search textarea label,
 .input-group .input-date input label,
 .input-group .input-date textarea label,
-.input-group .input-select input label,
-.input-group .input-select textarea label,
 .input-group .input-username input label,
 .input-group .input-username textarea label,
 .input-group .input-textarea input label,
@@ -351,10 +342,6 @@ svg.x {
 .input-group .input-date input svg,
 .input-group .input-date textarea img,
 .input-group .input-date textarea svg,
-.input-group .input-select input img,
-.input-group .input-select input svg,
-.input-group .input-select textarea img,
-.input-group .input-select textarea svg,
 .input-group .input-username input img,
 .input-group .input-username input svg,
 .input-group .input-username textarea img,
@@ -371,8 +358,6 @@ svg.x {
 .input-group .input-search textarea:focus,
 .input-group .input-date input:focus,
 .input-group .input-date textarea:focus,
-.input-group .input-select input:focus,
-.input-group .input-select textarea:focus,
 .input-group .input-username input:focus,
 .input-group .input-username textarea:focus,
 .input-group .input-textarea input:focus,
@@ -385,8 +370,6 @@ svg.x {
 .input-group .input-search textarea:placeholder,
 .input-group .input-date input:placeholder,
 .input-group .input-date textarea:placeholder,
-.input-group .input-select input:placeholder,
-.input-group .input-select textarea:placeholder,
 .input-group .input-username input:placeholder,
 .input-group .input-username textarea:placeholder,
 .input-group .input-textarea input:placeholder,
@@ -399,8 +382,6 @@ svg.x {
 .input-group .input-search textarea:invalid::-webkit-datetime-edit,
 .input-group .input-date input:invalid::-webkit-datetime-edit,
 .input-group .input-date textarea:invalid::-webkit-datetime-edit,
-.input-group .input-select input:invalid::-webkit-datetime-edit,
-.input-group .input-select textarea:invalid::-webkit-datetime-edit,
 .input-group .input-username input:invalid::-webkit-datetime-edit,
 .input-group .input-username textarea:invalid::-webkit-datetime-edit,
 .input-group .input-textarea input:invalid::-webkit-datetime-edit,
@@ -413,8 +394,6 @@ svg.x {
 .input-group .input-search textarea:focus,
 .input-group .input-date input:focus,
 .input-group .input-date textarea:focus,
-.input-group .input-select input:focus,
-.input-group .input-select textarea:focus,
 .input-group .input-username input:focus,
 .input-group .input-username textarea:focus,
 .input-group .input-textarea input:focus,
@@ -425,7 +404,6 @@ svg.x {
 .input-group .input-text svg,
 .input-group .input-search svg,
 .input-group .input-date svg,
-.input-group .input-select svg,
 .input-group .input-username svg,
 .input-group .input-textarea svg {
   width: 70px;
@@ -460,14 +438,6 @@ svg.x {
   width: 95%;
 }
 
-.input-group .input-select {
-  -webkit-appearance: none;
-  background-image: url(../assets/arrow-down.svg);
-  background-position: calc(100% - 20px) calc(50%);
-  background-size: 15px 15px;
-  background-repeat: no-repeat;
-}
-
 .input-group .input-username .available {
   width: 120px;
   font-size: 14px;
@@ -495,6 +465,105 @@ svg.x {
   resize: none;
   width: 100%;
   height: 100%;
+}
+
+.input-group .input-select {
+  position: relative;
+  background-color: #F2F2F7;
+  border-radius: 15px;
+}
+
+.input-group .input-select.dropped {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group .input-select *:focus {
+  outline: 0;
+}
+
+.input-group .input-select[open] {
+  z-index: 1;
+}
+
+.input-group .input-select[open] summary:before {
+  content: '';
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.input-group .input-select summary {
+  padding: 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.input-group .input-select summary:after {
+  content: '';
+  display: inline-block;
+  float: right;
+  width: .5rem;
+  height: .5rem;
+  border-bottom: 2px solid #848484;
+  border-left: 2px solid #848484;
+  margin-right: 5px;
+  transform: rotate(-45deg) translate(0%, 50%);
+}
+
+.input-group .input-select summary input[type=radio] {
+  appearance: none;
+  display: none;
+  pointer-events: none;
+}
+
+.input-group .input-select summary input[type=radio]:checked {
+  display: inline;
+}
+
+.input-group .input-select summary input[type=radio]:after {
+  content: attr(title);
+  font-size: 1rem;
+}
+
+.input-group .input-select ul {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  background-color: #F2F2F7;
+  border-radius: 15px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.input-group .input-select ul li {
+  list-style: none;
+}
+
+.input-group .input-select ul li:last-of-type, .input-group .input-select ul li label:last-of-type {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.input-group .input-select ul li:hover {
+  background: #D1D1D6;
+}
+
+.input-group .input-select ul li .selected {
+  background: #D1D1D6;
+}
+
+.input-group .input-select ul li label {
+  width: 100%;
+  display: block;
+  padding: 1rem;
+  cursor: pointer;
+  color: #1C1C1C;
+  font-weight: 400;
 }
 
 .input-group .skill-picker {
@@ -573,9 +642,6 @@ svg.x {
   padding: 10px 10px 0 10px;
   overflow-y: scroll;
   overflow-x: hidden;
-  /* Checkbox */
-  /* :checked */
-  /* Transition */
 }
 
 .input-group .skill-picker .dropdown .section-title {
@@ -614,16 +680,17 @@ svg.x {
   padding-left: 30px;
   height: 1.5em;
   line-height: 1.5;
+  cursor: pointer;
 }
 
-.input-group .skill-picker .dropdown label::before,
-.input-group .skill-picker .dropdown label::after {
+.input-group .skill-picker .dropdown label::before, .input-group .skill-picker .dropdown label::after {
   position: absolute;
   top: 0;
   left: 0;
   width: 1.5em;
   height: 1.5em;
   cursor: pointer;
+  transition: .25s all ease;
 }
 
 .input-group .skill-picker .dropdown label::before {
@@ -637,6 +704,7 @@ svg.x {
   color: #FFFFFF;
   line-height: 1.5;
   text-align: center;
+  transform: scale(0);
 }
 
 .input-group .skill-picker .dropdown input[type="checkbox"]:checked + label::before {
@@ -644,19 +712,13 @@ svg.x {
   border: 0;
 }
 
-.input-group .skill-picker .dropdown input[type="checkbox"] + label::after {
-  transform: scale(0);
-}
-
 .input-group .skill-picker .dropdown input[type="checkbox"]:checked + label::after {
   transform: scale(1);
 }
 
-.input-group .skill-picker .dropdown label::before,
-.input-group .skill-picker .dropdown label::after {
-  transition: .25s all ease;
-}
-
+/* -------------------------------------------------------------------------- */
+/*                     #pragma Supplementary Text Elements                    */
+/* -------------------------------------------------------------------------- */
 .input-group label {
   color: #848484;
   line-height: 30px;
@@ -671,9 +733,6 @@ svg.x {
   margin-bottom: 0;
 }
 
-/* -------------------------------------------------------------------------- */
-/*                     #pragma Supplementary Text Elements                    */
-/* -------------------------------------------------------------------------- */
 .instruction-group {
   width: 100%;
   margin-top: 15vh;

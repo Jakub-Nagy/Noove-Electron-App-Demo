@@ -274,7 +274,6 @@ svg {
     .input-text,
     .input-search,
     .input-date,
-    .input-select,
     .input-username,
     .input-textarea {
         @include rounded-box;
@@ -311,6 +310,8 @@ svg {
             width: 70px;
         }
     }
+
+    // Search input
     .input-search {
         padding: 0 15px;
         input {
@@ -336,22 +337,14 @@ svg {
         }
     }
 
+    // Date input
     .input-date {
         input {
             width: 95%;
         }
     }
-    .input-select {
-        -webkit-appearance: none;
 
-        background-image:
-            url(../assets/arrow-down.svg);
-        background-position:
-            calc(100% - 20px) calc(50%);
-        background-size:
-            15px 15px;
-        background-repeat: no-repeat;
-    }
+    // Username input
     .input-username {
         .available {
             width: 120px;
@@ -367,6 +360,8 @@ svg {
             display: inline-block;
         }
     }
+
+    // Textarea input
     .input-textarea {
         grid-column: 1 / span 2;
         width: 100%;
@@ -379,6 +374,98 @@ svg {
             height: 100%;
         }
     }
+
+    // Select input
+    .input-select {
+        position: relative;
+        background-color: $theme-background-secondary;
+        border-radius: 15px;
+    
+        &.dropped {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        *:focus {
+            outline: 0;
+        }
+        &[open] {
+            z-index: 1;
+        }
+        &[open] summary:before {
+            content: '';
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            background: transparent;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        summary {
+            padding: 1rem;
+            cursor: pointer;
+            list-style: none;
+        
+            &:after {
+                content: '';
+                display: inline-block;
+                float: right;
+                width: .5rem;
+                height: .5rem;
+                border-bottom: 2px solid $theme-text-tertiary;
+                border-left: 2px solid $theme-text-tertiary;
+                margin-right: 5px;
+                transform: rotate(-45deg) translate(0%, 50%);
+            }
+            input[type=radio] {
+                appearance: none;
+                display: none;
+                pointer-events: none;
+        
+                &:checked {
+                    display: inline;
+                }
+                &:after {
+                    content: attr(title);
+                    font-size: 1rem;
+                }
+            }
+        }
+        ul {
+            box-sizing: border-box;
+            position: absolute;
+            width: 100%;
+            background-color: $theme-background-secondary;
+            border-radius: 15px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+    
+            li {
+                list-style: none;
+    
+                &:last-of-type, label:last-of-type {
+                    border-bottom-left-radius: 15px;
+                    border-bottom-right-radius: 15px;
+                }
+                &:hover {
+                    background: $theme-background-tertiary;
+                }
+                .selected {
+                    background: $theme-background-tertiary;
+                }
+                label {
+                    width: 100%;
+                    display: block;
+                    padding: 1rem;
+                    cursor: pointer;
+                    color: $theme-text-primary;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    // Skill picker
     .skill-picker {
         border-radius: 15px;
         background-color: $theme-background-secondary;
@@ -423,12 +510,14 @@ svg {
             }
         }
         .dropdown {
+            // Self layout
             width: 100%;
             height: 20vh;
             padding: 10px 10px 0 10px;
             overflow-y: scroll;
             overflow-x: hidden;
    
+            // Skills layout
             .section-title {
                 font-size: 14px;
                 font-weight: 600;
@@ -450,7 +539,7 @@ svg {
                 margin: 10px 0;
             }
 
-
+            // Checkbox styling
             input[type="checkbox"] {
                 position: absolute;
                 opacity: 0;
@@ -462,56 +551,50 @@ svg {
                 padding-left: 30px;
                 height: 1.5em;
                 line-height: 1.5;
-            }
-            label::before,
-            label::after {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 1.5em;
-                height: 1.5em;
                 cursor: pointer;
+
+                &::before, &::after {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 1.5em;
+                    height: 1.5em;
+                    cursor: pointer;
+                    -webkit-transition: .25s all ease;
+                    transition: .25s all ease;
+                }
+                &::before {
+                    content: " ";
+                    border: 1px solid #bdc3c7;
+                    border-radius: 20%;
+                }
             }
-            label::before {
-                content: " ";
-                border: 1px solid #bdc3c7;
-                border-radius: 20%;
-            }
-            /* Checkbox */
             input[type="checkbox"] + label::after {
                 content: "\2713";
                 color: $theme-background-primary;
                 line-height: 1.5;
                 text-align: center;
+                -webkit-transform: scale(0);
+                transform: scale(0);
             }
-            /* :checked */
             input[type="checkbox"]:checked + label::before {
                 background: $highlight-pink-primary;
                 border: 0;
             }
-            input[type="checkbox"] + label::after {
-                -webkit-transform: scale(0);
-                -ms-transform: scale(0);
-                -o-transform: scale(0);
-                transform: scale(0);
-            }
             input[type="checkbox"]:checked + label::after {
                 -webkit-transform: scale(1);
-                -ms-transform: scale(1);
-                -o-transform: scale(1);
                 transform: scale(1);
-            }
-            /* Transition */
-            label::before,
-            label::after {
-                -webkit-transition: .25s all ease;
-                -o-transition: .25s all ease;
-                transition: .25s all ease;
             }
         }
     }
-    
-    
+}
+
+/* -------------------------------------------------------------------------- */
+/*                     #pragma Supplementary Text Elements                    */
+/* -------------------------------------------------------------------------- */
+
+// Input label
+.input-group {
     label {
         color: $theme-text-tertiary;
 
@@ -528,10 +611,6 @@ svg {
         }
     }
 }
-
-/* -------------------------------------------------------------------------- */
-/*                     #pragma Supplementary Text Elements                    */
-/* -------------------------------------------------------------------------- */
 
 // Group with form instructions
 .instruction-group {
@@ -672,9 +751,6 @@ svg {
         width: 100%;
     }
 }
-// #sign-up-1 {
-//     grid-template-rows: repeat(5, auto) 400px;
-// }
 #button-back, #button-continue {
     margin-top: 60px;
     width: 100%;
