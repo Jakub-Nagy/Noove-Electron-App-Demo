@@ -163,8 +163,20 @@ svg.x {
   outline: 0;
 }
 
+.button-primary.bottom-margin, .bottom-margin.continue-with-button {
+  margin-top: 60px;
+}
+
 .button-primary label, .continue-with-button label {
   color: #FFFFFF;
+}
+
+.button-primary.disabled, .disabled.continue-with-button {
+  background-color: #E6ADC9;
+}
+
+.button-primary.disabled label, .disabled.continue-with-button label {
+  color: #EB0877;
 }
 
 .button-secondary {
@@ -204,6 +216,10 @@ svg.x {
   outline: 0;
 }
 
+.button-secondary.bottom-margin {
+  margin-top: 60px;
+}
+
 .button-tertiary {
   background-color: transparent;
   border: none;
@@ -217,6 +233,10 @@ svg.x {
 
 .button-tertiary:focus {
   outline: 0;
+}
+
+.button-tertiary.bottom-margin {
+  margin-top: 60px;
 }
 
 .continue-with-button.google {
@@ -377,18 +397,6 @@ svg.x {
   color: #5B5B5B;
 }
 
-.input-group .input-text input:invalid::-webkit-datetime-edit, .input-group .input-text textarea:invalid::-webkit-datetime-edit,
-.input-group .input-search input:invalid::-webkit-datetime-edit,
-.input-group .input-search textarea:invalid::-webkit-datetime-edit,
-.input-group .input-date input:invalid::-webkit-datetime-edit,
-.input-group .input-date textarea:invalid::-webkit-datetime-edit,
-.input-group .input-username input:invalid::-webkit-datetime-edit,
-.input-group .input-username textarea:invalid::-webkit-datetime-edit,
-.input-group .input-textarea input:invalid::-webkit-datetime-edit,
-.input-group .input-textarea textarea:invalid::-webkit-datetime-edit {
-  color: #5B5B5B;
-}
-
 .input-group .input-text input:focus, .input-group .input-text textarea:focus,
 .input-group .input-search input:focus,
 .input-group .input-search textarea:focus,
@@ -407,6 +415,7 @@ svg.x {
 .input-group .input-username svg,
 .input-group .input-textarea svg {
   width: 70px;
+  cursor: pointer;
 }
 
 .input-group .input-search {
@@ -436,6 +445,14 @@ svg.x {
 
 .input-group .input-date input {
   width: 95%;
+}
+
+.input-group .input-date input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.input-group .input-date input:invalid::-webkit-datetime-edit {
+  color: #5B5B5B;
 }
 
 .input-group .input-username .available {
@@ -471,6 +488,7 @@ svg.x {
   position: relative;
   background-color: #F2F2F7;
   border-radius: 15px;
+  font-size: 17px;
 }
 
 .input-group .input-select.dropped {
@@ -519,6 +537,7 @@ svg.x {
   appearance: none;
   display: none;
   pointer-events: none;
+  font-size: 17px;
 }
 
 .input-group .input-select summary input[type=radio]:checked {
@@ -528,6 +547,10 @@ svg.x {
 .input-group .input-select summary input[type=radio]:after {
   content: attr(title);
   font-size: 1rem;
+}
+
+.input-group .input-select summary #default {
+  color: #5B5B5B;
 }
 
 .input-group .input-select ul {
@@ -544,17 +567,18 @@ svg.x {
   list-style: none;
 }
 
-.input-group .input-select ul li:last-of-type, .input-group .input-select ul li label:last-of-type {
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-}
-
 .input-group .input-select ul li:hover {
   background: #D1D1D6;
 }
 
-.input-group .input-select ul li .selected {
-  background: #D1D1D6;
+.input-group .input-select ul li:last-of-type {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.input-group .input-select ul li:last-child label {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .input-group .input-select ul li label {
@@ -563,7 +587,12 @@ svg.x {
   padding: 1rem;
   cursor: pointer;
   color: #1C1C1C;
+  font-size: 17px;
   font-weight: 400;
+}
+
+.input-group .input-select ul li label.selected {
+  background: #D1D1D6;
 }
 
 .input-group .skill-picker {
@@ -863,14 +892,19 @@ svg.x {
   width: 100%;
 }
 
-#button-back, #button-continue {
-  margin-top: 60px;
+#register #button-finish-up {
   width: 100%;
 }
 
 #end {
   grid-template-columns: 350px;
   text-align: center;
+  align-self: center;
+}
+
+#end #button-end {
+  margin-top: 30px;
+  width: 100%;
 }
 
 /* -------------------------------------------------------------------------- */

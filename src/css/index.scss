@@ -212,6 +212,9 @@ svg {
     &:focus {
         outline:0;
     }
+    &.bottom-margin {
+        margin-top: 60px;
+    }
 }
 
 .button-primary {
@@ -222,7 +225,13 @@ svg {
     background-color: $highlight-pink-primary;
     label {
         color: $theme-background-primary;
-    } 
+    }
+    &.disabled {
+        background-color: $highlight-pink-tertiary;
+        label {
+            color: $highlight-pink-primary;
+        }
+    }
 }
 
 .button-secondary {
@@ -299,15 +308,13 @@ svg {
             &:placeholder {
                 color: $theme-text-secondary;
             }
-            &:invalid::-webkit-datetime-edit {
-                color: $theme-text-secondary;
-            }
             &:focus {
                 outline: 0;
             }
         }
         svg {
             width: 70px;
+            cursor: pointer;
         }
     }
 
@@ -341,6 +348,13 @@ svg {
     .input-date {
         input {
             width: 95%;
+
+            &::-webkit-calendar-picker-indicator {
+                cursor: pointer;
+            }
+            &:invalid::-webkit-datetime-edit {
+                color: $theme-text-secondary;
+            }
         }
     }
 
@@ -380,6 +394,7 @@ svg {
         position: relative;
         background-color: $theme-background-secondary;
         border-radius: 15px;
+        font-size: 17px;
     
         &.dropped {
             border-bottom-left-radius: 0;
@@ -421,6 +436,7 @@ svg {
                 appearance: none;
                 display: none;
                 pointer-events: none;
+                font-size: 17px;
         
                 &:checked {
                     display: inline;
@@ -429,6 +445,9 @@ svg {
                     content: attr(title);
                     font-size: 1rem;
                 }
+            }
+            #default {
+                color: $theme-text-secondary;
             }
         }
         ul {
@@ -443,15 +462,18 @@ svg {
             li {
                 list-style: none;
     
-                &:last-of-type, label:last-of-type {
-                    border-bottom-left-radius: 15px;
-                    border-bottom-right-radius: 15px;
-                }
                 &:hover {
                     background: $theme-background-tertiary;
                 }
-                .selected {
-                    background: $theme-background-tertiary;
+                &:last-of-type {
+                    border-bottom-left-radius: 15px;
+                    border-bottom-right-radius: 15px;
+                }
+                &:last-child {
+                    label {
+                        border-bottom-left-radius: 15px;
+                        border-bottom-right-radius: 15px;   
+                    }
                 }
                 label {
                     width: 100%;
@@ -459,7 +481,12 @@ svg {
                     padding: 1rem;
                     cursor: pointer;
                     color: $theme-text-primary;
+                    font-size: 17px;
                     font-weight: 400;
+
+                    &.selected {
+                        background: $theme-background-tertiary;
+                    } 
                 }
             }
         }
@@ -751,13 +778,20 @@ svg {
         width: 100%;
     }
 }
-#button-back, #button-continue {
-    margin-top: 60px;
-    width: 100%;
+#register {
+    #button-finish-up {
+        width: 100%;
+    }
 }
 #end {
     grid-template-columns: 350px;
     text-align: center;
+    align-self: center;
+
+    #button-end {
+        margin-top: 30px;
+        width: 100%;
+    }
 }
 
 /* -------------------------------------------------------------------------- */

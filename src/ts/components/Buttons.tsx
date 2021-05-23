@@ -22,14 +22,20 @@ SocialButton.defaultProps = {
 export const Button = (props: {
   label: string;
   className: string;
+  type?: string;
   width?: string;
   onClick?: any;
+  disabled?: any;
 }) => {
   return (
     <button
-      className={props.className}
+      className={`
+        ${props.className}
+        ${props.disabled ? "disabled" : ""}
+      `}
       style={{ width: props.width }}
       onClick={props.onClick}
+      disabled={props.disabled}
     >
       <label>{props.label}</label>
     </button>

@@ -127,7 +127,7 @@ const Dropdown = (props: { list: any }) => {
   );
 };
 
-const Search = () => {
+const SkillPicker = () => {
   const [showDropdown, setshowDropdown] = useState(false);
   const [search, setSearch] = useState("");
 
@@ -170,4 +170,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SkillPicker;

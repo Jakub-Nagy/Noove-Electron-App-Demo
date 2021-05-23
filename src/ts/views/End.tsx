@@ -7,7 +7,7 @@ export default class End extends React.Component {
             <div className="form-container" id="end">
                 <h2>Unfortunately, this is the end of this demo! Stay tuned for the finished application.</h2>
 
-                <Link to="/" id="button-continue">
+                <Link to="/" id="button-end">
                     <button className="button-primary">
                         <label>Go to start</label>
                     </button>

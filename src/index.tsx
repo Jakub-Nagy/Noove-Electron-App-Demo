@@ -10,10 +10,7 @@ import './css/index.css';
 
 // Views
 import Login from './ts/views/Login';
-import Sign_up_1 from './ts/views/Sign_up_1';
-import Sign_up_2 from './ts/views/Sign_up_2';
-import Sign_up_3 from './ts/views/Sign_up_3';
-import Sign_up_4 from './ts/views/Sign_up_4';
+import Register from './ts/views/Register';
 import End from './ts/views/End';
 
 ReactDOM.render(
@@ -25,10 +22,7 @@ ReactDOM.render(
 
                 <div className="App">
                     <Route path="/" exact component={Login} />
-                    <Route path="/Sign_up_1" exact component={Sign_up_1} />
-                    <Route path="/Sign_up_2" exact component={Sign_up_2} />
-                    <Route path="/Sign_up_3" exact component={Sign_up_3} />
-                    <Route path="/Sign_up_4" exact component={Sign_up_4} />
+                    <Route path="/Register" exact component={Register} />
                     <Route path="/End" exact component={End} />
                 </div>
             </BrowserRouter>
@@ -37,7 +31,4 @@ ReactDOM.render(
     document.getElementById('view-layout')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

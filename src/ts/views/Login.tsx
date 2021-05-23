@@ -22,10 +22,10 @@ export default class Login extends React.Component {
                 <Divider />
 
                 {/* Username */}
-                <TextInput topLabel="Username" value={(value: any) => {console.log(value);}} />
+                <TextInput topLabel="Username" valueIn={(value: any) => {console.log(value);}} valueOut={(value: any) => {console.log(value);}} />
 
                 {/* Password */}
-                <PasswordInput topLabel="Password" value={(value: any) => {console.log(value);}} />
+                <PasswordInput topLabel="Password" valueIn={(value: any) => {console.log(value);}} valueOut={(value: any) => {console.log(value);}} />
           
                 {/* Sign in button */}
                 <Link to="/End" id="button-sign-in">
@@ -33,7 +33,7 @@ export default class Login extends React.Component {
                 </Link>
 
                 {/* Sign up button */}
-                <Link to="/Sign_up_1" id="button-sign-up">
+                <Link to="/Register">
                     <Button label="Create an account" className="button-tertiary" />
                 </Link>
                 

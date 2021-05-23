@@ -35,10 +35,11 @@ export const TextInput = (props: {
   bottomLabel?: string;
   placeholder?: string;
   className?: string;
-  value: any;
+  valueIn: any;
+  valueOut: any;
 }) => {
   function handleChange(event: any) {
-    props.value(event.target.value);
+    props.valueOut(event.target.value);
   }
 
   return (
@@ -52,6 +53,7 @@ export const TextInput = (props: {
           type="text"
           placeholder={props.placeholder}
           onChange={handleChange}
+          value={props.valueIn}
         />
       </div>
     </InputSkeleton>
@@ -67,12 +69,13 @@ export const PasswordInput = (props: {
   bottomLabel?: string;
   placeholder?: string;
   className?: string;
-  value: any;
+  valueIn: any;
+  valueOut: any;
 }) => {
   const [hide, setHide] = useState(true);
 
   function handleChange(event: any) {
-    props.value(event.target.value);
+    props.valueOut(event.target.value);
   }
 
   return (
@@ -86,6 +89,7 @@ export const PasswordInput = (props: {
           type={hide ? "password" : "text"}
           placeholder={props.placeholder}
           onChange={handleChange}
+          value={props.valueIn}
         />
         <span
           onClick={() => {
@@ -112,11 +116,12 @@ export const UsernameInput = (props: {
   bottomLabel?: string;
   placeholder?: string;
   className?: string;
-  value: any;
+  valueIn: any;
+  valueOut: any;
   valid: any;
 }) => {
   function handleChange(event: any) {
-    props.value(event.target.value);
+    props.valueOut(event.target.value);
   }
 
   return (
@@ -126,7 +131,7 @@ export const UsernameInput = (props: {
       className={props.className}
     >
       <div className="input-username">
-        <input type="text" onChange={handleChange} />
+        <input type="text" onChange={handleChange} value={props.valueIn} />
         <span className="available">
           <span className="dot"></span>
           Available
@@ -140,16 +145,10 @@ export const UsernameInput = (props: {
 /*                          #pragma Password Verifier                         */
 /* -------------------------------------------------------------------------- */
 
-export const PasswordVerify = (props: {
-  topLabel: string;
-  bottomLabel?: string;
-  placeholder?: string;
-  className?: string;
-  value: any;
+export const PasswordVerify = (props: { 
+  valueIn: string;
   valid: any;
 }) => {
-  const [value, setValue] = useState("");
-
   const lowerOrUpper = new RegExp("(?=.*?[a-z])(?=.*?[A-Z])");
   const containsNumber = new RegExp("(?=.*?[0-9])");
   const containsSymbol = new RegExp("(?=.*?[#?!@$%^&*-])");
@@ -159,49 +158,37 @@ export const PasswordVerify = (props: {
   const mark = <XIcon size={17} className="x" />;
 
   useEffect(() => {
-    containsNumber.test(value) &&
-    containsSymbol.test(value) &&
-    lowerOrUpper.test(value) &&
-    minChars.test(value)
-      ? props.valid(true)
-      : props.valid(false);
-  });
+    props.valid(
+      containsNumber.test(props.valueIn) &&
+        containsSymbol.test(props.valueIn) &&
+        lowerOrUpper.test(props.valueIn) &&
+        minChars.test(props.valueIn)
+    );
+  }, [props.valueIn]);
 
   return (
-    <Fragment>
-      <PasswordInput
-        topLabel={props.topLabel}
-        bottomLabel={props.bottomLabel}
-        placeholder={props.placeholder}
-        className={props.className}
-        value={(value: any) => {
-          setValue(value);
-          props.value(value);
-        }}
-      />
-      <div className="password-validator">
-        <span>
-          {containsNumber.test(value) ? check : mark}
-          <label>Contains a number</label>
-        </span>
-        <span>
-          {containsSymbol.test(value) ? check : mark}
-          <label>Contains a symbol</label>
-        </span>
-        <span>
-          {lowerOrUpper.test(value) ? check : mark}
-          <label>Contains at least 1 uppercase and 1 lowercase character</label>
-        </span>
-        <span>
-          {minChars.test(value) ? check : mark}
-          <label>At least 8 characters long</label>
-        </span>
-      </div>
-    </Fragment>
+    <div className="password-validator">
+      <span>
+        {containsNumber.test(props.valueIn) ? check : mark}
+        <label>Contains a number</label>
+      </span>
+      <span>
+        {containsSymbol.test(props.valueIn) ? check : mark}
+        <label>Contains a symbol</label>
+      </span>
+      <span>
+        {lowerOrUpper.test(props.valueIn) ? check : mark}
+        <label>Contains at least 1 uppercase and 1 lowercase character</label>
+      </span>
+      <span>
+        {minChars.test(props.valueIn) ? check : mark}
+        <label>At least 8 characters long</label>
+      </span>
+    </div>
   );
 };
 /* -------------------------------------------------------------------------- */
-/*                          #pragma Email Verifier                            */
+/*                            #pragma Email Input                             */
 /* -------------------------------------------------------------------------- */
 
 export const EmailInput = (props: {
@@ -209,20 +196,17 @@ export const EmailInput = (props: {
   bottomLabel?: string;
   placeholder?: string;
   className?: string;
-  valid: any;
-  value: any;
+  valueIn: any;
+  valueOut: any;
 }) => {
-  const [value, setValue] = useState("");
-
   const check = <CheckIcon size={20} className="check" />;
   const mark = <XIcon size={20} className="x" />;
 
-  const emailRegex =
-    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const emailRegex = new RegExp(
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  );
 
-  useEffect(() => {
-    emailRegex.test(value) ? props.valid(true) : props.valid(false);
-  });
+  var valid: any;
 
   return (
     <InputSkeleton
@@ -235,12 +219,12 @@ export const EmailInput = (props: {
           type="text"
           placeholder={props.placeholder}
           onChange={(event: any) => {
-            setValue(event.target.value);
-            console.log(event.target.value);
-            props.value(event.target.value);
+            valid = emailRegex.test(event.target.value);
+            props.valueOut({ value: event.target.value, valid: valid });
           }}
+          value={props.valueIn}
         />
-        {emailRegex.test(value) ? check : mark}
+        {emailRegex.test(props.valueIn) ? check : mark}
       </span>
     </InputSkeleton>
   );
@@ -254,10 +238,11 @@ export const TextArea = (props: {
   bottomLabel?: string;
   placeholder?: string;
   className?: string;
-  value: any;
+  valueIn: any;
+  valueOut: any;
 }) => {
   function handleChange(event: any) {
-    props.value(event.target.value);
+    props.valueOut(event.target.value);
   }
   return (
     <InputSkeleton
@@ -269,6 +254,7 @@ export const TextArea = (props: {
         <textarea
           placeholder={props.placeholder}
           onChange={handleChange}
+          value={props.valueIn}
         ></textarea>
       </div>
     </InputSkeleton>
@@ -283,10 +269,11 @@ export const DateInput = (props: {
   bottomLabel?: string;
   placeholder?: string;
   className?: string;
-  value: any;
+  valueIn: any;
+  valueOut: any;
 }) => {
   function handleChange(event: any) {
-    props.value(event.target.value);
+    props.valueOut(event.target.value);
   }
   return (
     <InputSkeleton
@@ -295,8 +282,78 @@ export const DateInput = (props: {
       className={props.className}
     >
       <div className="input-date">
-        <input type="date" onChange={handleChange} />
+        <input type="date" onChange={handleChange} value={props.valueIn} required />
       </div>
+    </InputSkeleton>
+  );
+};
+/* -------------------------------------------------------------------------- */
+/*                            #pragma Dropdown Input                          */
+/* -------------------------------------------------------------------------- */
+
+export const SelectInput = (props: {
+  topLabel: string;
+  bottomLabel?: string;
+  placeholder?: string;
+  className?: string;
+  dropdownItems: any;
+  valueIn: any;
+  valueOut: any;
+}) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  return (
+    <InputSkeleton
+      topLabel={props.topLabel}
+      bottomLabel={props.bottomLabel}
+      className={props.className}
+    >
+      <details
+        className={dropdownOpen ? "input-select dropped" : "input-select"}
+        onClick={function () {
+          setDropdownOpen(!dropdownOpen);
+        }}
+      >
+        <summary>
+          <input
+            type="radio"
+            name="occupation"
+            id="default"
+            title={props.placeholder}
+            defaultChecked={props.valueIn == ""}
+          />
+
+          {props.dropdownItems.map((item: any) => {
+            return (
+              <input
+                key={item}
+                defaultChecked={props.valueIn == item}
+                type="radio"
+                name="occupation"
+                id={item}
+                title={item}
+                value={item}
+                onChange={(event) => {
+                  props.valueOut(event.target.value);
+                }}
+              />
+            );
+          })}
+        </summary>
+        <ul>
+          {props.dropdownItems.map((item: any) => {
+            return (
+              <li key={item}>
+                <label
+                  className={props.valueIn == item ? "selected" : ""}
+                  htmlFor={item}
+                >
+                  {item}
+                </label>
+              </li>
+            );
+          })}
+        </ul>
+      </details>
     </InputSkeleton>
   );
 };
