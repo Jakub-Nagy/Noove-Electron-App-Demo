@@ -8,6 +8,9 @@ import { RecoilRoot } from 'recoil';
 // Styling
 import './css/index.css';
 
+// Firebase
+import "./ts/utility/Firebase";
+
 // Views
 import Login from './ts/views/Login';
 import Register from './ts/views/Register';

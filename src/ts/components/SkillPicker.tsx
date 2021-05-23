@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { atom, useRecoilState } from "recoil";
-import skills from '../../assets/Skills.json';
+import skills from '../utility/Skills.json';
 import * as icons from "@primer/octicons-react";
 import Fuse from "fuse.js";
 

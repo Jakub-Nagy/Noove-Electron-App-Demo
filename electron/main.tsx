@@ -9,11 +9,12 @@ function createWindow() {
         width: 1920,
         height: 1080,
         icon: './public/noove-icon.png',
-        show: false
+        show: false,
     });
     const startURL = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`;
 
     mainWindow.loadURL(startURL);
+    mainWindow.setMenu(null);
 
     mainWindow.once('ready-to-show', () => mainWindow.show());
     mainWindow.on('closed', () => {
