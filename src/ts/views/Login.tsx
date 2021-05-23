@@ -1,16 +1,20 @@
-import React, { Fragment } from "react";
+// React Dependencies
+import React from "react";
 import { Link } from "react-router-dom";
+
+// Components
 import { TextInput, PasswordInput } from '../components/Inputs';
 import { Divider } from '../components/TextElements';
 import { SocialButton, Button } from '../components/Buttons';
 
+
 export default class Login extends React.Component {
     render() {
         return (
-            <div className="form-container" id="login">
+            <form className="form-container" id="login">
 
                 {/* Noove logo */}
-                <img src={require('../../assets/noove-logo.svg')} className="logo" />
+                <img src={require('../../assets/noove-logo.svg')} className="logo" alt="Noove Logo" />
 
                 {/* Continue with Google */}
                 <SocialButton mediaType="google" />
@@ -37,7 +41,7 @@ export default class Login extends React.Component {
                     <Button label="Create an account" className="button-tertiary" />
                 </Link>
                 
-            </div>
+            </form>
         );
     }
 }

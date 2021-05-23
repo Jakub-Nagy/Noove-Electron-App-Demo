@@ -227,8 +227,10 @@ svg {
         color: $theme-background-primary;
     }
     &.disabled {
+        cursor: unset;
         background-color: $highlight-pink-tertiary;
         label {
+            cursor: unset;
             color: $highlight-pink-primary;
         }
     }
@@ -494,125 +496,151 @@ svg {
 
     // Skill picker
     .skill-picker {
-        border-radius: 15px;
+        position: relative;
         background-color: $theme-background-secondary;
-        height: auto;
-        display: flex;
-        flex-wrap: wrap;
+        border-radius: 15px;
 
-        svg {
-            width: 20px;
-            margin-right: 10px;
+        // Dropdown functionality
+        &.dropped {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
-        .input-search {
-            width: 100%;
+        *:focus {
+            outline: 0;
         }
-        .divider {
-            width: calc(100% + 100px);;
-            border-top: 1px solid $theme-background-tertiary;
-        }
-        .selected {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 10px 10px 10px 10px;
 
-            .skill {
-                @include rounded-box;
-                width: auto;
-                height: auto;
-                margin: 5px;
-                background-color: $highlight-pink-primary;
-                label {
-                    color: $theme-background-primary;
-                    font-size: 12px;
-                    font-weight: 600;
-                }
+        // Search and selected skills
+        .top-group {
+            cursor: pointer;
+            list-style: none;
+            
+            .input-search {
+                width: 100%;
                 svg {
-                    margin: 0 5px;
-                    fill: $theme-background-primary;
+                    width: 20px;
+                    margin-right: 10px;
                 }
-                .close {
-                    cursor: pointer;
+            }
+            .selected {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 10px 10px 0px 10px;
+    
+                .skill {
+                    @include rounded-box;
+                    width: auto;
+                    height: auto;
+                    margin: 5px;
+                    background-color: $highlight-pink-primary;
+                    label {
+                        color: $theme-background-primary;
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+                    svg {
+                        margin: 0 5px;
+                        fill: $theme-background-primary;
+                    }
+                    .close {
+                        cursor: pointer;
+                    }
                 }
             }
         }
+
+        // Dropdown
         .dropdown {
-            // Self layout
             width: 100%;
-            height: 20vh;
-            padding: 10px 10px 0 10px;
-            overflow-y: scroll;
-            overflow-x: hidden;
-   
-            // Skills layout
-            .section-title {
-                font-size: 14px;
-                font-weight: 600;
-                color: $theme-text-secondary;
-            }
-            .skill-group {
-                margin-bottom: 30px;
+            position: absolute;
+            background-color: $theme-background-secondary;
+            border-radius: 15px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            overflow: hidden;
 
-                &:last-of-type {
-                    margin-bottom: 0;
+            .divider {
+                width: 100%;
+                border-top: 1px solid $theme-background-tertiary;
+            }
+            .skills {
+                // Self layout
+                width: 100%;
+                max-height: 20vh;
+                padding: 10px 10px 0 10px;
+                overflow-y: scroll;
+                overflow-x: hidden;
+       
+                // Skills layout
+                .section-title {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: $theme-text-secondary;
                 }
-            }
-            .skill label {
-                font-size: 14px;
-                font-weight: 400;
-                color: $theme-text-primary;
-            }
-            .skill {
-                margin: 10px 0;
-            }
-
-            // Checkbox styling
-            input[type="checkbox"] {
-                position: absolute;
-                opacity: 0;
-                z-index: -1;
-            }
-            label {
-                position: relative;
-                display: inline-block;
-                padding-left: 30px;
-                height: 1.5em;
-                line-height: 1.5;
-                cursor: pointer;
-
-                &::before, &::after {
+                .skill-group {
+                    margin-bottom: 30px;
+    
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
+                }
+                .skill label {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: $theme-text-primary;
+                }
+                .skill {
+                    margin: 10px 0;
+                }
+    
+                // Checkbox styling
+                input[type="checkbox"] {
                     position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 1.5em;
+                    opacity: 0;
+                    z-index: -1;
+                }
+                label {
+                    position: relative;
+                    display: inline-block;
+                    padding-left: 30px;
                     height: 1.5em;
+                    line-height: 1.5;
                     cursor: pointer;
-                    -webkit-transition: .25s all ease;
-                    transition: .25s all ease;
+    
+                    &::before, &::after {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 1.5em;
+                        height: 1.5em;
+                        cursor: pointer;
+                        -webkit-transition: .25s all ease;
+                        transition: .25s all ease;
+                    }
+                    &::before {
+                        content: " ";
+                        border: 1px solid #bdc3c7;
+                        border-radius: 20%;
+                    }
                 }
-                &::before {
-                    content: " ";
-                    border: 1px solid #bdc3c7;
-                    border-radius: 20%;
+                input[type="checkbox"] + label::after {
+                    content: "\2713";
+                    color: $theme-background-primary;
+                    line-height: 1.5;
+                    text-align: center;
+                    -webkit-transform: scale(0);
+                    transform: scale(0);
                 }
-            }
-            input[type="checkbox"] + label::after {
-                content: "\2713";
-                color: $theme-background-primary;
-                line-height: 1.5;
-                text-align: center;
-                -webkit-transform: scale(0);
-                transform: scale(0);
-            }
-            input[type="checkbox"]:checked + label::before {
-                background: $highlight-pink-primary;
-                border: 0;
-            }
-            input[type="checkbox"]:checked + label::after {
-                -webkit-transform: scale(1);
-                transform: scale(1);
+                input[type="checkbox"]:checked + label::before {
+                    background: $highlight-pink-primary;
+                    border: 0;
+                }
+                input[type="checkbox"]:checked + label::after {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
             }
         }
+        
     }
 }
 
@@ -622,6 +650,7 @@ svg {
 
 // Input label
 .input-group {
+    border: none;
     label {
         color: $theme-text-tertiary;
 
@@ -722,6 +751,24 @@ svg {
 }
 
 /* -------------------------------------------------------------------------- */
+/*                           #pragma Loader Animated                          */
+/* -------------------------------------------------------------------------- */
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid  #EB0877;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;    
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* -------------------------------------------------------------------------- */
 /*                       #pragma Registration Form Layout                     */
 /* -------------------------------------------------------------------------- */
 
@@ -791,40 +838,5 @@ svg {
     #button-end {
         margin-top: 30px;
         width: 100%;
-    }
-}
-
-/* -------------------------------------------------------------------------- */
-/*                      #pragma Skill Selector Styling                        */
-/* -------------------------------------------------------------------------- */
-
-.skill-container {
-    // Self Positioning
-    grid-column: 1 / span 2;
-    width: 100%;
-    margin: 20px 0;
-
-    // Children layout
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
-    row-gap: 30px;
-
-    .skill-group {
-        .skill {
-            @include rounded-box;
-            margin: 10px 0;
-            cursor: pointer;
-
-            &.selected {
-                background-color: $highlight-pink-secondary;
-                label {
-                    color: $highlight-pink-primary;    
-                }
-                svg {
-                    fill: $highlight-pink-primary;
-                }
-            }
-        }
     }
 }

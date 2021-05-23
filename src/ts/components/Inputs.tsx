@@ -1,5 +1,5 @@
 import React from "react";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   EyeIcon,
   EyeClosedIcon,
@@ -18,11 +18,11 @@ export const InputSkeleton = (props: {
   children: any;
 }) => {
   return (
-    <div className={"input-group " + props.className}>
+    <fieldset className={"input-group " + props.className}>
       <label>{props.topLabel}</label>
       {props.children}
       <label>{props.bottomLabel}</label>
-    </div>
+    </fieldset>
   );
 };
 
@@ -160,9 +160,9 @@ export const PasswordVerify = (props: {
   useEffect(() => {
     props.valid(
       containsNumber.test(props.valueIn) &&
-        containsSymbol.test(props.valueIn) &&
-        lowerOrUpper.test(props.valueIn) &&
-        minChars.test(props.valueIn)
+      containsSymbol.test(props.valueIn) &&
+      lowerOrUpper.test(props.valueIn) &&
+      minChars.test(props.valueIn)
     );
   }, [props.valueIn]);
 
@@ -203,7 +203,7 @@ export const EmailInput = (props: {
   const mark = <XIcon size={20} className="x" />;
 
   const emailRegex = new RegExp(
-    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
 
   var valid: any;
@@ -319,14 +319,14 @@ export const SelectInput = (props: {
             name="occupation"
             id="default"
             title={props.placeholder}
-            defaultChecked={props.valueIn == ""}
+            defaultChecked={props.valueIn === ""}
           />
 
           {props.dropdownItems.map((item: any) => {
             return (
               <input
                 key={item}
-                defaultChecked={props.valueIn == item}
+                defaultChecked={props.valueIn === item}
                 type="radio"
                 name="occupation"
                 id={item}
@@ -344,7 +344,7 @@ export const SelectInput = (props: {
             return (
               <li key={item}>
                 <label
-                  className={props.valueIn == item ? "selected" : ""}
+                  className={props.valueIn === item ? "selected" : ""}
                   htmlFor={item}
                 >
                   {item}

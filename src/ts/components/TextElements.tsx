@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Divider = () => {
-    return (
+  return (
       <div className="or-divider">
         <p>OR</p>
         <span className="line"></span>
@@ -25,12 +25,12 @@ export const InstructionSet = (props: {
         <div className="progress-bar">
           {
           Array.from(Array(props.currentSteps), (e, i) => {
-            return <div className="selected"></div>;
+            return <div className="selected" key={i}></div>;
           })
           }
           {
             Array.from(Array(props.totalSteps - props.currentSteps), (e, i) => {
-              return <div className="unselected"></div>;
+              return <div className="unselected" key={i}></div>;
             })
           }
         </div>

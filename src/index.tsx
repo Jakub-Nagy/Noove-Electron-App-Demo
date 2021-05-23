@@ -21,7 +21,7 @@ ReactDOM.render(
         <RecoilRoot>
             <BrowserRouter>
                 {/* Noove symbol */}
-                <img src={require('./assets/noove-symbol.svg')} className="symbol" />
+                <img src={require('./assets/noove-symbol.svg')} className="symbol" alt="Noove Symbol" />
 
                 <div className="App">
                     <Route path="/" exact component={Login} />

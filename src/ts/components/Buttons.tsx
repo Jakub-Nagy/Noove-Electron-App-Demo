@@ -6,7 +6,7 @@ export const SocialButton = (props: { mediaType: string; width: string }) => {
       className={"continue-with-button " + props.mediaType}
       style={{ width: props.width }}
     >
-      <img src={props.mediaType === "google" ? require('../../assets/icon-google.svg') : require('../../assets/icon-facebook.svg')} />
+      <img src={props.mediaType === "google" ? require('../../assets/icon-google.svg') : require('../../assets/icon-facebook.svg')} alt="Button logo" />
       <label>
         Continue with{" "}
         {props.mediaType.charAt(0).toUpperCase() + props.mediaType.substring(1)}

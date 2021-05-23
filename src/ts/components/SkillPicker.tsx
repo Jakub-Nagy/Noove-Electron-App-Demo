@@ -1,8 +1,15 @@
+// React dependencies
 import React, { Fragment, useState } from "react";
 import { atom, useRecoilState } from "recoil";
-import skills from '../utility/Skills.json';
 import * as icons from "@primer/octicons-react";
+
+// Skills indexing
+import skills from '../utility/Skills.json';
 import Fuse from "fuse.js";
+
+// Components
+import OutsideClickHandler from "../components/OutsideClickHandler"
+
 
 const selectedTags = atom({
   key: "selectedTags",
@@ -36,10 +43,10 @@ const SkillSelected = () => {
   const [tags, setTags] = useRecoilState(selectedTags);
 
   return (
-    <>
+    <Fragment>
       <div className="selected">
         {skills.map((element) => { 
-          const Icon = icons[element.icon];
+          const Icon = icons[element.icon as keyof typeof icons];
           return tags.includes(element.id) ? (
             <div className="skill" key={element.id}>
               <Icon size={16} />
@@ -60,11 +67,11 @@ const SkillSelected = () => {
         })}
       </div>
       <span className="divider"></span>
-    </>
+    </Fragment>
   );
 };
 
-const DropdownSkills = (props: { categoryName: any; list: any }) => {
+const DropdownSections = (props: { categoryName: any; list: any }) => {
   let i = 0;
 
   props.list.forEach((element: any) => {
@@ -72,15 +79,35 @@ const DropdownSkills = (props: { categoryName: any; list: any }) => {
       element.category === props.categoryName ||
       element.item?.category === props.categoryName
     ) {
-      i = i + 1;
+      i++;
     }
   });
   if (i !== 0) {
     return (
-      <h3 className="section-title">
-        {props.categoryName.charAt(0).toUpperCase() +
-          props.categoryName.slice(1)}
-      </h3>
+      <Fragment>
+        <h3 className="section-title">
+          {props.categoryName.charAt(0).toUpperCase() +
+            props.categoryName.slice(1)}
+        </h3>
+        <div className="skill-group">
+          {props.list.map((element: any) => {
+            if (
+              element.category === props.categoryName ||
+              element.item?.category === props.categoryName
+            ) {
+              return (
+                <Skill
+                  label={element.label ? element.label : element.item.label}
+                  id={element.id ? element.id : element.item.id}
+                  key={element.id ? element.id : element.item.id}
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
+        </div>
+      </Fragment>
     );
   } else {
     return null;
@@ -93,42 +120,27 @@ const Dropdown = (props: { list: any }) => {
     "science",
     "creative",
     "marketing",
-    "business"
+    "business",
   ];
 
   return (
     <div className="dropdown">
-      {categories.map((categoryName, index) => {
-        return (
-          <Fragment key={index}>
-            <DropdownSkills categoryName={categoryName} list={props.list} />
-            <div className="skill-group">
-              {props.list.map((element: any) => {
-                if (
-                  element.category === categoryName ||
-                  element.item?.category === categoryName
-                ) {
-                  return (
-                    <Skill
-                      label={element.label ? element.label : element.item.label}
-                      id={element.id ? element.id : element.item.id}
-                      key={element.id ? element.id : element.item.id}
-                    />
-                  );
-                } else {
-                  return null;
-                }
-              })}
-            </div>
-          </Fragment>
-        );
-      })}
+      <div className="divider"></div>
+      <div className="skills">
+        {categories.map((categoryName, index) => {
+          return (
+            <Fragment key={index}>
+              <DropdownSections categoryName={categoryName} list={props.list} />
+            </Fragment>
+          );
+        })}
+      </div>
     </div>
   );
 };
 
 const SkillPicker = () => {
-  const [showDropdown, setshowDropdown] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [search, setSearch] = useState("");
 
   const [tags] = useRecoilState(selectedTags);
@@ -142,30 +154,37 @@ const SkillPicker = () => {
 
   return (
     <Fragment>
-      <div className="input-group stretch">
-        <div className="skill-picker">
-          {tags.length === 0 ? null : <SkillSelected />}
-          <div className="input-search">
-            <icons.SearchIcon size={20} />
-            <input
-              type="search"
-              placeholder="Search for skills"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              onFocus={function () {
-                setshowDropdown(true);
-              }}
-            />
+      <fieldset className="input-group stretch">
+        <OutsideClickHandler
+          onOutsideClick={() => {
+            setDropdownOpen(false);
+          }}
+        >
+          <div 
+            className={dropdownOpen ? "skill-picker dropped" : "skill-picker"}
+            onClick={() => {
+              setDropdownOpen(true);
+            }}
+          >
+            <div className="top-group">
+              {tags.length === 0 ? null : <SkillSelected />}
+              <div className="input-search">
+                <icons.SearchIcon size={20} />
+                <input
+                  type="search"
+                  placeholder="Search for skills"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </div>
+            </div>
+            {dropdownOpen ? <span className="divider"></span> : <></>}
+            {dropdownOpen ? (
+              <Dropdown list={search === "" ? skills : fuse.search(search)} />
+            ) : ( <></> )}
           </div>
-
-          {showDropdown ? <span className="divider"></span> : <></>}
-          {showDropdown ? (
-            <Dropdown list={search === "" ? skills : fuse.search(search)} />
-          ) : (
-            <></>
-          )}
-        </div>
-      </div>
+        </OutsideClickHandler>
+      </fieldset>
     </Fragment>
   );
 };

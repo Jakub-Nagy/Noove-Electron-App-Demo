@@ -1,4 +1,4 @@
-// System
+// React Dependencies
 import React from "react";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
@@ -22,7 +22,7 @@ import { InstructionSet } from '../components/TextElements';
 
 const formPage = atom({
   key: "formPage",
-  default: 2,
+  default: 4,
 });
 
 export const selectedTags = atom({
@@ -178,8 +178,8 @@ const PageTwo = () => {
         <SelectInput
           className="right"
           topLabel="Occupation"
-          placeholder="Pick your position"
-          dropdownItems={["test1", "test2", "test3"]}
+          placeholder="Select your occupation"
+          dropdownItems={["Student", "Teacher", "Professional"]}
           valueIn={formD.occupation}
           valueOut={(value: string) => {
             setFormD({ ...formD, occupation: value });
@@ -211,6 +211,7 @@ const PageTwo = () => {
         <Button
           label="Continue"
           className="button-primary right bottom-margin"
+          disabled={formD.firstName === "" || formD.lastName === "" || formD.birthDate === "" || formD.occupation === "" || formD.edu === ""}
           onClick={function () {
             setPage(page + 1);
           }}
@@ -259,6 +260,7 @@ const PageThree = () => {
         <Button
           label="Continue"
           className="button-primary right bottom-margin"
+          disabled={formD.bio === ""}
           onClick={function () {
             setPage(page + 1);
           }}
@@ -270,7 +272,6 @@ const PageThree = () => {
 
 const PageFour = () => {
   const [page, setPage] = useRecoilState(formPage);
-  const [formD, setFormD] = useRecoilState(formData);
 
   if (page === 4) {
     return (
@@ -285,7 +286,7 @@ const PageFour = () => {
 
         {/* Skill picker */}
         <SkillPicker />
-
+        
         {/* Back button */}
         <Button
           label="Back"
@@ -316,12 +317,12 @@ const PageFour = () => {
 const Register = () => {
   return (
     <Fragment>
-      <div className="form-container" id="register">
+      <form className="form-container" id="register">
         <PageOne />
         <PageTwo />
         <PageThree />
         <PageFour />
-      </div>
+      </form>
     </Fragment>
   );
 };
