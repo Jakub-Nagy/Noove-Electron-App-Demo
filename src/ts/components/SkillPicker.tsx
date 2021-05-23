@@ -9,12 +9,7 @@ import Fuse from "fuse.js";
 
 // Components
 import OutsideClickHandler from "../components/OutsideClickHandler"
-
-
-const selectedTags = atom({
-  key: "selectedTags",
-  default: Array<String>()
-});
+import { selectedTags } from "../views/Register";
 
 const Skill = (props: { label: string; id: string }) => {
   const [tags, setTags] = useRecoilState(selectedTags);
