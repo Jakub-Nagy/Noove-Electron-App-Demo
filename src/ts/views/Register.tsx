@@ -64,7 +64,7 @@ const PageOne = () => {
         <InstructionSet
           title="Set up your account"
           subtitle="Sign Up"
-          currentSteps={1}
+          currentSteps={page}
           totalSteps={4}
         />
 
@@ -139,7 +139,7 @@ const PageTwo = () => {
         <InstructionSet
           title="Fill in your details"
           subtitle="Sign Up"
-          currentSteps={2}
+          currentSteps={page}
           totalSteps={4}
         />
 
@@ -183,7 +183,6 @@ const PageTwo = () => {
           valueIn={formD.occupation}
           valueOut={(value: string) => {
             setFormD({ ...formD, occupation: value });
-            console.log(value);
           }}
         />
 
@@ -232,7 +231,7 @@ const PageThree = () => {
         <InstructionSet
           title="Describe yourself"
           subtitle="Sign Up"
-          currentSteps={3}
+          currentSteps={page}
           totalSteps={4}
         />
 
@@ -263,6 +262,7 @@ const PageThree = () => {
           disabled={formD.bio === ""}
           onClick={function () {
             setPage(page + 1);
+            console.log("front")
           }}
         />
       </Fragment>
@@ -280,7 +280,7 @@ const PageFour = () => {
         <InstructionSet
           title="Pick your skills"
           subtitle="Sign Up"
-          currentSteps={4}
+          currentSteps={page}
           totalSteps={4}
         />
 
@@ -293,6 +293,7 @@ const PageFour = () => {
           className="button-secondary left bottom-margin"
           onClick={function () {
             setPage(page - 1);
+            console.log("4 going back");
           }}
         />
 

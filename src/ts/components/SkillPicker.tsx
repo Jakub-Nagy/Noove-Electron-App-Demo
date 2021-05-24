@@ -1,6 +1,6 @@
 // React dependencies
 import React, { Fragment, useState } from "react";
-import { atom, useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import * as icons from "@primer/octicons-react";
 
 // Skills indexing
