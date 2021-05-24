@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 
 export const SocialButton = (props: { mediaType: string; width: string }) => {
   return (
@@ -25,14 +26,11 @@ export const Button = (props: {
   type?: string;
   width?: string;
   onClick?: any;
-  disabled?: any;
+  disabled?: boolean;
 }) => {
   return (
     <button
-      className={`
-        ${props.className}
-        ${props.disabled ? "disabled" : ""}
-      `}
+      className={`${props.className} ${props.disabled ? "disabled" : ""}`}
       style={{ width: props.width }}
       onClick={props.onClick}
       disabled={props.disabled}

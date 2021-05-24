@@ -22,7 +22,7 @@ import { InstructionSet } from '../components/TextElements';
 
 const formPage = atom({
   key: "formPage",
-  default: 4,
+  default: 1,
 });
 
 export const selectedTags = atom({
@@ -54,12 +54,13 @@ const formData = atom({
 });
 
 const PageOne = () => {
-  const [page, setPage] = useRecoilState(formPage);
+  let [page, setPage] = useRecoilState(formPage);
   const [formD, setFormD] = useRecoilState(formData);
 
   if (page === 1) {
     return (
       <Fragment>
+
         {/* Step instructions */}
         <InstructionSet
           title="Set up your account"
@@ -135,6 +136,7 @@ const PageTwo = () => {
   if (page === 2) {
     return (
       <Fragment>
+
         {/* Step instructions */}
         <InstructionSet
           title="Fill in your details"
@@ -215,6 +217,7 @@ const PageTwo = () => {
             setPage(page + 1);
           }}
         />
+
       </Fragment>
     );
   } else return null;
@@ -227,6 +230,7 @@ const PageThree = () => {
   if (page === 3) {
     return (
       <Fragment>
+
         {/* Step instructions */}
         <InstructionSet
           title="Describe yourself"
@@ -265,6 +269,7 @@ const PageThree = () => {
             console.log("front")
           }}
         />
+
       </Fragment>
     );
   } else return null;
@@ -318,12 +323,12 @@ const PageFour = () => {
 const Register = () => {
   return (
     <Fragment>
-      <form className="form-container" id="register">
+      <div className="form-container" id="register">
         <PageOne />
         <PageTwo />
         <PageThree />
         <PageFour />
-      </form>
+      </div>
     </Fragment>
   );
 };

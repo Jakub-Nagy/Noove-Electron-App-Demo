@@ -23,11 +23,9 @@ ReactDOM.render(
                 {/* Noove symbol */}
                 <img src={require('./assets/noove-symbol.svg')} className="symbol" alt="Noove Symbol" />
 
-                <div className="App">
-                    <Route path="/" exact component={Login} />
-                    <Route path="/Register" exact component={Register} />
-                    <Route path="/End" exact component={End} />
-                </div>
+                <Route path="/" exact component={Login} />
+                <Route path="/Register" exact component={Register} />
+                <Route path="/End" exact component={End} />
             </BrowserRouter>
         </RecoilRoot>
     </React.StrictMode>,
