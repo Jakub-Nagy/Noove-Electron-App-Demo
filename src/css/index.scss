@@ -36,7 +36,6 @@ $highlight-green-tertiary: #C8FFEB;
 
 // Generic colors
 $color-success-green: #4CD16B;
-$color-failure-red: #ff0000b2;
 
 /* -------------------------------------------------------------------------- */
 /*                           #pragma Generic Layout                           */
@@ -368,17 +367,20 @@ svg {
             font-size: 14px;
             color: $theme-text-tertiary;
         }
-        .dot {
+        @mixin dot {
             height: 10px;
             width: 10px;
             margin-right: 5px;
             border-radius: 50%;
             display: inline-block;
+        }
+        .available {
+            @include dot;
             background-color: $color-success-green;
-
-            &.red {
-                background-color: $color-failure-red;
-            }
+        }
+        .unavailable {
+            @include dot;
+            background-color: $highlight-pink-primary;
         }
     }
 
