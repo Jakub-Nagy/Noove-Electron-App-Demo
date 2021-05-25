@@ -132,9 +132,9 @@ export const UsernameInput = (props: {
     >
       <div className="input-username">
         <input type="text" onChange={handleChange} value={props.valueIn} />
-        <span className="available">
-          <span className="dot"></span>
-          Available
+        <span className="availability">
+          <span className="dot red"></span>
+          Unavailable
         </span>
       </div>
     </InputSkeleton>

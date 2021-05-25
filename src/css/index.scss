@@ -36,6 +36,7 @@ $highlight-green-tertiary: #C8FFEB;
 
 // Generic colors
 $color-success-green: #4CD16B;
+$color-failure-red: #ff0000b2;
 
 /* -------------------------------------------------------------------------- */
 /*                           #pragma Generic Layout                           */
@@ -362,7 +363,7 @@ svg {
 
     // Username input
     .input-username {
-        .available {
+        .availability {
             width: 120px;
             font-size: 14px;
             color: $theme-text-tertiary;
@@ -371,9 +372,13 @@ svg {
             height: 10px;
             width: 10px;
             margin-right: 5px;
-            background-color: $color-success-green;
             border-radius: 50%;
             display: inline-block;
+            background-color: $color-success-green;
+
+            &.red {
+                background-color: $color-failure-red;
+            }
         }
     }
 

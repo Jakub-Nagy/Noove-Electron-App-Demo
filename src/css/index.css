@@ -457,7 +457,7 @@ svg.x {
   color: #5B5B5B;
 }
 
-.input-group .input-username .available {
+.input-group .input-username .availability {
   width: 120px;
   font-size: 14px;
   color: #848484;
@@ -467,9 +467,13 @@ svg.x {
   height: 10px;
   width: 10px;
   margin-right: 5px;
-  background-color: #4CD16B;
   border-radius: 50%;
   display: inline-block;
+  background-color: #4CD16B;
+}
+
+.input-group .input-username .dot.red {
+  background-color: #ff0000b2;
 }
 
 .input-group .input-textarea {
