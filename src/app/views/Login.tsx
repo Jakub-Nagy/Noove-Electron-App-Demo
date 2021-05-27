@@ -14,7 +14,7 @@ import Logo from '../../assets/noove-logo.svg'
 export default class Login extends React.Component {
     render() {
         return (
-            <form className="form-container" id="login">
+            <div className="form-container" id="login">
 
                 {/* Noove logo */}
                 <img src={Logo} className="logo" alt="Noove Logo" />
@@ -44,7 +44,7 @@ export default class Login extends React.Component {
                     <Button label="Create an account" className="button-tertiary" />
                 </Link>
                 
-            </form>
+            </div>
         );
     }
 }

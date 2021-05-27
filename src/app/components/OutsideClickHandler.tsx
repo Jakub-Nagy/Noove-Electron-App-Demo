@@ -25,7 +25,7 @@ class OutsideClickHandler extends React.Component<Props> {
         .removeEventListener('mousedown', this.handleClickOutside);
     }
   
-    handleClickOutside = (event) => {
+    handleClickOutside = (event: any) => {
       if (
         this.wrapperRef.current &&
         !this.wrapperRef.current.contains(event.target)
