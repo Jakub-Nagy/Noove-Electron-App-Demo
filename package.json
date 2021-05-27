@@ -12,20 +12,18 @@
   },
   "dependencies": {
     "@primer/octicons-react": "^13.0.0",
-    "@types/react-dom": "^17.0.5",
-    "firebase": "^8.5.0",
+    "fuse.js": "^6.4.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-firebase-hooks": "^3.0.4",
-    "react-router-dom": "^5.2.0",
+    "firebase": "^8.5.0",
     "recoil": "^0.3.1",
-    "source-map-support": "^0.5.16",
-    "url-loader": "^4.1.1",
-    "fuse.js": "^6.4.6"
+    "react-router-dom": "^5.2.0",
+    "source-map-support": "^0.5.16"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.13.13",
     "@types/react": "^17.0.8",
+    "@types/react-dom": "^17.0.5",
     "@types/react-router-dom": "^5.1.7",
     "electron": "8.2.0",
     "electron-builder": "^22.4.1",
@@ -41,6 +39,27 @@
     "renderer": {
       "sourceDirectory": "src/app",
       "template": "src/electron/index.html"
+    }
+  },
+  "build": {
+    "productName": "Noove",
+    "copyright": "Copyright © 2021 ${author}",
+    "mac": {
+      "icon": "./public/icons/mac/icon.icns",
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "icon": "./src/electron/noove-icon.png"
+    },
+    "files": [
+      "./build/**/*",
+      "./dist/**/*",
+      "./node_modules/**/*",
+      "./src/electron/**/*",
+      "*.js"
+    ],
+    "directories": {
+      "buildResources": "src/electron"
     }
   }
 }

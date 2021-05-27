@@ -14,7 +14,7 @@ import "./utility/Firebase";
 
 // Views
 import Login from './views/Login';
-import Register from './views/Register';
+// import Register from './views/Register';
 import End from './views/End';
 
 ReactDOM.render(
@@ -22,9 +22,11 @@ ReactDOM.render(
         <BrowserRouter>
             {/* Noove symbol */}
             <img src={Symbol} className="symbol" alt="Noove Symbol" />
+
+            <Login />
       
             <Route path="/" exact component={Login} />
-            <Route path="/Register" exact component={Register} />
+            {/* <Route path="/Register" exact component={Register} /> */}
             <Route path="/End" exact component={End} />
         </BrowserRouter>
     </React.StrictMode>,

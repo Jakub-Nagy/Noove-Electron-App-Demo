@@ -40,7 +40,7 @@ const SkillSelected = () => {
   return (
     <Fragment>
       <div className="selected">
-        {skills.map((element) => { 
+        {skills.map((element: any) => { 
           const Icon = icons[element.icon as keyof typeof icons];
           return tags.includes(element.id) ? (
             <div className="skill" key={element.id}>
