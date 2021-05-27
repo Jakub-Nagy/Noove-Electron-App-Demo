@@ -7,6 +7,9 @@ import { TextInput, PasswordInput } from '../components/Inputs';
 import { Divider } from '../components/TextElements';
 import { SocialButton, Button } from '../components/Buttons';
 
+// Images
+import Logo from '../../assets/noove-logo.svg'
+
 
 export default class Login extends React.Component {
     render() {
@@ -14,7 +17,7 @@ export default class Login extends React.Component {
             <form className="form-container" id="login">
 
                 {/* Noove logo */}
-                <img src={require('../../assets/noove-logo.svg')} className="logo" alt="Noove Logo" />
+                <img src={Logo} className="logo" alt="Noove Logo" />
 
                 {/* Continue with Google */}
                 <SocialButton mediaType="google" />
@@ -33,12 +36,12 @@ export default class Login extends React.Component {
           
                 {/* Sign in button */}
                 <Link to="/End" id="button-sign-in">
-                    {/* <Button label="Sign in" className="button-primary" /> */}
+                    <Button label="Sign in" className="button-primary" />
                 </Link>
 
                 {/* Sign up button */}
                 <Link to="/Register">
-                    {/* <Button label="Create an account" className="button-tertiary" /> */}
+                    <Button label="Create an account" className="button-tertiary" />
                 </Link>
                 
             </form>

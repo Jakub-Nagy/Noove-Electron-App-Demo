@@ -24,6 +24,7 @@
   },
   "include": [
     "src/*",
-    "src/app/*"
+    "src/app/*",
+    "custom.d.ts"
   ]
 }
