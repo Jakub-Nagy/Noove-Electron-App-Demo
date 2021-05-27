@@ -35,12 +35,12 @@ export default class Login extends React.Component {
                 <PasswordInput topLabel="Password" valueIn={(value: any) => {console.log(value);}} valueOut={(value: any) => {console.log(value);}} />
           
                 {/* Sign in button */}
-                <Link to="/End" id="button-sign-in">
+                <Link to="/end" id="button-sign-in">
                     <Button label="Sign in" className="button-primary" />
                 </Link>
 
                 {/* Sign up button */}
-                <Link to="/Register">
+                <Link to="/register">
                     <Button label="Create an account" className="button-tertiary" />
                 </Link>
                 

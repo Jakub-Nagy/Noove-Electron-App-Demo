@@ -1,7 +1,7 @@
 // React dependencies
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 // Styling
 import '../css/index.css';
@@ -18,17 +18,17 @@ import Login from './views/Login';
 import End from './views/End';
 
 ReactDOM.render(
-    <React.StrictMode>
-        <BrowserRouter>
+    <HashRouter>
+        <Fragment>
             {/* Noove symbol */}
             <img src={Symbol} className="symbol" alt="Noove Symbol" />
-
-            <Login />
-      
-            <Route path="/" exact component={Login} />
-            {/* <Route path="/Register" exact component={Register} /> */}
-            <Route path="/End" exact component={End} />
-        </BrowserRouter>
-    </React.StrictMode>,
+            
+            <Switch>
+                <Route exact path="/" render={(props) => <Login {...props} key={Date.now()}/>} />
+                {/* <Route path="/Register" exact component={Register} /> */}
+                <Route exact path="/end" render={(props) => <End {...props} key={Date.now()}/>} />
+            </Switch>
+        </Fragment>
+    </HashRouter>,
     document.getElementById('view-layout')
 );
