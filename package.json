@@ -1,57 +1,42 @@
 {
-  "name": "Noove-Electron-App-Demo",
-  "description": "Noove Electron Demo App",
-  "author": "Jakub Nagy",
-  "homepage": "./",
-  "main": "./electron/main.tsx",
+  "name": "Noove",
+  "description": "This is a public eletron demo for the Noove desktop application. It was developed as a thesis during my work at Microsoft STC.",
+  "author": "Noove Ltd.",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+  },
   "dependencies": {
     "@primer/octicons-react": "^13.0.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "classnames": "^2.3.1",
-    "electron-builder": "^22.11.1",
-    "electron-is-dev": "^1.2.0",
     "firebase": "^8.5.0",
-    "fuse.js": "^6.4.6",
-    "pretty-checkbox": "^3.0.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-firebase-hooks": "^3.0.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "react-select": "^4.3.1",
-    "recoil": "^0.3.0",
-    "typescript": "^4.2.4",
-    "wait-on": "^5.3.0"
+    "recoil": "^0.3.1",
+    "source-map-support": "^0.5.16"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.13.13",
+    "@types/react": "^17.0.8",
     "@types/react-router-dom": "^5.1.7",
-    "electron": "^12.0.6"
+    "electron": "8.2.0",
+    "electron-builder": "^22.4.1",
+    "electron-webpack": "^2.8.2",
+    "electron-webpack-ts": "^4.0.1",
+    "typescript": "^4.3.2",
+    "webpack": "~4.42.1"
   },
-  "scripts": {
-    "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "ebuild": "npm run build && node_modules/.bin/build"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "electronWebpack": {
+    "main": {
+      "sourceDirectory": "src/electron"
+    },
+    "renderer": {
+      "sourceDirectory": "src/app"
+    }
   }
 }

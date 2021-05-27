@@ -33,12 +33,12 @@ export default class Login extends React.Component {
           
                 {/* Sign in button */}
                 <Link to="/End" id="button-sign-in">
-                    <Button label="Sign in" className="button-primary" />
+                    {/* <Button label="Sign in" className="button-primary" /> */}
                 </Link>
 
                 {/* Sign up button */}
                 <Link to="/Register">
-                    <Button label="Create an account" className="button-tertiary" />
+                    {/* <Button label="Create an account" className="button-tertiary" /> */}
                 </Link>
                 
             </form>
