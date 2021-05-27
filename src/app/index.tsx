@@ -10,7 +10,7 @@ import '../css/index.css';
 import "./utility/Firebase";
 
 // Views
-import Login from './views/Login';
+// import Login from './views/Login';
 // import Register from './ts/views/Register';
 import End from './views/End';
 
@@ -19,11 +19,11 @@ ReactDOM.render(
         <BrowserRouter>
             {/* Noove symbol */}
             <img src={require('../assets/noove-symbol.svg')} className="symbol" alt="Noove Symbol" />
-
-            <Route path="/" exact component={Login} />
+            
+            {/* <Route path="/" exact component={Login} /> */}
             {/* <Route path="/Register" exact component={Register} /> */}
-            <Route path="/End" exact component={End} />
+            <Route path="/" exact component={End} />
         </BrowserRouter>
     </React.StrictMode>,
-    document.getElementById('app')
+    document.getElementById('view-layout')
 );

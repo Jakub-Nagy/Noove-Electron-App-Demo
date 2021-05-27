@@ -14,7 +14,7 @@ function createMainWindow() {
     webPreferences: {nodeIntegration: true},
     width: 1920,
     height: 1080,
-    icon: './public/noove-icon.png'
+    icon: './src/electron/noove-icon.png'
   })
 
 
