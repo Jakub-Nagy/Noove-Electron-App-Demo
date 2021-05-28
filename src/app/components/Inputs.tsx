@@ -1,11 +1,11 @@
-import React from "react";
-import { useEffect, useState } from "react";
 import {
-  EyeIcon,
-  EyeClosedIcon,
-  XIcon,
   CheckIcon,
+  EyeClosedIcon,
+  EyeIcon,
+  XIcon,
 } from "@primer/octicons-react";
+import { db } from "../utility/FirebaseConfiguration";
+import { useEffect, useState } from "react";
 
 /* -------------------------------------------------------------------------- */
 /*                             #pragma Input Skeleton                         */
@@ -116,13 +116,29 @@ export const UsernameInput = (props: {
   bottomLabel?: string;
   placeholder?: string;
   className?: string;
-  valueIn: any;
+  valueIn: string;
   valueOut: any;
   valid: any;
 }) => {
-  function handleChange(event: any) {
-    props.valueOut(event.target.value);
-  }
+  const [valid, setValid] = useState(false);
+
+  useEffect(() => {
+    async function updateValid() {
+      let validity =
+        (
+          await db
+            .collection("users")
+            .where("username", "==", props.valueIn)
+            .get()
+        ).size === 0;
+      props.valueIn.length > 1 ? setValid(validity) : setValid(false);
+    }
+    updateValid();
+  }, [props.valueIn]);
+
+  useEffect(() => {
+    props.valid(valid);
+  }, [valid]);
 
   return (
     <InputSkeleton
@@ -131,10 +147,14 @@ export const UsernameInput = (props: {
       className={props.className}
     >
       <div className="input-username">
-        <input type="text" onChange={handleChange} value={props.valueIn} />
+        <input
+          type="text"
+          onChange={(e) => props.valueOut(e.target.value)}
+          value={props.valueIn}
+        />
         <span className="availability">
-          <span className="unavailable"></span>
-          Unavailable
+          <span className={valid ? "available" : "unavailable"}></span>
+          {valid ? "Available" : "Unavailable"}
         </span>
       </div>
     </InputSkeleton>
@@ -145,10 +165,7 @@ export const UsernameInput = (props: {
 /*                          #pragma Password Verifier                         */
 /* -------------------------------------------------------------------------- */
 
-export const PasswordVerify = (props: { 
-  valueIn: string;
-  valid: any;
-}) => {
+export const PasswordVerify = (props: { valueIn: string; valid: any }) => {
   const lowerOrUpper = new RegExp("(?=.*?[a-z])(?=.*?[A-Z])");
   const containsNumber = new RegExp("(?=.*?[0-9])");
   const containsSymbol = new RegExp("(?=.*?[#?!@$%^&*-])");
@@ -160,9 +177,9 @@ export const PasswordVerify = (props: {
   useEffect(() => {
     props.valid(
       containsNumber.test(props.valueIn) &&
-      containsSymbol.test(props.valueIn) &&
-      lowerOrUpper.test(props.valueIn) &&
-      minChars.test(props.valueIn)
+        containsSymbol.test(props.valueIn) &&
+        lowerOrUpper.test(props.valueIn) &&
+        minChars.test(props.valueIn)
     );
   }, [props.valueIn]);
 
@@ -203,7 +220,7 @@ export const EmailInput = (props: {
   const mark = <XIcon size={20} className="x" />;
 
   const emailRegex = new RegExp(
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
 
   var valid: any;
@@ -282,13 +299,19 @@ export const DateInput = (props: {
       className={props.className}
     >
       <div className="input-date">
-        <input type="date" onChange={handleChange} value={props.valueIn} required />
+        <input
+          type="date"
+          onChange={handleChange}
+          value={props.valueIn}
+          required
+        />
       </div>
     </InputSkeleton>
   );
 };
+
 /* -------------------------------------------------------------------------- */
-/*                            #pragma Dropdown Input                          */
+/*                             #pragma Select Input                           */
 /* -------------------------------------------------------------------------- */
 
 export const SelectInput = (props: {

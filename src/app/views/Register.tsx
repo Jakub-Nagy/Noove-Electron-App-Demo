@@ -1,8 +1,12 @@
 // React Dependencies
-import React from "react";
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { atom, useRecoilState } from "recoil";
+
+// Firebase and state management
+import { auth, db, functions } from "../utility/FirebaseConfiguration";
+import { useState } from "react";
+import { userState } from "../utility/UserManager";
 
 // Components
 import { Button } from '../components/Buttons';
@@ -18,7 +22,6 @@ import {
 } from '../components/Inputs';
 import SkillPicker from '../components/SkillPicker';
 import { InstructionSet } from '../components/TextElements';
-
 
 const formPage = atom({
   key: "formPage",
@@ -47,20 +50,19 @@ const formData = atom({
 
     birthDate: "",
 
+    occupation: "",
     bio: "",
     edu: "",
-    occupation: "",
   },
 });
 
 const PageOne = () => {
-  let [page, setPage] = useRecoilState(formPage);
+  const [page, setPage] = useRecoilState(formPage);
   const [formD, setFormD] = useRecoilState(formData);
 
   if (page === 1) {
     return (
       <Fragment>
-
         {/* Step instructions */}
         <InstructionSet
           title="Set up your account"
@@ -79,6 +81,7 @@ const PageOne = () => {
           }}
           valid={(value: boolean) => {
             setFormD({ ...formD, usernameValid: value });
+            console.log(value);
           }}
           bottomLabel="This will be your unique handle on Noove.com"
         />
@@ -119,7 +122,9 @@ const PageOne = () => {
         <Button
           label="Continue"
           className="button-primary right bottom-margin"
-          disabled={!(formD.emailValid && formD.passwordValid)}
+          disabled={
+            !(formD.emailValid && formD.passwordValid && formD.usernameValid)
+          }
           onClick={function () {
             setPage(page + 1);
           }}
@@ -136,7 +141,6 @@ const PageTwo = () => {
   if (page === 2) {
     return (
       <Fragment>
-
         {/* Step instructions */}
         <InstructionSet
           title="Fill in your details"
@@ -212,12 +216,17 @@ const PageTwo = () => {
         <Button
           label="Continue"
           className="button-primary right bottom-margin"
-          disabled={formD.firstName === "" || formD.lastName === "" || formD.birthDate === "" || formD.occupation === "" || formD.edu === ""}
+          disabled={
+            formD.firstName === "" ||
+            formD.lastName === "" ||
+            formD.birthDate === "" ||
+            formD.occupation === "" ||
+            formD.edu === ""
+          }
           onClick={function () {
             setPage(page + 1);
           }}
         />
-
       </Fragment>
     );
   } else return null;
@@ -230,7 +239,6 @@ const PageThree = () => {
   if (page === 3) {
     return (
       <Fragment>
-
         {/* Step instructions */}
         <InstructionSet
           title="Describe yourself"
@@ -266,10 +274,8 @@ const PageThree = () => {
           disabled={formD.bio === ""}
           onClick={function () {
             setPage(page + 1);
-            console.log("front")
           }}
         />
-
       </Fragment>
     );
   } else return null;
@@ -277,6 +283,38 @@ const PageThree = () => {
 
 const PageFour = () => {
   const [page, setPage] = useRecoilState(formPage);
+  const [formD] = useRecoilState(formData);
+  const [history, setHistory] = useState(false);
+
+  const register = functions.httpsCallable("register");
+
+  const RegisterUser = async () => {
+    const docs = await db
+      .collection("users")
+      .where("username", "==", formD.username)
+      .get();
+    if (docs.size !== 0) throw new Error("Username no longer available");
+
+    await register({
+      email: formD.email,
+      password: formD.password,
+
+      username: formD.username,
+      firstName: formD.firstName,
+      lastName: formD.lastName,
+      birthDate: formD.birthDate,
+
+      bio: formD.bio,
+      edu: formD.edu,
+    });
+
+    console.log("Registered");
+
+    await auth.signInWithEmailAndPassword(formD.email, formD.password);
+    console.log("Logged in");
+    setHistory(true);
+  };
+  if(history) return <Redirect to={"/"} />
 
   if (page === 4) {
     return (
@@ -291,7 +329,7 @@ const PageFour = () => {
 
         {/* Skill picker */}
         <SkillPicker />
-        
+
         {/* Back button */}
         <Button
           label="Back"
@@ -303,12 +341,13 @@ const PageFour = () => {
         />
 
         {/* Continue button */}
-        <Link to="/End" id="button-finish-up">
-          <Button
-            label="Finish Up"
-            className="button-primary right bottom-margin"
-          />
-        </Link>
+        <Button
+          label="Finish Up"
+          className="button-primary right bottom-margin"
+          onClick={function () {
+            RegisterUser();
+          }}
+        />
 
         {/* TOS agreement */}
         <p className="TOS right">
@@ -321,15 +360,16 @@ const PageFour = () => {
 };
 
 const Register = () => {
+  const [user] = useRecoilState(userState);
+  if(user) return <Redirect to={"/"} />;
+
   return (
-    <Fragment>
-      <div className="form-container" id="register">
-        <PageOne />
-        <PageTwo />
-        <PageThree />
-        <PageFour />
-      </div>
-    </Fragment>
+    <div className="form-container">
+      <PageOne />
+      <PageTwo />
+      <PageThree />
+      <PageFour />
+    </div>
   );
 };
 

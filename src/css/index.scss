@@ -404,7 +404,7 @@ svg {
         background-color: $theme-background-secondary;
         border-radius: 15px;
         font-size: 17px;
-    
+
         &.dropped {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
@@ -441,22 +441,27 @@ svg {
                 margin-right: 5px;
                 transform: rotate(-45deg) translate(0%, 50%);
             }
+            &::-webkit-details-marker {
+                display:none;
+            }
             input[type=radio] {
                 appearance: none;
                 display: none;
                 pointer-events: none;
-                font-size: 17px;
-        
+                visibility: hidden;
+
                 &:checked {
                     display: inline;
                 }
                 &:after {
                     content: attr(title);
-                    font-size: 1rem;
+                    font-size: 17px;
+                    visibility: visible;
                 }
             }
             #default {
                 color: $theme-text-secondary;
+                width: 80%;
             }
         }
         ul {

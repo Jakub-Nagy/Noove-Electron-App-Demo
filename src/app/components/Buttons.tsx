@@ -1,6 +1,3 @@
-// React
-import React from "react";
-
 // Images
 import GoogleLogo from '../../assets/icon-google.svg';
 import FacebookLogo from '../../assets/icon-facebook.svg';

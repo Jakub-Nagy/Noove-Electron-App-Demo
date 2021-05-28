@@ -1,5 +1,5 @@
 // React dependencies
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import { useRecoilState } from "recoil";
 import * as icons from "@primer/octicons-react";
 

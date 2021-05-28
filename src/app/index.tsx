@@ -7,14 +7,15 @@ import '../css/index.css';
 import Symbol from '../assets/noove-symbol.svg';
 
 // Firebase and state management
-import "./utility/Firebase";
-import { Firebase } from "./utility/User";
+import "./utility/FirebaseConfiguration";
 import { RecoilRoot } from "recoil";
+import { UserManager } from './utility/UserManager';
 
 // Views
 import Login from './views/Login';
 import Register from './views/Register';
 import End from './views/End';
+import App from './views/App';
 
 render(
     <RecoilRoot>
@@ -22,13 +23,14 @@ render(
         <img src={Symbol} className="symbol" alt="Noove Symbol" />
 
         <HashRouter>
-            <Firebase loading={<h1>Loading...</h1>}>
+            <UserManager>
                 <Switch>
-                    <Route exact path="/" component={Login} />
-                    <Route path="/Register" exact component={Register} />
+                    <Route exact path="/" component={App} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/register" component={Register} />
                     <Route path="/end" component={End} />
                 </Switch>
-            </Firebase>
+            </UserManager>
         </HashRouter>
     </RecoilRoot>,
     document.getElementById('view-layout')

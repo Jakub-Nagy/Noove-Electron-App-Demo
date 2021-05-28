@@ -1,6 +1,8 @@
-import { auth, db } from "../utility/Firebase";
+// Firebase and state management
+import { auth, db } from "./FirebaseConfiguration";
 import { Fragment, useEffect } from "react";
 import { atom, useRecoilState } from "recoil";
+import { Loader } from "../components/Loader";
 
 export const userState = atom({
   key: "user",
@@ -14,26 +16,26 @@ export const loadedState = atom({
 
 let unsubscribe: (() => void) | null = null;
 
-export const Firebase = (props: any) => {
-  // const [loaded, setLoaded] = useRecoilState(loadedState);
-  // const [_, setUser] = useRecoilState(userState);
+export const UserManager = (props: any) => {
+  const [loaded, setLoaded] = useRecoilState(loadedState);
+  const [_, setUser] = useRecoilState(userState);
 
   useEffect(() => auth.onAuthStateChanged(authUser => {
     console.log(!!authUser);
     if(authUser) {
       unsubscribe = db.collection("users").doc(authUser.uid).onSnapshot(doc => {
-        // setLoaded(true);
-        // setUser(doc.data() as any);
+        setLoaded(true);
+        setUser(doc.data() as any);
       });
     }
     else {
       if(unsubscribe) unsubscribe();
 
-      // setUser(null);
-      // setLoaded(true);
+      setUser(null);
+      setLoaded(true);
     }
   }), []);
 
-  if(true) return <Fragment>{props.children}</Fragment>;
-  else return <Fragment>{props.loading}</Fragment>;
+  if(loaded) return <Fragment>{props.children}</Fragment>;
+  else return <Loader />;
 };

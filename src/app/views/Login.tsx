@@ -1,5 +1,4 @@
 // React Dependencies
-import React, { Fragment } from "react";
 import { Link, Redirect } from "react-router-dom";
 
 // Components
@@ -10,12 +9,11 @@ import { SocialButton, Button } from '../components/Buttons';
 // Images
 import Logo from '../../assets/noove-logo.svg'
 
-import { useState } from "react";
-
-//Firebase
-import { db, auth } from "../utility/Firebase";
+//Firebase and state management
+import { db, auth } from "../utility/FirebaseConfiguration";
 import { useRecoilState } from "recoil";
-import { userState } from "../utility/User";
+import { userState } from "../utility/UserManager";
+import { useState } from "react";
 
 
 const Login = () => {

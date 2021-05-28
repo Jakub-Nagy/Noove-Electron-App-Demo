@@ -22,7 +22,7 @@ function createMainWindow() {
   }
   else {
     // Remove default menu
-    // window.setMenu(null);
+    window.setMenu(null);
   }
 
   if (isDevelopment) {
