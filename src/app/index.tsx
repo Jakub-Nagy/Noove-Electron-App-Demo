@@ -24,9 +24,9 @@ ReactDOM.render(
             <img src={Symbol} className="symbol" alt="Noove Symbol" />
             
             <Switch>
-                <Route exact path="/" render={(props) => <Login {...props} key={Date.now()}/>} />
+                <Route exact path="/" component={Login} />
                 {/* <Route path="/Register" exact component={Register} /> */}
-                <Route exact path="/end" render={(props) => <End {...props} key={Date.now()}/>} />
+                <Route path="/end" component={End} />
             </Switch>
         </Fragment>
     </HashRouter>,
