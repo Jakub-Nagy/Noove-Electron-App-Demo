@@ -428,7 +428,7 @@ svg.x {
   -webkit-appearance: none;
   height: 1em;
   width: 1em;
-  /* background: url(../assets/close.svg) no-repeat 50% 50%; */
+  background: url(../assets/close.svg) no-repeat 50% 50%;
   background-size: contain;
   opacity: 0;
   pointer-events: none;
@@ -947,7 +947,7 @@ svg.x {
   align-self: center;
 }
 
-#login #button-sign-in {
+#login .button-sign-in {
   margin-bottom: 30px;
   width: 100%;
 }

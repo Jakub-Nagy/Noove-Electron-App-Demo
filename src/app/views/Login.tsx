@@ -1,6 +1,6 @@
 // React Dependencies
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 // Components
 import { TextInput, PasswordInput } from '../components/Inputs';
@@ -10,42 +10,84 @@ import { SocialButton, Button } from '../components/Buttons';
 // Images
 import Logo from '../../assets/noove-logo.svg'
 
-export default class Login extends React.Component {
+import { useState } from "react";
 
-    render() {
-        
-        return (
-            <div className="form-container" id="login">
+//Firebase
+import { db, auth } from "../utility/Firebase";
+import { useRecoilState } from "recoil";
+import { userState } from "../utility/User";
 
-                {/* Noove logo */}
-                <img src={Logo} className="logo" alt="Noove Logo" />
 
-                {/* Continue with Google */}
-                <SocialButton mediaType="google" />
+const Login = () => {
+    const [key, setKey] = useState("");
+    const [password, setPassword] = useState("");
+    const [history, setHistory] = useState(false);
 
-                {/* Continue with Facebook */}
-                <SocialButton mediaType="facebook" />
+    const [user] = useRecoilState(userState);
+    if(user) return <Redirect to={"/"} />;
 
-                {/* OR divider */}
-                <Divider />
+    const LogUserIn = async () => {
+        const user = await db.collection("users").where("username", "==", key).get();
+        const email = user.empty ? key : user.docs[0].data().email;
 
-                {/* Username */}
-                <TextInput topLabel="Username" valueIn={(value: any) => {console.log(value);}} valueOut={(value: any) => {console.log(value);}} />
+        const credentails = await auth.signInWithEmailAndPassword(email, password);
+        if(!credentails.user) return;
 
-                {/* Password */}
-                <PasswordInput topLabel="Password" valueIn={(value: any) => {console.log(value);}} valueOut={(value: any) => {console.log(value);}} />
-          
-                {/* Sign in button */}
-                <Link to="/end" id="button-sign-in">
-                    <Button label="Sign in" className="button-primary" />
-                </Link>
+        if(!(await db.collection("users").doc(credentails.user.uid).get()).exists) {
+            await credentails.user.delete();
+            throw new Error("This account was corrupted and is now deleted");
+        }
 
-                {/* Sign up button */}
-                <Link to="/register">
-                    <Button label="Create an account" className="button-tertiary" />
-                </Link>
-                
-            </div>
-        );
-    }
-}
+        setHistory(true);
+    };
+    if(history) return <Redirect to={"/"} />
+
+    return (
+        <div className="form-container" id="login">
+
+            {/* Noove Logo */}
+            <img src={Logo} className="logo" alt="Noove Logo" />
+            
+            {/* Continue with Google */}
+            <SocialButton mediaType="google" />
+
+            {/* Continue with Facebook */}
+            <SocialButton mediaType="facebook" />
+
+            {/* OR divider */}
+            <Divider />
+
+            {/* Username Input */}
+            <TextInput
+                topLabel="Username or Email"
+                valueIn={key}
+                valueOut={(value: string) => {
+                    setKey(value);
+                }}
+            />
+
+            {/* Password */}
+            <PasswordInput
+                topLabel="Password"
+                valueIn={password}
+                valueOut={(value: string) => {
+                    setPassword(value);
+                }}
+            />
+
+            {/* Sign in button */}
+            <Button
+                label="Sign in"
+                className="button-primary button-sign-in"
+                onClick={LogUserIn}
+            />
+
+            {/* Link to register form */}
+            <Link to="/register">
+                <Button label="Create an account" className="button-tertiary" />
+            </Link>
+        </div>
+    );
+};
+
+export default Login;

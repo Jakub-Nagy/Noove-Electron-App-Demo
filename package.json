@@ -45,6 +45,7 @@
     "webpack": "~4.42.1"
   },
   "electronWebpack": {
+    "whiteListedModules": ["react", "react-dom", "react-redux", "recoil"],  
     "main": {
       "sourceDirectory": "src/electron"
     },
