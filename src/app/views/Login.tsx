@@ -1,5 +1,5 @@
 // React Dependencies
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 // Components
@@ -10,9 +10,10 @@ import { SocialButton, Button } from '../components/Buttons';
 // Images
 import Logo from '../../assets/noove-logo.svg'
 
-
 export default class Login extends React.Component {
+
     render() {
+        
         return (
             <div className="form-container" id="login">
 
