@@ -5,7 +5,7 @@
     "name": "Noove Ltd.",
     "email": "hello@noove.org"
   },
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "dev": "electron-webpack dev",
@@ -47,11 +47,12 @@
     }
   },
   "build": {
+    "appId": "Noove",
     "productName": "Noove",
     "copyright": "Copyright © 2021 ${author}",
     "mac": {
-      "icon": "./public/icons/mac/icon.icns",
-      "category": "public.app-category.utilities"
+      "icon": "./src/electron/noove-icon.icns",
+      "category": "public.app-category.social-networking"
     },
     "win": {
       "icon": "./src/electron/noove-icon.png"

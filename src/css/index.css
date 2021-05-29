@@ -76,6 +76,11 @@ a, span {
   line-height: 14px;
 }
 
+h1 {
+  font-size: 63px;
+  font-weight: 700;
+}
+
 h2 {
   font-size: 48px;
   font-weight: 700;
@@ -707,7 +712,7 @@ svg.x {
 .input-group .skill-picker .dropdown .skills {
   position: relative;
   width: 100%;
-  height: 20vh;
+  max-height: 30vh;
   padding: 10px 10px 0 10px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -908,12 +913,6 @@ svg.x {
 /* -------------------------------------------------------------------------- */
 /*                       #pragma Registration Form Layout                     */
 /* -------------------------------------------------------------------------- */
-.App {
-  grid-area: 1 / 2 / span 1 / span 1;
-  height: 100vh;
-  display: flex;
-}
-
 .form-container {
   align-self: flex-start;
   display: grid;
@@ -948,6 +947,9 @@ svg.x {
   background-color: #FFFFFF;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                       #pragma View Specific Modifiers                      */
+/* -------------------------------------------------------------------------- */
 #login {
   grid-template-columns: 350px;
   align-self: center;
@@ -962,13 +964,16 @@ svg.x {
   width: 100%;
 }
 
-#end {
-  grid-template-columns: 350px;
-  text-align: center;
+#app {
   align-self: center;
 }
 
-#end #button-end {
-  margin-top: 30px;
-  width: 100%;
+#app h2 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 75px;
+}
+
+#app button {
+  width: 50%;
 }

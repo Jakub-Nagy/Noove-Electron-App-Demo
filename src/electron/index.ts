@@ -12,8 +12,8 @@ let mainWindow: any
 function createMainWindow() {
   const window = new BrowserWindow({
     webPreferences: {nodeIntegration: true},
-    width: 1920,
-    height: 1080,
+    minWidth: 960,
+    minHeight: 900,
     icon: './src/electron/noove-icon.png'
   })
 
@@ -23,6 +23,9 @@ function createMainWindow() {
   else {
     // Remove default menu
     window.setMenu(null);
+
+    // Maximize window
+    window.maximize();
   }
 
   if (isDevelopment) {
