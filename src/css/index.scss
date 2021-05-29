@@ -454,6 +454,8 @@ svg {
                 display: none;
                 pointer-events: none;
                 visibility: hidden;
+                font-size: 17px;
+                height: 20px;
 
                 &:checked {
                     display: inline;

@@ -13,8 +13,7 @@ function createMainWindow() {
   const window = new BrowserWindow({
     webPreferences: {nodeIntegration: true},
     minWidth: 960,
-    minHeight: 900,
-    icon: './src/electron/noove-icon.png'
+    minHeight: 960    
   })
 
   if (isDevelopment) {
