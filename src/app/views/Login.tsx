@@ -8,8 +8,7 @@ import { SocialButton, Button } from '../components/Buttons';
 import { emailRegex } from "../utility/Regex";
 
 // Images
-import Logo from '../../assets/noove-logo.svg'
-import { Loader } from "../components/Loader";
+import Logo from '../../assets/noove-logo.svg';
 
 //Firebase and state management
 import { db, auth } from "../utility/FirebaseConfiguration";
