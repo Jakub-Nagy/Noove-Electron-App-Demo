@@ -9,6 +9,7 @@ import { emailRegex } from "../utility/Regex";
 
 // Images
 import Logo from '../../assets/noove-logo.svg'
+import { Loader } from "../components/Loader";
 
 //Firebase and state management
 import { db, auth } from "../utility/FirebaseConfiguration";
@@ -27,18 +28,18 @@ const Login = () => {
                 break;
             }
             case "auth/wrong-password": {
-                setError("Incorrect password");
+                setError("The password you entered is incorrect");
                 break;
             }
             case "auth/too-many-requests": {
-                setError("This account has been temporarily disabled.");
+                setError("This account has been temporarily disabled");
                 break;
             }
             case "auth/multiple-users":
                 setError("Multiple users have this username. Try using your email instead.");
                 break;
             default: {
-                console.log("Fuck me. Something is fucked up.");
+                console.log("Uncaught login error.");
             }
         }
     };

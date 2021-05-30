@@ -41,10 +41,10 @@ render(
 
         <UserManager>
             <HashRouter>
-                <Switch>
-                    <ProtectedRoute path="/" component={App}></ProtectedRoute>
-                    <UnauthRoute path="/login" component={Login}></UnauthRoute>
+                <Switch>                    
                     <UnauthRoute path="/register" component={Register}></UnauthRoute>
+                    <UnauthRoute path="/login" component={Login}></UnauthRoute>
+                    <ProtectedRoute path="/" component={App}></ProtectedRoute>
                 </Switch>
             </HashRouter>
         </UserManager>

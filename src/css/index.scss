@@ -782,20 +782,24 @@ svg {
 /*                           #pragma Loader Animated                          */
 /* -------------------------------------------------------------------------- */
 
-.loader {
-    border: 8px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 8px solid  #EB0877;
-    width: 60px;
-    height: 60px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 2s linear infinite;    
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+.loading-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    background-color: $theme-background-primary;
+  
+    img {
+      transform: scale(0.75);
+    }
+}
+  
 /* -------------------------------------------------------------------------- */
 /*                       #pragma Registration Form Layout                     */
 /* -------------------------------------------------------------------------- */
