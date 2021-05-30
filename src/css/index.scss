@@ -770,6 +770,14 @@ svg {
     }
 }
 
+// Error label
+.error-label {
+    justify-self: flex-start;
+    color: $highlight-pink-primary;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+  
 /* -------------------------------------------------------------------------- */
 /*                           #pragma Loader Animated                          */
 /* -------------------------------------------------------------------------- */

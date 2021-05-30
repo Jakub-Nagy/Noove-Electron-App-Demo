@@ -6,7 +6,6 @@ import { atom, useRecoilState } from "recoil";
 // Firebase and state management
 import { auth, db, functions } from "../utility/FirebaseConfiguration";
 import { useState } from "react";
-import { userState } from "../utility/UserManager";
 
 // Components
 import { Button } from '../components/Buttons';
@@ -81,7 +80,6 @@ const PageOne = () => {
           }}
           valid={(value: boolean) => {
             setFormD({ ...formD, usernameValid: value });
-            console.log(value);
           }}
           bottomLabel="This will be your unique handle on Noove.com"
         />
@@ -336,7 +334,6 @@ const PageFour = () => {
           className="button-secondary left bottom-margin"
           onClick={function () {
             setPage(page - 1);
-            console.log("4 going back");
           }}
         />
 
@@ -352,7 +349,12 @@ const PageFour = () => {
         {/* TOS agreement */}
         <p className="TOS right">
           By clicking this button you agree to our
-          <a href="https://noove.org/tos"> Terms of Service</a>
+          <a
+            href="javascript:void(0);"
+            onClick={function () {
+              require("electron").shell.openExternal("https://noove.org/tos");
+            }}
+          > Terms of Service</a>
         </p>
       </Fragment>
     );
@@ -360,9 +362,6 @@ const PageFour = () => {
 };
 
 const Register = () => {
-  const [user] = useRecoilState(userState);
-  if(user) return <Redirect to={"/"} />;
-
   return (
     <div className="form-container">
       <PageOne />

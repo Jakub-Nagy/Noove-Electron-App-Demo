@@ -16,10 +16,7 @@ function createMainWindow() {
     minHeight: 960    
   })
 
-  if (isDevelopment) {
-    window.webContents.openDevTools()
-  }
-  else {
+  if (!isDevelopment) {
     // Remove default menu
     window.setMenu(null);
 
