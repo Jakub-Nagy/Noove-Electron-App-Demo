@@ -36,10 +36,11 @@ const App = () => {
             {/* Log Out button */}
             <Button
                 label="Log Out"
-                className="button-primary stretch bottom-margin"
+                className="button-primary stretch"
                 onClick={function () {
                   auth.signOut()
                 }}
+                style={{ marginTop: 60 }}
             />
         </div>
     );

@@ -120,13 +120,14 @@ const PageOne = () => {
         {/* Continue button */}
         <Button
           label="Continue"
-          className="button-primary right bottom-margin"
+          className="button-primary right"
           disabled={
             !(formD.emailValid && formD.passwordValid && formD.usernameValid)
           }
           onClick={function () {
             setPage(page + 1);
           }}
+          style={{ marginTop: 50 }}
         />
       </Fragment>
     );
@@ -195,7 +196,7 @@ const PageTwo = () => {
         <TextInput
           className="stretch"
           topLabel="Name of educational institution"
-          placeholder="Example School"
+          placeholder="Hogwarts"
           valueIn={formD.edu}
           valueOut={(value: string) => {
             setFormD({ ...formD, edu: value });
@@ -205,16 +206,17 @@ const PageTwo = () => {
         {/* Back button */}
         <Button
           label="Back"
-          className="button-secondary left bottom-margin"
+          className="button-secondary left"
           onClick={function () {
             setPage(page - 1);
           }}
+          style={{ marginTop: 186 }}
         />
 
         {/* Continue button */}
         <Button
           label="Continue"
-          className="button-primary right bottom-margin"
+          className="button-primary right"
           disabled={
             formD.firstName === "" ||
             formD.lastName === "" ||
@@ -225,6 +227,7 @@ const PageTwo = () => {
           onClick={function () {
             setPage(page + 1);
           }}
+          style={{ marginTop: 186 }}
         />
       </Fragment>
     );
@@ -260,20 +263,22 @@ const PageThree = () => {
         {/* Back button */}
         <Button
           label="Back"
-          className="button-secondary left bottom-margin"
+          className="button-secondary left"
           onClick={function () {
             setPage(page - 1);
           }}
+          style={{ marginTop: 138 }}
         />
 
         {/* Continue button */}
         <Button
           label="Continue"
-          className="button-primary right bottom-margin"
+          className="button-primary right"
           disabled={formD.bio === ""}
           onClick={function () {
             setPage(page + 1);
           }}
+          style={{ marginTop: 138 }}
         />
       </Fragment>
     );
@@ -363,19 +368,21 @@ const PageFour = () => {
         {/* Back button */}
         <Button
           label="Back"
-          className="button-secondary left bottom-margin"
+          className="button-secondary left"
           onClick={function () {
             setPage(page - 1);
           }}
+          style={{ marginTop: 417 }}
         />
 
         {/* Continue button */}
         <Button
           label="Finish Up"
-          className="button-primary right bottom-margin"
+          className="button-primary right"
           onClick={function () {
             RegisterUser();
           }}
+          style={{ marginTop: 417 }}
         />
 
         {/* TOS agreement */}

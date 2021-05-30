@@ -168,10 +168,6 @@ svg.x {
   outline: 0;
 }
 
-.button-primary.bottom-margin, .bottom-margin.continue-with-button {
-  margin-top: 60px;
-}
-
 .button-primary label, .continue-with-button label {
   color: #FFFFFF;
 }
@@ -223,10 +219,6 @@ svg.x {
   outline: 0;
 }
 
-.button-secondary.bottom-margin {
-  margin-top: 60px;
-}
-
 .button-tertiary {
   background-color: transparent;
   border: none;
@@ -240,10 +232,6 @@ svg.x {
 
 .button-tertiary:focus {
   outline: 0;
-}
-
-.button-tertiary.bottom-margin {
-  margin-top: 60px;
 }
 
 .continue-with-button.google {

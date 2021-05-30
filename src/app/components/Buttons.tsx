@@ -29,13 +29,14 @@ export const Button = (props: {
   width?: string;
   onClick?: any;
   disabled?: boolean;
+  style?: any;
 }) => {
   return (
     <button
       className={`${props.className} ${props.disabled ? "disabled" : ""}`}
-      style={{ width: props.width }}
       onClick={props.onClick}
       disabled={props.disabled}
+      style={props.style}
     >
       <label>{props.label}</label>
     </button>
