@@ -21,6 +21,7 @@ import {
 } from '../components/Inputs';
 import SkillPicker from '../components/SkillPicker';
 import { InstructionSet } from '../components/TextElements';
+import { Loader } from "../components/Loader";
 
 const formPage = atom({
   key: "formPage",
@@ -281,12 +282,15 @@ const PageThree = () => {
 
 const PageFour = () => {
   const [page, setPage] = useRecoilState(formPage);
-  const [formD] = useRecoilState(formData);
+  const [formD, setFormD] = useRecoilState(formData);
   const [history, setHistory] = useState(false);
-
+  const [loading, setLoading] = useState(false);
+  const [, setSelectedTags] = useState(selectedTags);
   const register = functions.httpsCallable("register");
 
   const RegisterUser = async () => {
+    setLoading(true);
+
     const docs = await db
       .collection("users")
       .where("username", "==", formD.username)
@@ -306,13 +310,41 @@ const PageFour = () => {
       edu: formD.edu,
     });
 
-    console.log("Registered");
-
     await auth.signInWithEmailAndPassword(formD.email, formD.password);
-    console.log("Logged in");
     setHistory(true);
+
+    // Reset from
+    setFormD({
+      username: "",
+      usernameValid: Boolean(),
+  
+      email: "",
+      emailValid: Boolean(),
+  
+      password: "",
+      passwordValid: Boolean(),
+  
+      firstName: "",
+      lastName: "",
+  
+      birthDate: "",
+  
+      occupation: "",
+      bio: "",
+      edu: "",
+    });
+    setPage(1);
+    // TODO: reset skill picker state
+    setSelectedTags(Array<String>() as any);
   };
   if(history) return <Redirect to={"/"} />
+
+  if(loading)
+  {
+    return (
+      <Loader />
+    )
+  }
 
   if (page === 4) {
     return (
