@@ -1,6 +1,6 @@
 // React dependencies
 import { render } from 'react-dom';
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Switch, Redirect } from "react-router-dom";
 
 // Styling and assets
 import '../css/index.css';
@@ -8,28 +8,46 @@ import Symbol from '../assets/noove-symbol.svg';
 
 // Firebase and state management
 import "./utility/FirebaseConfiguration";
-import { RecoilRoot } from "recoil";
-import { UserManager } from './utility/UserManager';
+import { RecoilRoot, useRecoilState } from "recoil";
+import { UserManager, UIDstate } from './utility/UserManager';
 
 // Views
 import Login from './views/Login';
 import Register from './views/Register';
 import App from './views/App';
 
+
+// Routes definition
+const ProtectedRoute = (props: { path: string; component: any }) => {
+    const [UID] = useRecoilState(UIDstate);
+  
+    if (UID) {
+        return <props.component />;
+    } else return <Redirect to="/login" />;
+};
+  
+const UnauthRoute = (props: { path: string; component: any }) => {
+    const [UID] = useRecoilState(UIDstate);
+  
+    if (UID) {
+        return <Redirect to="/" />;
+    } else return <props.component />;
+};
+
 render(
     <RecoilRoot>
         {/* Noove symbol */}
         <img src={Symbol} className="symbol" alt="Noove Symbol" />
 
-        <HashRouter>
-            <UserManager>
+        <UserManager>
+            <HashRouter>
                 <Switch>
-                    <Route exact path="/" component={App} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/register" component={Register} />
+                    <ProtectedRoute path="/" component={App}></ProtectedRoute>
+                    <UnauthRoute path="/login" component={Login}></UnauthRoute>
+                    <UnauthRoute path="/register" component={Register}></UnauthRoute>
                 </Switch>
-            </UserManager>
-        </HashRouter>
+            </HashRouter>
+        </UserManager>
     </RecoilRoot>,
     document.getElementById('view-layout')
 );

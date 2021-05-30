@@ -1,44 +1,74 @@
 // React Dependencies
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Components
 import { TextInput, PasswordInput } from '../components/Inputs';
 import { Divider } from '../components/TextElements';
 import { SocialButton, Button } from '../components/Buttons';
+import { emailRegex } from "../utility/Regex";
 
 // Images
 import Logo from '../../assets/noove-logo.svg'
 
 //Firebase and state management
 import { db, auth } from "../utility/FirebaseConfiguration";
-import { useRecoilState } from "recoil";
-import { userState } from "../utility/UserManager";
 import { useState } from "react";
 
 
 const Login = () => {
     const [key, setKey] = useState("");
     const [password, setPassword] = useState("");
-    const [history, setHistory] = useState(false);
+    const [error, setError] = useState("");
 
-    const [user] = useRecoilState(userState);
-    if(user) return <Redirect to={"/"} />;
+    const handleError = (errorCode: string) => {
+        switch (errorCode) {
+            case "auth/user-not-found": {
+                setError("This user does not exist");
+                break;
+            }
+            case "auth/wrong-password": {
+                setError("Incorrect password");
+                break;
+            }
+            case "auth/too-many-requests": {
+                setError("This account has been temporarily disabled.");
+                break;
+            }
+            case "auth/multiple-users":
+                setError("Multiple users have this username. Try using your email instead.");
+                break;
+            default: {
+                console.log("Fuck me. Something is fucked up.");
+            }
+        }
+    };
 
     const LogUserIn = async () => {
-        const user = await db.collection("users").where("username", "==", key).get();
-        const email = user.empty ? key : user.docs[0].data().email;
+        // Tests if inputted value is email or password
+        if (emailRegex.test(key)) {
+            auth.signInWithEmailAndPassword(key, password).catch((error) => {
+                handleError(error.code);
+            });
+        } else {
+            // User inputted username
+            const user = await db.collection("users").where("username", "==", key).get();
 
-        const credentails = await auth.signInWithEmailAndPassword(email, password);
-        if(!credentails.user) return;
+            if (user.empty) {
+                handleError("auth/user-not-found");
+                return;
+            }
+            if (user.size >= 2) {
+                handleError("auth/multiple-users");
+                return;
+            }
 
-        if(!(await db.collection("users").doc(credentails.user.uid).get()).exists) {
-            await credentails.user.delete();
-            throw new Error("This account was corrupted and is now deleted");
+            const userEmail = user.docs[0].data().email;
+            if (!userEmail) handleError("auth/user-not-found");
+            auth.signInWithEmailAndPassword(userEmail, password).catch((error) => {
+                handleError(error.code);
+            });
         }
-
-        setHistory(true);
     };
-    if(history) return <Redirect to={"/"} />
 
     return (
         <div className="form-container" id="login">
@@ -73,12 +103,11 @@ const Login = () => {
                 }}
             />
 
+            {/* Error label */}
+            <label className="error-label">{error}</label>
+
             {/* Sign in button */}
-            <Button
-                label="Sign in"
-                className="button-primary button-sign-in"
-                onClick={LogUserIn}
-            />
+            <Button label="Sign in" className="button-primary button-sign-in" onClick={LogUserIn} />
 
             {/* Link to register form */}
             <Link to="/register">
